@@ -20,7 +20,6 @@
 			--interest: #3e6653;
 			--recipe: #a84c32;
 			--skincare: #9b5d70;
-			--tip: #b27b24;
 			--travel: #39718a;
 			--routine: #637846;
 		}
@@ -175,7 +174,6 @@
 		.category-button[data-category="interests"] { --accent: var(--interest); }
 		.category-button[data-category="recipes"] { --accent: var(--recipe); }
 		.category-button[data-category="skincare"] { --accent: var(--skincare); }
-		.category-button[data-category="tips"] { --accent: var(--tip); }
 		.category-button[data-category="travel"] { --accent: var(--travel); }
 		.category-button[data-category="routines"] { --accent: var(--routine); }
 
@@ -244,7 +242,6 @@
 		.category-view[data-category="interests"] { --active-color: var(--interest); }
 		.category-view[data-category="recipes"] { --active-color: var(--recipe); }
 		.category-view[data-category="skincare"] { --active-color: var(--skincare); }
-		.category-view[data-category="tips"] { --active-color: var(--tip); }
 		.category-view[data-category="travel"] { --active-color: var(--travel); }
 		.category-view[data-category="routines"] { --active-color: var(--routine); }
 
@@ -302,27 +299,22 @@
 				<button class="category-button" type="button" data-category="interests">
 					<i data-lucide="sparkles" aria-hidden="true"></i>
 					<span class="category-name">Interests</span>
-					<span class="category-count">5 pages</span>
+					<span class="category-count">7 pages</span>
 				</button>
 				<button class="category-button" type="button" data-category="recipes">
 					<i data-lucide="cooking-pot" aria-hidden="true"></i>
 					<span class="category-name">Recipes</span>
-					<span class="category-count">15 pages</span>
+					<span class="category-count">5 categories</span>
 				</button>
 				<button class="category-button" type="button" data-category="skincare">
 					<i data-lucide="flower-2" aria-hidden="true"></i>
 					<span class="category-name">Skincare</span>
 					<span class="category-count">5 pages</span>
 				</button>
-				<button class="category-button" type="button" data-category="tips">
-					<i data-lucide="lightbulb" aria-hidden="true"></i>
-					<span class="category-name">Tips</span>
-					<span class="category-count">1 page</span>
-				</button>
 				<button class="category-button" type="button" data-category="travel">
 					<i data-lucide="plane" aria-hidden="true"></i>
 					<span class="category-name">Travel</span>
-					<span class="category-count">1 page</span>
+					<span class="category-count">3 sections</span>
 				</button>
 				<button class="category-button" type="button" data-category="routines">
 					<i data-lucide="list-checks" aria-hidden="true"></i>
@@ -335,38 +327,30 @@
 		<section class="category-view" data-category="interests" hidden aria-labelledby="interests-heading">
 			<div class="category-heading">
 				<h1 id="interests-heading">Interests</h1>
-				<p>5 pages</p>
+				<p>7 pages</p>
 			</div>
 			<ul class="page-list">
 				<li><a class="page-link" href="Interests/architecture.html"><span>Architecture Field Guide</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 				<li><a class="page-link" href="Interests/furniture.html"><span>Furniture</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 				<li><a class="page-link" href="Interests/gut-health.html"><span>Gut Health</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/movies-to-watch.html"><span>Movies to Watch</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 				<li><a class="page-link" href="Interests/novels.html"><span>Novels</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 				<li><a class="page-link" href="Interests/photography.html"><span>Photography</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/series-to-watch.html"><span>Series to Watch</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 			</ul>
 		</section>
 
-		<section class="category-view" data-category="recipes" hidden aria-labelledby="recipes-heading">
+		<section class="category-view" data-category="recipes" data-count-noun="category" hidden aria-labelledby="recipes-heading">
 			<div class="category-heading">
 				<h1 id="recipes-heading">Recipes</h1>
-				<p>15 pages</p>
+				<p>5 categories</p>
 			</div>
 			<ul class="page-list">
-				<li><a class="page-link" href="Recipes/acai-bowl.html"><span>Thick Açaí Bowl</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/chocolate-mousee.html"><span>Chocolate Protein Mousse</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/chocolate-protien-serve.html"><span>Chocolate Protein Serve</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/guiltfree-icecream.html"><span>Chocolate Date-Nut Ice Cream</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/green-paobhaji.html"><span>Green Pav Bhaji</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/hearty-bowl.html"><span>Hearty Rajma Paneer Bowl</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/creamcheese-spread.html"><span>Jalapeño Paneer Spread</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/mexican-kabab.html"><span>Mexican-Style Rajma Kebabs</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/orange-tofu.html"><span>Air-Fried Orange Tofu</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/protien-muthiya.html"><span>Protein Muthiya</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/protien-springroll.html"><span>Protein Spring Rolls</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/refreshing-cubes.html"><span>Refreshing Herb Cubes</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/oat-cutlet.html"><span>Soy &amp; Oat Cutlets</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/thai-basil-tofu.html"><span>Thai Basil Tofu</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Recipes/tomato-jam.html"><span>Spicy Tomato Jam</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/Breakfast/index.html"><span>Breakfast</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/Meals/index.html"><span>Meals</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/Dessert/index.html"><span>Dessert</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/Beverages/index.html"><span>Beverages</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/Tips/index.html"><span>Tips</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 			</ul>
 		</section>
 
@@ -381,16 +365,6 @@
 				<li><a class="page-link" href="Skincare/seedsandveggies.html"><span>Seeds &amp; Vegetables</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 				<li><a class="page-link" href="Skincare/skin-supplements.html"><span>Five Supplements</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 				<li><a class="page-link" href="Skincare/skincare-tips.html"><span>Skincare &amp; Wellness Tips</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-			</ul>
-		</section>
-
-		<section class="category-view" data-category="tips" hidden aria-labelledby="tips-heading">
-			<div class="category-heading">
-				<h1 id="tips-heading">Tips</h1>
-				<p>1 page</p>
-			</div>
-			<ul class="page-list">
-				<li><a class="page-link" href="Tips/hacks.html"><span>Boil Tofu Before Using It</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 			</ul>
 		</section>
 
@@ -428,8 +402,9 @@
 			categoryViews.forEach(view => {
 				const category = view.dataset.category;
 				const count = view.querySelectorAll(".page-list > li").length;
-				const noun = category === "travel" ? "section" : "page";
-				const label = `${count} ${noun}${count === 1 ? "" : "s"}`;
+				const noun = view.dataset.countNoun || (category === "travel" ? "section" : "page");
+				const pluralNoun = noun === "category" ? "categories" : `${noun}s`;
+				const label = `${count} ${count === 1 ? noun : pluralNoun}`;
 				const buttonCount = document.querySelector(`.category-button[data-category="${category}"] .category-count`);
 				view.querySelector(".category-heading p").textContent = label;
 				if (buttonCount) buttonCount.textContent = label;

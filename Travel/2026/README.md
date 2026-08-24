@@ -4,7 +4,7 @@ Travel plans are organized by destination. Each destination owns its itinerary a
 
 ## Destinations
 
-- [Iceland](Iceland/iceland-itenrary.html)
+- [Iceland](Iceland/iceland-itinerary.html)
 - [New Mexico](New%20Mexico/new-mexico-itinerary.html)
 
 The browser-friendly destination list is maintained in [index.html](index.html).
