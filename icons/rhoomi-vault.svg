@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Rhoomi Vault diamond mark">
+	<rect width="512" height="512" fill="#f4efe4"/>
+	<rect x="137" y="137" width="238" height="238" rx="18" fill="#a84c32" transform="rotate(45 256 256)"/>
+	<rect x="214" y="214" width="84" height="84" rx="10" fill="#fffdf8" transform="rotate(45 256 256)"/>
+</svg>
