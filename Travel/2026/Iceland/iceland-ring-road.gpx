@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Rhoomi Travel Journal" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Iceland Ring Road 2026</name>
+    <desc>Approximate itinerary waypoints for September 2-10, 2026. Use for planning, not turn-by-turn navigation.</desc>
+  </metadata>
+  <wpt lat="63.9850" lon="-22.6056"><name>Keflavik International Airport</name></wpt>
+  <wpt lat="64.1466" lon="-21.9426"><name>Reykjavik</name></wpt>
+  <wpt lat="64.2559" lon="-21.1304"><name>Thingvellir</name></wpt>
+  <wpt lat="64.3104" lon="-20.3024"><name>Geysir</name></wpt>
+  <wpt lat="64.3271" lon="-20.1199"><name>Gullfoss</name></wpt>
+  <wpt lat="63.6156" lon="-19.9886"><name>Seljalandsfoss</name></wpt>
+  <wpt lat="63.5321" lon="-19.5114"><name>Skogafoss</name></wpt>
+  <wpt lat="63.4186" lon="-19.0060"><name>Vik</name></wpt>
+  <wpt lat="63.7713" lon="-18.1718"><name>Fjadrargljufur</name></wpt>
+  <wpt lat="64.0166" lon="-16.9660"><name>Skaftafell</name></wpt>
+  <wpt lat="64.0784" lon="-16.2306"><name>Jokulsarlon</name></wpt>
+  <wpt lat="64.2720" lon="-15.0080"><name>Vestrahorn</name></wpt>
+  <wpt lat="64.6568" lon="-14.2901"><name>Djupivogur</name></wpt>
+  <wpt lat="65.2600" lon="-14.0090"><name>Seydisfjordur</name></wpt>
+  <wpt lat="65.0957" lon="-14.8900"><name>Hengifoss</name></wpt>
+  <wpt lat="65.1635" lon="-15.3070"><name>Studlagil Canyon</name></wpt>
+  <wpt lat="65.6410" lon="-16.8080"><name>Hverir</name></wpt>
+  <wpt lat="65.6039" lon="-16.9960"><name>Lake Myvatn</name></wpt>
+  <wpt lat="65.6828" lon="-17.5502"><name>Godafoss</name></wpt>
+  <wpt lat="65.6885" lon="-18.1262"><name>Akureyri</name></wpt>
+  <wpt lat="64.9417" lon="-23.3069"><name>Kirkjufell</name></wpt>
+  <wpt lat="64.7020" lon="-20.9789"><name>Hraunfossar</name></wpt>
+  <rte>
+    <name>Iceland Ring Road itinerary</name>
+    <rtept lat="63.9850" lon="-22.6056"><name>Keflavik International Airport</name></rtept>
+    <rtept lat="64.1466" lon="-21.9426"><name>Reykjavik</name></rtept>
+    <rtept lat="64.2559" lon="-21.1304"><name>Thingvellir</name></rtept>
+    <rtept lat="64.3104" lon="-20.3024"><name>Geysir</name></rtept>
+    <rtept lat="64.3271" lon="-20.1199"><name>Gullfoss</name></rtept>
+    <rtept lat="63.6156" lon="-19.9886"><name>Seljalandsfoss</name></rtept>
+    <rtept lat="63.5321" lon="-19.5114"><name>Skogafoss</name></rtept>
+    <rtept lat="63.4186" lon="-19.0060"><name>Vik</name></rtept>
+    <rtept lat="63.7713" lon="-18.1718"><name>Fjadrargljufur</name></rtept>
+    <rtept lat="64.0166" lon="-16.9660"><name>Skaftafell</name></rtept>
+    <rtept lat="64.0784" lon="-16.2306"><name>Jokulsarlon</name></rtept>
+    <rtept lat="64.2720" lon="-15.0080"><name>Vestrahorn</name></rtept>
+    <rtept lat="64.6568" lon="-14.2901"><name>Djupivogur</name></rtept>
+    <rtept lat="65.2600" lon="-14.0090"><name>Seydisfjordur</name></rtept>
+    <rtept lat="65.0957" lon="-14.8900"><name>Hengifoss</name></rtept>
+    <rtept lat="65.1635" lon="-15.3070"><name>Studlagil Canyon</name></rtept>
+    <rtept lat="65.6410" lon="-16.8080"><name>Hverir</name></rtept>
+    <rtept lat="65.6039" lon="-16.9960"><name>Lake Myvatn</name></rtept>
+    <rtept lat="65.6828" lon="-17.5502"><name>Godafoss</name></rtept>
+    <rtept lat="65.6885" lon="-18.1262"><name>Akureyri</name></rtept>
+    <rtept lat="64.9417" lon="-23.3069"><name>Kirkjufell</name></rtept>
+    <rtept lat="64.7020" lon="-20.9789"><name>Hraunfossar</name></rtept>
+    <rtept lat="64.1466" lon="-21.9426"><name>Reykjavik</name></rtept>
+    <rtept lat="63.9850" lon="-22.6056"><name>Keflavik International Airport</name></rtept>
+  </rte>
+</gpx>

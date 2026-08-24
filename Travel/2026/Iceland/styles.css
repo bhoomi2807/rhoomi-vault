@@ -1,0 +1,207 @@
+/* Shared enhancements for the Iceland itinerary. */
+:root {
+  --ink: #18302d;
+  --muted: #5c6f6c;
+  --paper: #eaf3f1;
+  --white: #fffefa;
+  --moss: #246052;
+  --moss-dark: #173f38;
+  --lava: #d85d45;
+  --ice: #d9f0ef;
+  --line: #c8dcd8;
+  --shadow: 0 14px 32px rgba(26, 67, 60, 0.1);
+}
+
+body {
+  background-color: var(--paper);
+  background-image: none;
+}
+
+.hero {
+  min-height: 58vh;
+  align-items: flex-end;
+  color: #fff;
+  border-bottom: 6px solid #efb34c;
+  background: url("https://images.unsplash.com/photo-1504829857797-ddff29c27927?auto=format&fit=crop&w=2200&q=88") center 46% / cover no-repeat;
+}
+
+.hero::before {
+  display: block;
+  background: linear-gradient(90deg, rgba(10, 42, 37, 0.88), rgba(10, 42, 37, 0.42) 65%, rgba(10, 42, 37, 0.16));
+}
+
+.hero-inner {
+  width: min(1040px, calc(100% - 40px));
+  padding: 82px 0 54px;
+}
+
+.eyebrow {
+  color: #ffe29b;
+}
+
+h1 {
+  max-width: 850px;
+  color: #fff;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.28);
+}
+
+h1 span {
+  font-size: 0.72em;
+}
+
+.hero-meta {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.toolbar-wrap {
+  position: sticky;
+  background: rgba(246, 251, 249, 0.92);
+  border-color: rgba(36, 96, 82, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.day-tab,
+.icon-btn {
+  border-color: #b8cec9;
+  border-radius: 6px;
+}
+
+.day-tab.active {
+  border-color: var(--moss);
+  background: var(--moss);
+}
+
+.overview {
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.overview > div:first-child {
+  border-top: 4px solid var(--lava);
+}
+
+.overview .weather:nth-child(2) {
+  border-top: 4px solid #efb34c;
+}
+
+.overview .weather:nth-child(3) {
+  border-top: 4px solid #69a9b1;
+}
+
+.day-section {
+  border: 1px solid rgba(86, 125, 117, 0.24);
+  border-left: 5px solid var(--moss);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.day-section:nth-of-type(3n + 1) {
+  border-left-color: var(--lava);
+}
+
+.day-section:nth-of-type(3n + 2) {
+  border-left-color: #d69b30;
+}
+
+.day-count {
+  color: var(--lava);
+}
+
+.stay {
+  border-color: #a9c8c1;
+  border-left-color: var(--moss);
+  border-radius: 6px;
+  background: #edf7f4;
+}
+
+.route-link {
+  color: #176c78;
+}
+
+.map-location-link {
+  color: inherit;
+  text-decoration-color: rgba(23, 108, 120, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.map-location-link:hover {
+  color: #176c78;
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 3px solid #d85638;
+  outline-offset: 3px;
+}
+
+.day-tab:focus-visible,
+.icon-btn:focus-visible {
+  outline-color: #17365d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .day-section {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 52vh;
+    background-position: 58% center;
+  }
+
+  .hero::before {
+    background: rgba(10, 42, 37, 0.58);
+  }
+
+  .hero-inner {
+    padding: 58px 0 38px;
+  }
+
+  .day-section {
+    padding: 22px 17px;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .hero {
+    min-height: 0;
+    color: var(--ink);
+    border-bottom-width: 3px;
+    background: #fff;
+  }
+
+  .hero::before {
+    display: none;
+  }
+
+  h1 {
+    color: var(--ink);
+    text-shadow: none;
+  }
+
+  .hero-meta {
+    color: var(--muted);
+  }
+
+  .day-section {
+    box-shadow: none;
+  }
+
+  a[href]::after {
+    content: none;
+  }
+}

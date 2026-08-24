@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17365d">
+	<title>Iceland Travel Itinerary | 2–10 September 2026</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+	<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+	<style>
+		:root {
+			--ink: #17201b;
+			--muted: #657069;
+			--paper: #f4f1e9;
+			--white: #fffdf8;
+			--moss: #315a46;
+			--moss-dark: #15241d;
+			--lava: #d85638;
+			--ice: #b9dbe0;
+			--line: #d8d7ce;
+			--amber: #f2bf5e;
+			--shadow: 0 14px 40px rgba(23, 32, 27, .1);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			color: var(--ink);
+			background-color: var(--paper);
+			background-image: radial-gradient(#c7c9bf 0.7px, transparent 0.7px);
+			background-size: 18px 18px;
+			font-family: "DM Sans", sans-serif;
+		}
+		button, a { -webkit-tap-highlight-color: transparent; }
+		a { color: inherit; }
+		button { font: inherit; }
+
+		.hero {
+			min-height: 72vh;
+			display: flex;
+			align-items: flex-end;
+			position: relative;
+			isolation: isolate;
+			color: #fff;
+			background: url("https://images.unsplash.com/photo-1504829857797-ddff29c27927?auto=format&fit=crop&w=2200&q=88") center 46% / cover no-repeat;
+		}
+		.hero::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			background: linear-gradient(90deg, rgba(9, 19, 15, .82) 0%, rgba(9, 19, 15, .35) 58%, rgba(9, 19, 15, .15) 100%);
+		}
+		.hero-inner {
+			width: min(1180px, calc(100% - 40px));
+			margin: 0 auto;
+			padding: 84px 0 60px;
+		}
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			margin: 0 0 18px;
+			font-size: .78rem;
+			font-weight: 700;
+			letter-spacing: .14em;
+			text-transform: uppercase;
+		}
+		h1, h2, h3 { font-family: "Fraunces", serif; }
+		h1 {
+			max-width: 850px;
+			margin: 0;
+			font-size: clamp(3.1rem, 8vw, 7.6rem);
+			line-height: .88;
+			letter-spacing: 0;
+		}
+		.hero-meta {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 18px 34px;
+			margin-top: 30px;
+			color: rgba(255,255,255,.9);
+			font-weight: 600;
+		}
+		.hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+
+		.toolbar-wrap {
+			position: sticky;
+			top: 0;
+			z-index: 20;
+			border-bottom: 1px solid rgba(23, 32, 27, .12);
+			background: rgba(244, 241, 233, .94);
+			backdrop-filter: blur(12px);
+		}
+		.toolbar {
+			width: min(1180px, calc(100% - 32px));
+			min-height: 72px;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.days {
+			display: flex;
+			gap: 7px;
+			overflow-x: auto;
+			padding: 9px 0;
+			scrollbar-width: none;
+		}
+		.days::-webkit-scrollbar { display: none; }
+		.day-tab, .icon-btn {
+			border: 1px solid #c9cac1;
+			background: var(--white);
+			color: var(--ink);
+			cursor: pointer;
+		}
+		.day-tab {
+			min-width: 58px;
+			padding: 9px 13px;
+			border-radius: 6px;
+			text-align: center;
+			white-space: nowrap;
+			font-size: .78rem;
+			font-weight: 700;
+		}
+		.day-tab span { display: block; color: var(--muted); font-size: .68rem; font-weight: 500; }
+		.day-tab.active { border-color: var(--moss); background: var(--moss); color: #fff; }
+		.day-tab.active span { color: rgba(255,255,255,.7); }
+		.icon-btn {
+			width: 42px;
+			height: 42px;
+			flex: 0 0 42px;
+			display: grid;
+			place-items: center;
+			margin-left: auto;
+			border-radius: 50%;
+		}
+		.icon-btn:hover, .day-tab:hover { border-color: var(--moss); }
+
+		main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+		.overview {
+			display: grid;
+			grid-template-columns: 1.5fr 1fr 1fr;
+			gap: 1px;
+			margin: 40px 0 56px;
+			overflow: hidden;
+			border: 1px solid var(--line);
+			border-radius: 8px;
+			background: var(--line);
+			box-shadow: var(--shadow);
+		}
+		.overview > div { padding: 26px; background: var(--white); }
+		.overview strong { display: block; margin-bottom: 5px; font-family: "Fraunces", serif; font-size: 1.45rem; }
+		.overview p { margin: 0; color: var(--muted); font-size: .88rem; }
+		.weather { display: flex; align-items: center; gap: 14px; }
+		.weather i { color: var(--moss); }
+
+		.day-section {
+			display: grid;
+			grid-template-columns: minmax(220px, 310px) minmax(0, 1fr);
+			gap: 50px;
+			padding: 58px 0;
+			border-top: 1px solid var(--line);
+			animation: reveal .5s ease both;
+		}
+		.day-section:first-of-type { border-top: 0; }
+		.day-section[hidden] { display: none; }
+		@keyframes reveal { from { opacity: 0; transform: translateY(10px); } }
+		.date-block { align-self: start; position: sticky; top: 100px; }
+		.day-count {
+			display: inline-block;
+			margin-bottom: 12px;
+			color: var(--lava);
+			font-size: .74rem;
+			font-weight: 700;
+			letter-spacing: .12em;
+			text-transform: uppercase;
+		}
+		.date-block h2 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.7rem); line-height: .97; letter-spacing: 0; }
+		.date-block h2 span { display: block; color: var(--muted); font-family: "DM Sans", sans-serif; font-size: .9rem; font-weight: 500; margin-top: 12px; }
+		.route-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			margin-top: 20px;
+			color: var(--moss);
+			font-size: .85rem;
+			font-weight: 700;
+			text-decoration: none;
+		}
+		.route-link:hover { text-decoration: underline; }
+		.route-note { margin: 10px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+
+		.timeline { position: relative; }
+		.event {
+			position: relative;
+			display: grid;
+			grid-template-columns: 94px 25px minmax(0, 1fr);
+			min-height: 78px;
+		}
+		.event:not(:last-child)::after {
+			content: "";
+			position: absolute;
+			left: 105px;
+			top: 22px;
+			bottom: -5px;
+			width: 1px;
+			background: var(--line);
+		}
+		.time { padding-top: 4px; color: var(--muted); font-size: .78rem; font-weight: 700; }
+		.marker {
+			position: relative;
+			z-index: 2;
+			width: 11px;
+			height: 11px;
+			margin: 6px 0 0 7px;
+			border: 3px solid var(--paper);
+			border-radius: 50%;
+			outline: 2px solid var(--moss);
+			background: var(--moss);
+		}
+		.event.drive .marker { outline-color: #89918c; background: var(--paper); }
+		.event.major .marker { outline-color: var(--lava); background: var(--lava); }
+		.event-body { padding: 0 0 25px 12px; }
+		.event-body h3 { margin: 0 0 5px; font-size: 1.2rem; line-height: 1.25; }
+		.event-body p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+		.tag {
+			display: inline-block;
+			margin-left: 7px;
+			padding: 3px 6px;
+			border-radius: 3px;
+			color: #753625;
+			background: #f7d9c9;
+			font-family: "DM Sans", sans-serif;
+			font-size: .62rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			vertical-align: 2px;
+		}
+		.tag.must { color: #213f30; background: #cfe0d5; }
+		.tag.optional { color: #685019; background: #f7e7b9; }
+
+		.stay {
+			display: grid;
+			grid-template-columns: 42px 1fr auto;
+			gap: 14px;
+			align-items: center;
+			margin-top: 8px;
+			padding: 18px;
+			border-left: 4px solid var(--moss);
+			border-radius: 4px;
+			background: var(--moss-dark);
+			color: #fff;
+		}
+		.stay-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.1); }
+		.stay h3 { margin: 0 0 4px; font-family: "DM Sans", sans-serif; font-size: .96rem; }
+		.stay p { margin: 0; color: rgba(255,255,255,.65); font-size: .76rem; line-height: 1.5; }
+		.stay-time { color: var(--ice); text-align: right; font-size: .72rem; line-height: 1.5; }
+
+		.alert {
+			display: flex;
+			gap: 12px;
+			margin: 0 0 26px 106px;
+			padding: 14px 16px;
+			border: 1px solid #e5c87d;
+			border-radius: 6px;
+			background: #fff7dc;
+			color: #5a491d;
+			font-size: .8rem;
+			line-height: 1.5;
+		}
+		.alert i { flex: 0 0 auto; margin-top: 2px; }
+
+		footer { padding: 24px 20px 44px; color: var(--muted); text-align: center; font-size: .75rem; }
+
+		@media (max-width: 760px) {
+			.hero { min-height: 62vh; }
+			.hero::before { background: rgba(9, 19, 15, .58); }
+			.hero-inner { width: min(100% - 32px, 1180px); padding-bottom: 40px; }
+			.hero-meta { gap: 10px 20px; font-size: .8rem; }
+			main { width: min(100% - 30px, 1180px); }
+			.overview { grid-template-columns: 1fr; margin: 24px 0 36px; }
+			.overview > div { padding: 18px; }
+			.day-section { grid-template-columns: 1fr; gap: 28px; padding: 42px 0; }
+			.date-block { position: static; }
+			.date-block h2 span { display: inline; margin-left: 6px; }
+			.event { grid-template-columns: 70px 22px minmax(0, 1fr); }
+			.event:not(:last-child)::after { left: 80px; }
+			.event-body { padding-left: 10px; }
+			.alert { margin-left: 0; }
+			.stay { grid-template-columns: 38px 1fr; }
+			.stay-time { grid-column: 2; text-align: left; }
+		}
+
+		@media print {
+			body { background: #fff; }
+			.hero { min-height: 330px; break-after: page; }
+			.toolbar-wrap, .overview, .route-note { display: none; }
+			main { width: 100%; }
+			.day-section, .day-section[hidden] { display: grid; break-inside: avoid; padding: 26px 0; }
+			.date-block { position: static; }
+		}
+
+		/* Formal document layout */
+		:root {
+			--ink: #202936;
+			--muted: #5f6b78;
+			--paper: #eef1f4;
+			--white: #ffffff;
+			--moss: #17365d;
+			--moss-dark: #17365d;
+			--lava: #17365d;
+			--ice: #ffffff;
+			--line: #ccd3db;
+			--amber: #17365d;
+			--shadow: none;
+		}
+		body {
+			background: var(--paper);
+			font-family: "DM Sans", sans-serif;
+		}
+		h1, h2, h3 { font-family: "DM Sans", sans-serif; }
+		.hero {
+			min-height: 0;
+			align-items: initial;
+			color: var(--ink);
+			background: #ffffff;
+			border-bottom: 5px solid var(--moss);
+		}
+		.hero::before { display: none; }
+		.hero-inner {
+			width: min(1040px, calc(100% - 40px));
+			padding: 42px 0 34px;
+		}
+		.eyebrow {
+			margin-bottom: 10px;
+			color: var(--moss);
+			font-size: .74rem;
+			letter-spacing: .08em;
+		}
+		h1 {
+			max-width: none;
+			font-size: clamp(2rem, 5vw, 3.4rem);
+			line-height: 1.15;
+			font-weight: 700;
+		}
+		.hero-meta {
+			margin-top: 18px;
+			gap: 10px 28px;
+			color: var(--muted);
+			font-size: .88rem;
+		}
+		.toolbar-wrap {
+			position: static;
+			background: #f7f8fa;
+			backdrop-filter: none;
+		}
+		.toolbar { width: min(1040px, calc(100% - 32px)); min-height: 60px; }
+		.day-tab, .icon-btn { border-radius: 3px; background: #fff; }
+		.icon-btn { border-radius: 3px; }
+		main { width: min(1040px, calc(100% - 40px)); }
+		.overview {
+			grid-template-columns: 1.5fr 1fr 1fr;
+			margin: 32px 0;
+			border-radius: 0;
+			box-shadow: none;
+		}
+		.overview > div { padding: 20px; }
+		.overview strong { font-family: "DM Sans", sans-serif; font-size: 1rem; }
+		.day-section {
+			grid-template-columns: 230px minmax(0, 1fr);
+			gap: 34px;
+			margin: 0 0 24px;
+			padding: 28px;
+			border: 1px solid var(--line);
+			background: #fff;
+			animation: none;
+		}
+		.date-block { position: static; }
+		.day-count { margin-bottom: 8px; color: var(--moss); letter-spacing: .07em; }
+		.date-block h2 { font-size: 1.45rem; line-height: 1.25; }
+		.date-block h2 span { margin-top: 4px; font-size: .82rem; }
+		.route-link { margin-top: 16px; }
+		.event {
+			grid-template-columns: 92px minmax(0, 1fr);
+			min-height: 0;
+			border-bottom: 1px solid #e4e7eb;
+		}
+		.event:last-child { border-bottom: 0; }
+		.event:not(:last-child)::after, .marker { display: none; }
+		.time { padding: 15px 12px 15px 0; color: var(--moss); }
+		.event-body { padding: 12px 0; }
+		.event-body h3 { margin-bottom: 3px; font-size: .94rem; }
+		.event-body p { font-size: .79rem; line-height: 1.45; }
+		.tag { color: #17365d; background: #e7edf4; }
+		.tag.must { color: #315640; background: #e5efe8; }
+		.tag.optional { color: #705d25; background: #f5efd9; }
+		.stay {
+			grid-template-columns: 1fr auto;
+			margin-top: 20px;
+			padding: 16px 18px;
+			border: 1px solid #b7c2cf;
+			border-left: 4px solid var(--moss);
+			border-radius: 0;
+			background: #f4f7fa;
+			color: var(--ink);
+		}
+		.stay-icon { display: none; }
+		.stay h3 { color: var(--moss); }
+		.stay p { color: var(--muted); }
+		.stay-time { color: var(--ink); }
+		.alert {
+			margin: 0 0 16px;
+			border-radius: 0;
+			background: #fff9e8;
+		}
+		footer { background: #fff; border-top: 1px solid var(--line); }
+		@media (max-width: 760px) {
+			.hero { min-height: 0; }
+			.hero-inner { padding: 30px 0 26px; }
+			.overview { grid-template-columns: 1fr; }
+			.day-section { grid-template-columns: 1fr; gap: 18px; padding: 20px 16px; }
+			.event { grid-template-columns: 74px minmax(0, 1fr); }
+			.stay { grid-template-columns: 1fr; }
+			.stay-time { grid-column: auto; }
+		}
+		@media print {
+			.hero { min-height: 0; break-after: auto; border-bottom-width: 3px; }
+			.hero-inner { padding: 20px 0; }
+			.day-section, .day-section[hidden] { display: grid; margin-bottom: 14px; padding: 18px; }
+		}
+	</style>
+	<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+	<header class="hero">
+		<div class="hero-inner">
+			<p class="eyebrow">TRAVEL ITINERARY</p>
+			<h1>Iceland Ring Road</h1>
+			<div class="hero-meta">
+				<span><i data-lucide="calendar-days" aria-hidden="true"></i> 2–10 September 2026</span>
+				<span><i data-lucide="plane" aria-hidden="true"></i> Seattle to Reykjavík</span>
+				<span><i data-lucide="car-front" aria-hidden="true"></i> 9-day self-drive itinerary</span>
+			</div>
+		</div>
+	</header>
+
+	<div class="toolbar-wrap">
+		<nav class="toolbar" aria-label="Filter itinerary by day">
+			<div class="days">
+				<button class="day-tab active" type="button" data-filter="all">All<span>trip</span></button>
+				<button class="day-tab" type="button" data-filter="sep2">Wed<span>02</span></button>
+				<button class="day-tab" type="button" data-filter="sep3">Thu<span>03</span></button>
+				<button class="day-tab" type="button" data-filter="sep4">Fri<span>04</span></button>
+				<button class="day-tab" type="button" data-filter="sep5">Sat<span>05</span></button>
+				<button class="day-tab" type="button" data-filter="sep6">Sun<span>06</span></button>
+				<button class="day-tab" type="button" data-filter="sep7">Mon<span>07</span></button>
+				<button class="day-tab" type="button" data-filter="sep8">Tue<span>08</span></button>
+				<button class="day-tab" type="button" data-filter="sep9">Wed<span>09</span></button>
+				<button class="day-tab" type="button" data-filter="sep10">Thu<span>10</span></button>
+			</div>
+			<button class="icon-btn" id="printBtn" type="button" title="Print itinerary" aria-label="Print itinerary"><i data-lucide="printer" aria-hidden="true"></i></button>
+		</nav>
+	</div>
+
+	<main>
+		<section class="overview" aria-label="Trip overview">
+			<div>
+				<strong>Anti-Clockwise, coast to coast</strong>
+				<p>Reykjavík → South Coast → Eastfjords → North Iceland → Snæfellsnes → Reykjavík</p>
+			</div>
+			<div class="weather"><i data-lucide="cloud-sun" size="28" aria-hidden="true"></i><p><strong>5–12°C</strong>Pack waterproof layers</p></div>
+			<div class="weather"><i data-lucide="sunset" size="28" aria-hidden="true"></i><p><strong>~8:00 PM</strong>Average sunset</p></div>
+		</section>
+		<aside class="alert"><i data-lucide="smartphone" size="18" aria-hidden="true"></i><span><strong>Useful apps:</strong> Use <strong>Bensín</strong> to compare gas prices and <strong>Parka</strong> for parking and parking payments.</span></aside>
+
+		<section class="day-section" data-day="sep2">
+			<header class="date-block">
+				<span class="day-count">✈️ Departure</span>
+				<h2>Wednesday<span>September 2</span></h2>
+				<a class="route-link" href="https://www.google.com/maps/search/?api=1&amp;query=Seattle-Tacoma+International+Airport" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> View SEA on Google Maps</a>
+			</header>
+			<div class="timeline">
+				<article class="event major"><time class="time">8:25 PM</time><span class="marker"></span><div class="event-body"><h3>Arrive at SEA</h3><p>International check-in, security, and a relaxed buffer before boarding.</p></div></article>
+				<article class="event major"><time class="time">11:25 PM</time><span class="marker"></span><div class="event-body"><h3>Depart Seattle · FI684</h3><p>Overnight Icelandair flight to Keflavík.</p></div></article>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep3">
+			<header class="date-block">
+				<span class="day-count">🌆 Day 1 · Reykjavík</span>
+				<h2>Thursday<span>September 3</span></h2>
+				<a class="route-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Keflavik+International+Airport&amp;destination=Blue+House+B%26B+Seltjarnarnes&amp;waypoints=Thufa+Reykjavik%7CHallgrimskirkja%7CRainbow+Street+Reykjavik%7CSun+Voyager%7CHarpa+Concert+Hall%7CBaejarins+Beztu+Pylsur" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event major"><time class="time">2:00 PM</time><span class="marker"></span><div class="event-body"><h3>Land at Keflavík</h3><p>Allow 45 minutes for immigration and bags, then collect the rental car.</p></div></article>
+					<article class="event drive"><time class="time">3:00 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Seltjarnarnes</h3><p>About 50 minutes from KEF to Blue House B&amp;B.</p></div></article>
+					<article class="event"><time class="time">4:00 PM</time><span class="marker"></span><div class="event-body"><h3>Check in &amp; reset</h3><p>Drop bags and take a short break after the overnight flight.</p></div></article>
+					<article class="event"><time class="time">4:45 PM</time><span class="marker"></span><div class="event-body"><h3>Þúfa</h3><p>30 min · Walk the spiral path for harbor and mountain views.</p></div></article>
+					<article class="event"><time class="time">5:30 PM</time><span class="marker"></span><div class="event-body"><h3>Hallgrímskirkja</h3><p>40 min · Church interior and tower panorama.</p></div></article>
+					<article class="event"><time class="time">6:15 PM</time><span class="marker"></span><div class="event-body"><h3>Rainbow Street</h3><p>30 min · Walk Skólavörðustígur toward downtown.</p></div></article>
+					<article class="event"><time class="time">6:50 PM</time><span class="marker"></span><div class="event-body"><h3>Sun Voyager</h3><p>25 min · Seafront sculpture and Mount Esja views.</p></div></article>
+					<article class="event"><time class="time">7:20 PM</time><span class="marker"></span><div class="event-body"><h3>Harpa &amp; Reykjavík waterfront</h3><p>50 min · Glass architecture, Old Harbour, and a waterfront stroll.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="bed-double" aria-hidden="true"></i></span><div><h3>Blue House B&amp;B · Expedia</h3><p>Valhúsabraut 19, 170 Seltjarnarnes</p></div><div class="stay-time">IN 4:00 PM<br>OUT 11:00 AM</div></aside>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep4">
+			<header class="date-block">
+				<span class="day-count">🌋 Day 2 · Golden Circle</span>
+				<h2>Friday<span>September 4</span></h2>
+				<a class="route-link" href="https://maps.app.goo.gl/H226s9D4foKJS9JC7" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+				<p class="route-note">Golden Circle driving day. Sunnumörk is scheduled before Þingvellir as shown in the shared route.</p>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event"><time class="time">7:30 AM</time><span class="marker"></span><div class="event-body"><h3>Sandholt and Brauð &amp; Co</h3><p>1 hr · Reykjavík bakery breakfast and road snacks before departure.</p></div></article>
+					<article class="event drive"><time class="time">9:00 AM</time><span class="marker"></span><div class="event-body"><h3>Check out &amp; drive to Sunnumörk</h3><p>About 45 minutes from Reykjavík to Hveragerði.</p></div></article>
+					<article class="event"><time class="time">9:45 AM</time><span class="marker"></span><div class="event-body"><h3>Sunnumörk</h3><p>30 min · Brief stop at Sunnumörk, 810 Hveragerði.</p></div></article>
+					<article class="event drive"><time class="time">10:15 AM</time><span class="marker"></span><div class="event-body"><h3>Drive to Þingvellir</h3><p>About 50 minutes through the geothermal countryside.</p></div></article>
+					<article class="event major"><time class="time">11:05 AM</time><span class="marker"></span><div class="event-body"><h3>Þingvellir National Park</h3><p>1 hr 45 min · Almannagjá tectonic rift, Öxarárfoss, Lögberg, and Þingvellir Church.</p></div></article>
+					<article class="event drive"><time class="time">12:50 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Strokkur</h3><p>About 55 minutes through the Golden Circle countryside.</p></div></article>
+					<article class="event"><time class="time">1:45 PM</time><span class="marker"></span><div class="event-body"><h3>Geysir &amp; Strokkur</h3><p>45 min · Strokkur typically erupts every few minutes.</p></div></article>
+					<article class="event"><time class="time">2:40 PM</time><span class="marker"></span><div class="event-body"><h3>Gullfoss</h3><p>45 min · Upper and lower viewpoints.</p></div></article>
+					<article class="event drive"><time class="time">3:25 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Friðheimar</h3><p>About 35 minutes to Reykholt.</p></div></article>
+					<article class="event major"><time class="time">4:00 PM</time><span class="marker"></span><div class="event-body"><h3>Friðheimar <span class="tag must">Must · reserve</span></h3><p>1 hr 15 min · Greenhouse meal among the tomato vines; confirm late-afternoon reservation availability.</p></div></article>
+					<article class="event drive"><time class="time">5:15 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to the South Coast</h3><p>About 1 hr 20 min to Seljalandsfoss.</p></div></article>
+					<article class="event"><time class="time">6:35 PM</time><span class="marker"></span><div class="event-body"><h3>Seljalandsfoss</h3><p>40 min · Walk behind the falls if the path is open; waterproofs essential.</p></div></article>
+					<article class="event"><time class="time">7:15 PM</time><span class="marker"></span><div class="event-body"><h3>Gljúfrabúi</h3><p>30 min · Short walk to the hidden waterfall; expect wet footing.</p></div></article>
+					<article class="event"><time class="time">8:15 PM</time><span class="marker"></span><div class="event-body"><h3>Skógafoss <span class="tag optional">After sunset</span></h3><p>Before visiting, stop at <a class="map-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Faxi+Bakery+Iceland" target="_blank" rel="noopener noreferrer">Faxi Bakery</a> if it is open. Then spend 30 min at the base viewpoint if visibility remains suitable.</p></div></article>
+					<article class="event drive"><time class="time">8:45 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Hrífunes</h3><p>About 1 hr 15 min to The Fox Hostel; confirm late check-in.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="bed-double" aria-hidden="true"></i></span><div><h3>The Fox Hostel · Expedia</h3><p>Hrífunesvegur, Kirkjubæjarklaustur 881</p></div><div class="stay-time">IN 4:00 PM<br>OUT 10:00 AM</div></aside>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep5">
+			<header class="date-block">
+				<span class="day-count">🌊 Day 3 · Vík &amp; black sand</span>
+				<h2>Saturday<span>September 5</span></h2>
+				<a class="route-link" href="https://maps.app.goo.gl/AKxEKQQ6zwcfgV6K8" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+				<p class="route-note">The 8:00 AM departure is required for the fixed 10:00 AM ATV booking.</p>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event drive"><time class="time">8:00 AM</time><span class="marker"></span><div class="event-body"><h3>Drive to the ATV meeting point</h3><p>About 1 hr 20 min from The Fox Hostel; arrive early for check-in and equipment.</p></div></article>
+					<article class="event major"><time class="time">10:00 AM</time><span class="marker"></span><div class="event-body"><h3>ATV Plane Wreck <span class="tag">Booked time</span></h3><p>2 hr 30 min · Guided ride to the Sólheimasandur DC-3 wreck.</p></div></article>
+					<article class="event"><time class="time">1:00 PM</time><span class="marker"></span><div class="event-body"><h3>Dyrhólaey Viewpoint</h3><p>35 min · Sea arch, cliffs, and long black coastline.</p></div></article>
+					<article class="event"><time class="time">1:55 PM</time><span class="marker"></span><div class="event-body"><h3>Hálsanefshellir Cave</h3><p>30 min · Basalt formations and Reynisdrangar views from the marked safe area.</p></div></article>
+					<article class="event"><time class="time">2:35 PM</time><span class="marker"></span><div class="event-body"><h3>Reyniskirkja Church</h3><p>25 min · Visit the small hilltop church while traveling from Reynisfjara toward Vík.</p></div></article>
+					<article class="event major"><time class="time">3:05 PM</time><span class="marker"></span><div class="event-body"><h3>Reynisfjara Black Sand Beach</h3><p>40 min · Black sand, basalt columns, and Reynisdrangar; remain well back from the surf.</p></div></article>
+					<article class="event"><time class="time">4:00 PM</time><span class="marker"></span><div class="event-body"><h3>Vík í Mýrdal Church</h3><p>30 min · Visit the hilltop church and its panoramic viewpoint over Vík.</p></div></article>
+					<article class="event"><time class="time">4:35 PM</time><span class="marker"></span><div class="event-body"><h3>Black Crust Pizzeria</h3><p>10 min · Quick pizza stop in Vík.</p></div></article>
+					<article class="event"><time class="time">4:45 PM</time><span class="marker"></span><div class="event-body"><h3>Skool Beans</h3><p>10 min · Quick coffee stop in Vík; confirm same-day opening hours.</p></div></article>
+					<article class="event drive"><time class="time">4:55 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Fjaðrárgljúfur</h3><p>About 1 hour east on Route 1.</p></div></article>
+					<article class="event major"><time class="time">5:55 PM</time><span class="marker"></span><div class="event-body"><h3>Fjaðrárgljúfur</h3><p>45 min · Follow the marked upper trail to the canyon viewpoints.</p></div></article>
+					<article class="event drive"><time class="time">6:40 PM</time><span class="marker"></span><div class="event-body"><h3>Drive east to Skaftafell</h3><p>About 1 hour along Route 1, passing the Mossy Lava Fields.</p></div></article>
+					<article class="event drive"><time class="time">9:00 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Hotel Smyrlabjörg</h3><p>About 30 minutes; confirm late check-in directly with the hotel.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="bed-double" aria-hidden="true"></i></span><div><h3>Hotel Smyrlabjörg · Expedia</h3><p>Þjóðvegur 781, 34 km east of Jökulsárlón</p></div><div class="stay-time">IN 4:00 PM<br>OUT 11:00 AM</div></aside>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep6">
+			<header class="date-block">
+				<span class="day-count">🧊 Day 4 · Glaciers</span>
+				<h2>Sunday<span>September 6</span></h2>
+				<a class="route-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+Smyrlabjorg&amp;destination=Bragdavellir+Cottages&amp;waypoints=Skaftafell%7CSvinafellsjokull+Glacier%7CDiamond+Beach+Iceland%7CVestrahorn" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event drive"><time class="time">9:00 AM</time><span class="marker"></span><div class="event-body"><h3>Drive to Skaftafell</h3><p>About 1 hr 15 min west; leave luggage secured in the car.</p></div></article>
+					<article class="event major"><time class="time">10:30 AM</time><span class="marker"></span><div class="event-body"><h3>Glacier hike <span class="tag">Reserve</span></h3><p>3 hr 30 min · Meet at Arctic Adventures (Skaftafell Base Camp), 228J+FP5, 785 Skaftafell, Iceland. Confirm gear requirements with the operator.</p></div></article>
+					<article class="event"><time class="time">2:15 PM</time><span class="marker"></span><div class="event-body"><h3>Svartifoss</h3><p>1 hr 45 min · Allow time for the uphill return hike and basalt-column views.</p></div></article>
+					<article class="event"><time class="time">4:20 PM</time><span class="marker"></span><div class="event-body"><h3>Svínafellsjökull viewpoint</h3><p>35 min · Use only open, marked access; conditions can close the approach.</p></div></article>
+					<article class="event drive"><time class="time">4:55 PM</time><span class="marker"></span><div class="event-body"><h3>Drive east</h3><p>About 50 minutes to Jökulsárlón and Fellsfjara.</p></div></article>
+					<article class="event major"><time class="time">5:45 PM</time><span class="marker"></span><div class="event-body"><h3>Diamond Beach &amp; glacier lagoon</h3><p>1 hr 10 min · Visit both sides of the bridge; never climb on ice near the surf.</p></div></article>
+					<article class="event"><time class="time">8:00 PM</time><span class="marker"></span><div class="event-body"><h3>Vestrahorn · Stokksnes</h3><p>1 hr · Black dunes and mountain reflections; admission may be required at the Viking Café.</p></div></article>
+					<article class="event drive"><time class="time">9:00 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Djúpivogur</h3><p>About 1 hr 20 min along the Eastfjords.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="home" aria-hidden="true"></i></span><div><h3>Bragdavellir Cottages · Expedia</h3><p>Bragðavellir, 765 Djúpivogur</p></div><div class="stay-time">IN 4:00 PM<br>OUT 12:00 PM</div></aside>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep7">
+			<header class="date-block">
+				<span class="day-count">⛰️ Day 5 · Eastfjords</span>
+				<h2>Monday<span>September 7</span></h2>
+				<a class="route-link" href="https://maps.app.goo.gl/8DG3b4Cxs6spdn3i8" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event drive"><time class="time">9:00 AM</time><span class="marker"></span><div class="event-body"><h3>Eastfjords scenic drive</h3><p>About 2 hr 15 min to Seyðisfjörður with photo pull-offs.</p></div></article>
+					<article class="event"><time class="time">11:15 AM</time><span class="marker"></span><div class="event-body"><h3>Seyðisfjörður</h3><p>1 hr · Rainbow street, Blue Church, and harbor.</p></div></article>
+					<article class="event drive"><time class="time">12:15 PM</time><span class="marker"></span><div class="event-body"><h3>Drive over Fjarðarheiði</h3><p>About 1 hr 10 min to the Hengifoss trailhead.</p></div></article>
+					<article class="event major"><time class="time">1:30 PM</time><span class="marker"></span><div class="event-body"><h3>Hengifoss</h3><p>2 hr 30 min · Steady uphill hike; Litlanesfoss is an excellent midway viewpoint.</p></div></article>
+					<article class="event"><time class="time">4:30 PM</time><span class="marker"></span><div class="event-body"><h3>Egilsstaðir</h3><p>45 min · Late lunch, fuel, and supplies.</p></div></article>
+					<article class="event drive"><time class="time">5:15 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Stuðlagil</h3><p>About 1 hr 10 min to the east-side canyon trail.</p></div></article>
+					<article class="event major"><time class="time">6:30 PM</time><span class="marker"></span><div class="event-body"><h3>Stuðlagil Canyon</h3><p>2 hr · East-side walk for canyon-level basalt views; the west side is shorter but only offers an overlook.</p></div></article>
+					<article class="event drive"><time class="time">8:30 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Hotel Stuðlagil</h3><p>Short transfer; dinner and an early night.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="bed-double" aria-hidden="true"></i></span><div><h3>Hotel Stuðlagil · Expedia</h3><p>Skjöldólfsstaðaskóli, 701 Egilsstaðir</p></div><div class="stay-time">IN 4:00 PM<br>OUT 11:00 AM</div></aside>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep8">
+			<header class="date-block">
+				<span class="day-count">♨️ Day 6 · North Iceland</span>
+				<h2>Tuesday<span>September 8</span></h2>
+				<a class="route-link" href="https://maps.app.goo.gl/fozYj3jLtpqbnYVm6" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+				<p class="route-note">Optional: Visit <a href="https://www.google.com/maps/search/?api=1&amp;query=Aldeyjarfoss%20Iceland" target="_blank" rel="noreferrer">Aldeyjarfoss</a> if time permits.</p>
+				<p class="route-note">Alternative: Visit <a href="https://www.google.com/maps/search/?api=1&amp;query=Earth%20Lagoon%20Myvatn%20Nature%20Baths%20Iceland" target="_blank" rel="noreferrer">Earth Lagoon (Mývatn Nature Baths)</a> instead of GeoSea.</p>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event drive"><time class="time">9:00 AM</time><span class="marker"></span><div class="event-body"><h3>Drive to Hverir</h3><p>About 1 hr 20 min across the highland plateau.</p></div></article>
+					<article class="event major"><time class="time">10:20 AM</time><span class="marker"></span><div class="event-body"><h3>Hverir geothermal area</h3><p>45 min · Sulfur vents and mud pots; remain on marked paths.</p></div></article>
+					<article class="event"><time class="time">11:20 AM</time><span class="marker"></span><div class="event-body"><h3>Lake Mývatn</h3><p>2 hr 15 min · Choose Hverfjall rim or Dimmuborgir, plus lakeside viewpoints.</p></div></article>
+					<article class="event"><time class="time">1:35 PM</time><span class="marker"></span><div class="event-body"><h3>Lunch near Reykjahlíð</h3><p>45 min · Refuel before continuing west.</p></div></article>
+					<article class="event drive"><time class="time">2:20 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Húsavík</h3><p>About 50 minutes from Mývatn.</p></div></article>
+					<article class="event major"><time class="time">3:10 PM</time><span class="marker"></span><div class="event-body"><h3>Húsavík · GeoSea</h3><p>2 hr · Geothermal sea baths overlooking Skjálfandi Bay; reserve ahead.</p></div></article>
+					<article class="event drive"><time class="time">5:10 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Goðafoss</h3><p>About 45 minutes.</p></div></article>
+					<article class="event major"><time class="time">5:55 PM</time><span class="marker"></span><div class="event-body"><h3>Goðafoss</h3><p>1 hr · Walk both banks for distinct views of the horseshoe falls.</p></div></article>
+					<article class="event drive"><time class="time">6:55 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Akureyri</h3><p>About 40 minutes through the toll tunnel.</p></div></article>
+					<article class="event"><time class="time">7:35 PM</time><span class="marker"></span><div class="event-body"><h3>Akureyri</h3><p>2 hr · Akureyrarkirkja, botanical garden, harbor, and dinner downtown.</p></div></article>
+					<article class="event drive"><time class="time">9:35 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Skjaldarvík</h3><p>About 15 minutes north of town.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="home" aria-hidden="true"></i></span><div><h3>Skjaldarvík Guest House · Airbnb</h3><p>Road 816, Hörgársveit 604</p></div><div class="stay-time">IN 3:00 PM<br>OUT 11:00 PM*</div></aside>
+				<p class="route-note">*Verify the listed 11:00 PM checkout; guesthouse checkout is commonly 11:00 AM.</p>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep9">
+			<header class="date-block">
+				<span class="day-count">💧 Day 7 · West Iceland</span>
+				<h2>Wednesday<span>September 9</span></h2>
+				<a class="route-link" href="https://maps.app.goo.gl/2nGJhNPFoHFpV2kj7" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+				<p class="route-note">The longest day: roughly 8 hours of driving before stops.</p>
+			</header>
+			<div>
+				<aside class="alert"><i data-lucide="triangle-alert" size="18" aria-hidden="true"></i><span>Kirkjufell creates a major detour between Akureyri and Reykjavík. With the 9 AM husky booking, Deildartunguhver should remain optional.</span></aside>
+				<div class="timeline">
+					<article class="event major"><time class="time">9:00 AM</time><span class="marker"></span><div class="event-body"><h3>Husky petting <span class="tag">Booked time</span></h3><p>1 hr · Confirm the exact meeting point and arrive 15 minutes early.</p></div></article>
+					<article class="event drive"><time class="time">10:15 AM</time><span class="marker"></span><div class="event-body"><h3>Drive to Kirkjufell</h3><p>About 4 hr 15 min; lunch and fuel stop en route.</p></div></article>
+					<article class="event major"><time class="time">2:30 PM</time><span class="marker"></span><div class="event-body"><h3>Kirkjufell &amp; Kirkjufellsfoss</h3><p>50 min · Classic waterfall composition; do not attempt the mountain without a guide.</p></div></article>
+					<article class="event drive"><time class="time">3:20 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Borgarfjörður</h3><p>About 2 hr 15 min to Hraunfossar.</p></div></article>
+					<article class="event major"><time class="time">5:35 PM</time><span class="marker"></span><div class="event-body"><h3>Hraunfossar &amp; Barnafoss <span class="tag must">Must</span></h3><p>1 hr · Connected path between the lava falls and narrow blue-water gorge.</p></div></article>
+					<article class="event"><time class="time">6:50 PM</time><span class="marker"></span><div class="event-body"><h3>Deildartunguhver <span class="tag optional">Optional</span></h3><p>25 min · Europe’s most powerful hot spring, only if daylight and energy allow.</p></div></article>
+					<article class="event drive"><time class="time">7:15 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Blue House</h3><p>About 1 hr 30 min to Seltjarnarnes.</p></div></article>
+					<article class="event drive"><time class="time">8:45 PM</time><span class="marker"></span><div class="event-body"><h3>Check in at Blue House</h3><p>Confirm self check-in instructions in advance.</p></div></article>
+				</div>
+				<aside class="stay"><span class="stay-icon"><i data-lucide="bed-double" aria-hidden="true"></i></span><div><h3>Blue House B&amp;B · Expedia</h3><p>Valhúsabraut 19, 170 Seltjarnarnes</p></div><div class="stay-time">IN 4:00 PM<br>OUT 11:00 AM</div></aside>
+			</div>
+		</section>
+
+		<section class="day-section" data-day="sep10">
+			<header class="date-block">
+				<span class="day-count">🏡 Day 8 · Homebound</span>
+				<h2>Thursday<span>September 10</span></h2>
+				<a class="route-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Blue+House+B%26B+Seltjarnarnes&amp;destination=Keflavik+International+Airport&amp;waypoints=Nautholsvik+Geothermal+Beach%7CBaejarins+Beztu+Pylsur%7CHus+mals+og+menningar+Reykjavik" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+			</header>
+			<div>
+				<div class="timeline">
+					<article class="event"><time class="time">9:00 AM</time><span class="marker"></span><div class="event-body"><h3>Pack and prepare for departure</h3><p>1 hr · Organize luggage and complete final checkout preparations.</p></div></article>
+					<article class="event major"><time class="time">10:15 AM</time><span class="marker"></span><div class="event-body"><h3>Nauthólsvík Geothermal Beach</h3><p>45 min · Lagoon and shoreline walk; verify seasonal opening hours.</p></div></article>
+					<article class="event"><time class="time">11:00 AM</time><span class="marker"></span><div class="event-body"><h3>Check out</h3><p>Store luggage in the car and keep valuables out of sight.</p></div></article>
+					<article class="event"><time class="time">11:30 AM</time><span class="marker"></span><div class="event-body"><h3>Bæjarins Beztu Pylsur</h3><p>30 min · Famous Icelandic hot dog stand operating since 1937.</p></div></article>
+					<article class="event"><time class="time">12:00 PM</time><span class="marker"></span><div class="event-body"><h3><a class="map-location-link" href="https://maps.app.goo.gl/yykGny74bJexoQTz9" target="_blank" rel="noopener noreferrer">Hús máls og menningar</a></h3><p>1 hr · Browse the bookstore and enjoy the café.</p></div></article>
+					<article class="event"><time class="time">1:00 PM</time><span class="marker"></span><div class="event-body"><h3>Reykjavík free time</h3><p>2 hr · Final harbor walk, shopping, or anything missed on arrival day.</p></div></article>
+					<article class="event drive"><time class="time">3:00 PM</time><span class="marker"></span><div class="event-body"><h3>Drive to Keflavík Airport</h3><p>About 50 minutes, then return the rental car.</p></div></article>
+					<article class="event"><time class="time">4:00 PM</time><span class="marker"></span><div class="event-body"><h3>KEF check-in</h3><p>International departure buffer, security, and dinner airside.</p></div></article>
+					<article class="event major"><time class="time">7:45 PM</time><span class="marker"></span><div class="event-body"><h3>Depart Reykjavík · FI683</h3><p>Nonstop flight to Seattle.</p></div></article>
+					<article class="event major"><time class="time">8:40 PM</time><span class="marker"></span><div class="event-body"><h3>Arrive in Seattle</h3><p>Local time · Welcome home.</p></div></article>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>

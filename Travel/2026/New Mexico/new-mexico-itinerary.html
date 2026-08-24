@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9f3f28">
+  <title>New Mexico Road Trip | October 10-12, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      --ink: #29231f;
+      --muted: #6f625a;
+      --paper: #f3eee7;
+      --surface: #fffdf9;
+      --clay: #9f3f28;
+      --clay-dark: #54271d;
+      --turquoise: #187b7b;
+      --sun: #e5a92f;
+      --line: #ddcfc2;
+      --shadow: 0 16px 38px rgba(77, 47, 33, .11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", sans-serif;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { color: inherit; }
+
+    .hero {
+      min-height: 58vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      isolation: isolate;
+      color: #fff;
+      border-bottom: 6px solid var(--sun);
+      background: url("https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=2200&q=88") center 42% / cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(45, 21, 14, .88), rgba(45, 21, 14, .42) 66%, rgba(45, 21, 14, .14));
+    }
+    .hero-inner {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 82px 0 54px;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #ffe29b;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2 { font-family: "Fraunces", serif; }
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 6.4rem);
+      line-height: .95;
+      letter-spacing: 0;
+      text-shadow: 0 3px 24px rgba(0, 0, 0, .3);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      margin-top: 25px;
+      color: rgba(255,255,255,.92);
+      font-weight: 600;
+    }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+
+    .toolbar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(84, 39, 29, .16);
+      background: rgba(250, 246, 240, .94);
+      backdrop-filter: blur(14px);
+    }
+    .toolbar {
+      width: min(1040px, calc(100% - 32px));
+      min-height: 64px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .days { display: flex; gap: 7px; overflow-x: auto; padding: 9px 0; scrollbar-width: none; }
+    .days::-webkit-scrollbar { display: none; }
+    .day-tab, .icon-btn {
+      border: 1px solid #cdbbad;
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .day-tab { min-width: 62px; padding: 9px 13px; white-space: nowrap; font-size: .78rem; font-weight: 700; }
+    .day-tab span { display: block; color: var(--muted); font-size: .68rem; font-weight: 500; }
+    .day-tab.active { border-color: var(--clay); background: var(--clay); color: #fff; }
+    .day-tab.active span { color: rgba(255,255,255,.74); }
+    .icon-btn { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; margin-left: auto; }
+
+    main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
+    .overview {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr 1fr 1fr;
+      gap: 1px;
+      margin: 34px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+    .overview > div { padding: 21px; background: var(--surface); }
+    .overview > div:first-child { border-top: 4px solid var(--clay); }
+    .overview > div:nth-child(2) { border-top: 4px solid var(--sun); }
+    .overview > div:nth-child(3) { border-top: 4px solid var(--turquoise); }
+    .overview > div:nth-child(4) { border-top: 4px solid var(--clay-dark); }
+    .overview strong { display: block; margin-bottom: 4px; font-family: "Fraunces", serif; font-size: 1.12rem; }
+    .overview p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.5; }
+    .weather { display: flex; align-items: center; gap: 13px; }
+    .weather i { flex: 0 0 auto; color: var(--clay); }
+
+    .day-section {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 34px;
+      margin: 0 0 24px;
+      padding: 28px;
+      border: 1px solid rgba(128, 87, 67, .24);
+      border-left: 5px solid var(--clay);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .day-section:nth-of-type(3n + 1) { border-left-color: var(--turquoise); }
+    .day-section:nth-of-type(3n + 2) { border-left-color: var(--sun); }
+    .day-section[hidden] { display: none; }
+    .date-block { align-self: start; position: sticky; top: 92px; }
+    .day-count { display: block; margin-bottom: 8px; color: var(--clay); font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .date-block h2 { margin: 0; font-size: 1.55rem; line-height: 1.18; }
+    .date-block h2 span { display: block; margin-top: 5px; color: var(--muted); font-family: "DM Sans", sans-serif; font-size: .82rem; font-weight: 500; }
+    .route-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--turquoise); font-size: .82rem; font-weight: 700; text-decoration: none; }
+    .route-link:hover, .location-link:hover { text-decoration: underline; }
+
+    .event {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      min-height: 0;
+      border-bottom: 1px solid #eadfd6;
+    }
+    .event:last-child { border-bottom: 0; }
+    .time { padding: 15px 12px 15px 0; color: var(--clay); font-size: .78rem; font-weight: 700; }
+    .event-body { padding: 12px 0; }
+    .event-body h3 { margin: 0 0 4px; font-size: .96rem; line-height: 1.3; }
+    .event-body p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+    .location-link { text-decoration-color: rgba(24, 123, 123, .45); text-underline-offset: 3px; }
+    .tag { display: inline-block; margin-left: 7px; padding: 3px 6px; border-radius: 3px; color: #744813; background: #f7e5b8; font-size: .61rem; font-weight: 700; text-transform: uppercase; vertical-align: 1px; }
+    .tag.must { color: #71301f; background: #f1d4ca; }
+
+    .stay {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 17px;
+      border: 1px solid #c9ddd9;
+      border-left: 4px solid var(--turquoise);
+      border-radius: 6px;
+      background: #edf7f4;
+    }
+    .stay-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: var(--turquoise); background: #d8eeea; }
+    .stay h3 { margin: 0 0 3px; font-size: .94rem; }
+    .stay p { margin: 0; color: var(--muted); font-size: .76rem; }
+
+    .alert { margin: 0 0 16px; padding: 14px 16px; border-left: 4px solid var(--sun); background: #fff7df; color: #5f4818; font-size: .8rem; line-height: 1.5; }
+    :focus-visible { outline: 3px solid var(--turquoise); outline-offset: 3px; }
+
+    @media (max-width: 760px) {
+      .hero { min-height: 52vh; background-position: center 38%; }
+      .hero-inner { padding: 58px 0 38px; }
+      .hero-meta { font-size: .8rem; }
+      main { width: min(100% - 30px, 1040px); }
+      .overview { grid-template-columns: 1fr; margin: 24px 0; }
+      .day-section { grid-template-columns: 1fr; gap: 18px; padding: 20px 16px; }
+      .date-block { position: static; }
+      .event { grid-template-columns: 74px minmax(0, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    @media print {
+      body { background: #fff; }
+      .hero { min-height: 0; color: var(--ink); border-bottom-width: 3px; background: #fff; }
+      .hero::before { display: none; }
+      .hero-inner { padding: 20px 0; }
+      h1 { color: var(--ink); text-shadow: none; }
+      .hero-meta { color: var(--muted); }
+      .toolbar-wrap, .overview { display: none; }
+      main { width: 100%; }
+      .day-section, .day-section[hidden] { display: grid; break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Outdoor road trip</p>
+      <h1>New Mexico Road Trip</h1>
+      <div class="hero-meta">
+        <span><i data-lucide="calendar-days" aria-hidden="true"></i> October 10-12, 2026</span>
+        <span><i data-lucide="plane" aria-hidden="true"></i> Seattle to Albuquerque · El Paso to Seattle</span>
+        <span><i data-lucide="car-front" aria-hidden="true"></i> 3-day road trip</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar-wrap">
+    <nav class="toolbar" aria-label="Filter itinerary by day">
+      <div class="days">
+        <button class="day-tab active" type="button" data-filter="all">All<span>trip</span></button>
+        <button class="day-tab" type="button" data-filter="oct10">Sat<span>10</span></button>
+        <button class="day-tab" type="button" data-filter="oct11">Sun<span>11</span></button>
+        <button class="day-tab" type="button" data-filter="oct12">Mon<span>12</span></button>
+      </div>
+      <button class="icon-btn" id="printBtn" type="button" title="Print itinerary" aria-label="Print itinerary"><i data-lucide="printer" aria-hidden="true"></i></button>
+    </nav>
+  </div>
+
+  <main>
+    <section class="overview" aria-label="Trip overview">
+      <div><strong>Desert, adobe, and open sky</strong><p>Albuquerque → Santa Fe → White Sands → El Paso</p></div>
+      <div class="weather"><i data-lucide="thermometer-sun" size="27" aria-hidden="true"></i><p><strong>70-72°F</strong>Average high · 21-22°C</p></div>
+      <div class="weather"><i data-lucide="thermometer-snowflake" size="27" aria-hidden="true"></i><p><strong>43-48°F</strong>Average low · 6-9°C</p></div>
+      <div class="weather"><i data-lucide="sunset" size="27" aria-hidden="true"></i><p><strong>6:51 PM</strong>Sunset</p></div>
+    </section>
+
+    <section class="day-section" data-day="oct10">
+      <header class="date-block">
+        <span class="day-count">Day 1 · Albuquerque &amp; Santa Fe</span>
+        <h2>Saturday<span>October 10</span></h2>
+        <a class="route-link" href="https://maps.app.goo.gl/pK4x4eModS3UYHtF6" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+      </header>
+      <div>
+        <div class="timeline">
+          <article class="event"><time class="time">9:40 AM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Seattle-Tacoma+International+Airport" target="_blank" rel="noreferrer">Depart Seattle</a></h3><p>Flight to Albuquerque.</p></div></article>
+          <article class="event"><time class="time">1:52 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Albuquerque+International+Sunport" target="_blank" rel="noreferrer">Arrive in Albuquerque</a></h3><p>Land at Albuquerque International Sunport.</p></div></article>
+          <article class="event"><time class="time">2:00 PM</time><div class="event-body"><h3>Rental car &amp; quick lunch</h3><p>Allow about 45 minutes for pickup and a snack.</p></div></article>
+          <article class="event"><time class="time">2:45 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Fe+New+Mexico" target="_blank" rel="noreferrer">Drive to Santa Fe</a></h3><p>About 1 hour north on I-25.</p></div></article>
+          <article class="event"><time class="time">3:45 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Fe+Plaza" target="_blank" rel="noreferrer">Santa Fe Plaza</a></h3><p>Walk the historic plaza, adobe streets, local shops, and outdoor art vendors.</p></div></article>
+          <article class="event"><time class="time">4:10 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Cathedral+Basilica+of+St+Francis+of+Assisi+Santa+Fe" target="_blank" rel="noreferrer">Cathedral Basilica of St. Francis</a></h3><p>Enjoy the exterior and surrounding area; make any interior visit brief.</p></div></article>
+          <article class="event"><time class="time">4:25 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Palace+of+the+Governors+Santa+Fe" target="_blank" rel="noreferrer">Palace of the Governors area</a></h3><p>Walk the exterior and surrounding historic streets.</p></div></article>
+          <article class="event"><time class="time">4:40 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Canyon+Road+Santa+Fe" target="_blank" rel="noreferrer">Canyon Road</a></h3><p>Adobe buildings, outdoor sculptures, galleries, small shops, and photography.</p></div></article>
+          <article class="event"><time class="time">5:15 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Albuquerque+International+Balloon+Fiesta+Balloon+Fiesta+Park" target="_blank" rel="noreferrer">Drive to Balloon Fiesta Park</a></h3><p>Allow about 1 hour and monitor festival traffic.</p></div></article>
+          <article class="event"><time class="time">6:00 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Albuquerque+International+Balloon+Fiesta+Balloon+Fiesta+Park" target="_blank" rel="noreferrer">Albuquerque International Balloon Fiesta <span class="tag must">6-9 PM</span></a></h3><p>Enjoy the evening session, hot air balloons, festival grounds, and dinner from the vendors.</p></div></article>
+          <article class="event"><time class="time">9:00 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Albuquerque+New+Mexico" target="_blank" rel="noreferrer">Head to the Airbnb</a></h3><p>Return to your accommodation in Albuquerque after the festival.</p></div></article>
+        </div>
+        <aside class="stay"><span class="stay-icon"><i data-lucide="home" aria-hidden="true"></i></span><div><h3>Airbnb in Albuquerque</h3><p>Confirm address and check-in instructions before arrival.</p></div></aside>
+      </div>
+    </section>
+
+    <section class="day-section" data-day="oct11">
+      <header class="date-block">
+        <span class="day-count">Day 2 · White Sands</span>
+        <h2>Sunday<span>October 11</span></h2>
+        <a class="route-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Albuquerque+New+Mexico&amp;destination=El+Paso+Texas&amp;waypoints=PistachioLand+Alamogordo%7CWhite+Sands+National+Park+Visitor+Center%7CInterdune+Boardwalk" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+      </header>
+      <div>
+        <aside class="alert">Bring water, sunscreen, sunglasses, snacks, and footwear suitable for hot sand. Check the park's closing time and missile-range closures before departure.</aside>
+        <div class="timeline">
+          <article class="event"><time class="time">6:30 AM</time><div class="event-body"><h3>Breakfast burrito</h3><p>Start with green chile and pick up water and road snacks.</p></div></article>
+          <article class="event"><time class="time">7:30 AM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=White+Sands+National+Park" target="_blank" rel="noreferrer">Drive to White Sands</a></h3><p>Head south from Albuquerque; allow roughly 4 hours 30 minutes.</p></div></article>
+          <article class="event"><time class="time">12:00 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=PistachioLand+Alamogordo+New+Mexico" target="_blank" rel="noreferrer">PistachioLand</a></h3><p>Spend 45 minutes seeing the giant pistachio and browsing local pistachio treats.</p></div></article>
+          <article class="event"><time class="time">1:00 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=White+Sands+National+Park+Visitor+Center" target="_blank" rel="noreferrer">White Sands Visitor Center</a> <span class="tag must">Rent sled &amp; get wax</span></h3><p>Rent a sand sled and pick up wax from <a class="location-link" href="https://whitesandstradingcompany.com/" target="_blank" rel="noreferrer">White Sands Trading Company</a>, then use the remaining time for restrooms, water, and park information.</p></div></article>
+          <article class="event"><time class="time">1:30 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Dunes+Drive+White+Sands+National+Park" target="_blank" rel="noreferrer">Dunes Drive</a></h3><p>1 hour 30 minutes for scenic pullouts and gypsum-dune photography.</p></div></article>
+          <article class="event"><time class="time">3:00 PM</time><div class="event-body"><h3>Sand sledding &amp; dunes <span class="tag must">Highlight</span></h3><p>Spend 1 hour 30 minutes sledding and walking among the dunes.</p></div></article>
+          <article class="event"><time class="time">4:30 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Interdune+Boardwalk+White+Sands" target="_blank" rel="noreferrer">Interdune Boardwalk</a></h3><p>45-minute easy walk with a break from climbing dunes.</p></div></article>
+          <article class="event"><time class="time">5:15 PM</time><div class="event-body"><h3>Dune time &amp; sunset setup</h3><p>Explore at an easy pace, then choose a quiet dune with a clear western view.</p></div></article>
+          <article class="event"><time class="time">6:30 PM</time><div class="event-body"><h3>Sunset at White Sands <span class="tag must">6:51 PM</span></h3><p>Settle in before sunset and watch the evening light move across the gypsum landscape.</p></div></article>
+          <article class="event"><time class="time">7:05 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=El+Paso+Texas" target="_blank" rel="noreferrer">Drive to El Paso</a></h3><p>About 1 hour 30 minutes.</p></div></article>
+          <article class="event"><time class="time">8:35 PM</time><div class="event-body"><h3>Check in &amp; dinner</h3><p>Have authentic El Paso Mexican or Tex-Mex food, then rest.</p></div></article>
+        </div>
+        <aside class="stay"><span class="stay-icon"><i data-lucide="bed-double" aria-hidden="true"></i></span><div><h3>Accommodation in El Paso</h3><p>Confirm the property address and parking arrangements.</p></div></aside>
+      </div>
+    </section>
+
+    <section class="day-section" data-day="oct12">
+      <header class="date-block">
+        <span class="day-count">Day 3 · El Paso</span>
+        <h2>Monday<span>October 12</span></h2>
+        <a class="route-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=El+Paso+Texas&amp;destination=El+Paso+International+Airport" target="_blank" rel="noreferrer"><i data-lucide="map" aria-hidden="true"></i> Open route in Google Maps</a>
+      </header>
+      <div>
+        <div class="timeline">
+          <article class="event"><time class="time">Morning</time><div class="event-body"><h3>Free day in El Paso</h3><p>Sleep in, have breakfast, and keep the day open with no scheduled sightseeing.</p></div></article>
+          <article class="event"><time class="time">Afternoon</time><div class="event-body"><h3>Lunch &amp; free time</h3><p>Choose food and activities based on the mood, then prepare for the flight.</p></div></article>
+          <article class="event"><time class="time">5:00 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=El+Paso+International+Airport" target="_blank" rel="noreferrer">Head to El Paso Airport</a></h3><p>Return the rental car and clear security.</p></div></article>
+          <article class="event"><time class="time">7:01 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=El+Paso+International+Airport" target="_blank" rel="noreferrer">Depart El Paso</a></h3><p>Evening flight to Seattle.</p></div></article>
+          <article class="event"><time class="time">9:45 PM</time><div class="event-body"><h3><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Seattle-Tacoma+International+Airport" target="_blank" rel="noreferrer">Arrive in Seattle</a></h3><p>Local time.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
+
+      const tabs = document.querySelectorAll(".day-tab");
+      const sections = document.querySelectorAll(".day-section");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const filter = tab.dataset.filter;
+          tabs.forEach((item) => item.classList.toggle("active", item === tab));
+          sections.forEach((section) => {
+            section.hidden = filter !== "all" && section.dataset.day !== filter;
+          });
+          if (filter !== "all") {
+            document.querySelector(`[data-day="${filter}"]`).scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      document.getElementById("printBtn")?.addEventListener("click", () => window.print());
+    });
+  </script>
+</body>
+</html>

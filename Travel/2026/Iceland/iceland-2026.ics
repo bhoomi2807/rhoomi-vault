@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rhoomi Travel Journal//Iceland 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Iceland Ring Road 2026
+BEGIN:VEVENT
+UID:fi684-20260902@rhoomi-travel-journal
+DTSTAMP:20260823T000000Z
+DTSTART:20260903T062500Z
+DTEND:20260903T140000Z
+SUMMARY:Icelandair FI684 - Seattle to Keflavik
+LOCATION:Seattle-Tacoma International Airport
+DESCRIPTION:Overnight flight. Departure is September 2 at 11:25 PM Seattle time.
+END:VEVENT
+BEGIN:VEVENT
+UID:fridheimar-20260904@rhoomi-travel-journal
+DTSTAMP:20260823T000000Z
+DTSTART:20260904T160000Z
+DTEND:20260904T171500Z
+SUMMARY:Fridheimar
+LOCATION:Fridheimar\, Reykholt\, Iceland
+DESCRIPTION:Reservation required; confirm late-afternoon availability.
+END:VEVENT
+BEGIN:VEVENT
+UID:atv-plane-wreck-20260905@rhoomi-travel-journal
+DTSTAMP:20260823T000000Z
+DTSTART:20260905T100000Z
+DTEND:20260905T123000Z
+SUMMARY:ATV Plane Wreck tour
+LOCATION:Solheimasandur\, Iceland
+DESCRIPTION:Fixed booking. Confirm meeting point and arrive early.
+END:VEVENT
+BEGIN:VEVENT
+UID:glacier-hike-20260906@rhoomi-travel-journal
+DTSTAMP:20260823T000000Z
+DTSTART:20260906T103000Z
+DTEND:20260906T140000Z
+SUMMARY:Guided glacier hike
+LOCATION:Arctic Adventures (Skaftafell Base Camp)\, 228J+FP5\, 785 Skaftafell\, Iceland
+DESCRIPTION:Meet at Arctic Adventures (Skaftafell Base Camp). Confirm gear requirements with the operator.
+END:VEVENT
+BEGIN:VEVENT
+UID:husky-petting-20260909@rhoomi-travel-journal
+DTSTAMP:20260823T000000Z
+DTSTART:20260909T090000Z
+DTEND:20260909T100000Z
+SUMMARY:Husky petting
+LOCATION:North Iceland
+DESCRIPTION:Fixed booking. Confirm the meeting point and arrive 15 minutes early.
+END:VEVENT
+BEGIN:VEVENT
+UID:fi683-20260910@rhoomi-travel-journal
+DTSTAMP:20260823T000000Z
+DTSTART:20260910T194500Z
+DTEND:20260911T034000Z
+SUMMARY:Icelandair FI683 - Keflavik to Seattle
+LOCATION:Keflavik International Airport
+DESCRIPTION:Arrival is September 10 at 8:40 PM Seattle time.
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,109 @@
+:root {
+	color-scheme: light;
+	--ink: #24231f;
+	--muted: #6c685f;
+	--paper: #f4efe4;
+	--surface: #fffdf8;
+	--line: #d7d0c2;
+	--travel: #39718a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	color: var(--ink);
+	background:
+		linear-gradient(rgba(57, 113, 138, 0.07) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(57, 113, 138, 0.07) 1px, transparent 1px),
+		var(--paper);
+	background-size: 24px 24px;
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+main {
+	width: min(100% - 32px, 900px);
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: clamp(32px, 7vw, 72px) 0;
+}
+
+.back-link {
+	display: inline-block;
+	margin-bottom: 42px;
+	color: var(--travel);
+	font: 700 0.76rem "Trebuchet MS", sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+.eyebrow {
+	margin: 0 0 12px;
+	color: var(--travel);
+	font: 700 0.76rem "Trebuchet MS", sans-serif;
+	text-transform: uppercase;
+}
+
+h1 {
+	margin: 0;
+	font-size: clamp(3rem, 10vw, 6rem);
+	font-weight: 400;
+	line-height: 0.95;
+}
+
+.intro {
+	max-width: 620px;
+	margin: 20px 0 38px;
+	color: var(--muted);
+	font-size: 1.08rem;
+	line-height: 1.6;
+}
+
+.page-list {
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid var(--line);
+	list-style: none;
+}
+
+.page-link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 72px;
+	padding: 16px 4px;
+	border-bottom: 1px solid var(--line);
+	color: var(--ink);
+	font-size: 1.22rem;
+	text-decoration: none;
+}
+
+.page-link::after {
+	color: var(--travel);
+	content: "→";
+}
+
+.page-link:hover { color: var(--travel); }
+
+.back-link:focus-visible,
+.page-link:focus-visible {
+	outline: 3px solid var(--travel);
+	outline-offset: 4px;
+}
+
+.itinerary-shell {
+	padding: clamp(28px, 6vw, 54px);
+	border-top: 6px solid var(--travel);
+	background: var(--surface);
+}
+
+.itinerary-shell .intro { margin-bottom: 0; }
+
+@media (max-width: 560px) {
+	main { width: min(100% - 24px, 900px); }
+	.back-link { margin-bottom: 32px; }
+}
