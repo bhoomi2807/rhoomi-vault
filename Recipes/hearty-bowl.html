@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hearty Rajma Paneer Bowl | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
 	<style>
 		:root {
 			color-scheme: light;
@@ -269,30 +270,6 @@
 			</section>
 		</aside>
 	</main>
-	<script>
-		const storageKey = `recipe-ingredients:${location.pathname}`;
-		const savedChecks = JSON.parse(localStorage.getItem(storageKey) || "[]");
-
-		document.querySelectorAll('[aria-labelledby="ingredients-heading"] li').forEach((item, index) => {
-			const label = document.createElement("label");
-			const checkbox = document.createElement("input");
-			const text = document.createElement("span");
-
-			checkbox.type = "checkbox";
-			checkbox.checked = savedChecks.includes(index);
-			text.append(...item.childNodes);
-			label.className = `ingredient-check${checkbox.checked ? " checked" : ""}`;
-			label.append(checkbox, text);
-			item.append(label);
-
-			checkbox.addEventListener("change", () => {
-				label.classList.toggle("checked", checkbox.checked);
-				const checked = [...document.querySelectorAll('[aria-labelledby="ingredients-heading"] input')]
-					.map((input, itemIndex) => input.checked ? itemIndex : -1)
-					.filter(itemIndex => itemIndex >= 0);
-				localStorage.setItem(storageKey, JSON.stringify(checked));
-			});
-		});
-	</script>
+	<script src="ingredient-checklist.js"></script>
 </body>
 </html>
