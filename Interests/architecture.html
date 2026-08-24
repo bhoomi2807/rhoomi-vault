@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Architecture Field Guide | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #1e2422;
+			--paper: #f5f1e8;
+			--cream: #fffdf8;
+			--red: #a9432f;
+			--green: #294b3d;
+			--blue: #42667a;
+			--line: #d3cec2;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		.period,
+		.filters button {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			margin: 0 0 32px;
+			font-size: clamp(2.5rem, 8vw, 5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		main {
+			width: min(100% - 32px, 1180px);
+			margin: 0 auto;
+			padding: 48px 0 72px;
+		}
+
+		.filters {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-bottom: 32px;
+			padding-bottom: 24px;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.filters button {
+			min-height: 42px;
+			padding: 0 16px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: var(--green);
+			background: transparent;
+			font-size: 0.72rem;
+			cursor: pointer;
+		}
+
+		.filters button:hover,
+		.filters button:focus-visible,
+		.filters button[aria-pressed="true"] {
+			color: #fff;
+			background: var(--green);
+		}
+
+		.filters button:focus-visible {
+			outline: 3px solid var(--blue);
+			outline-offset: 2px;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 16px;
+		}
+
+		.card {
+			min-width: 0;
+			padding: 24px;
+			border: 1px solid var(--line);
+			border-top: 5px solid var(--red);
+			border-radius: 6px;
+			background: var(--cream);
+		}
+
+		.card[hidden] { display: none; }
+
+		.card:nth-child(3n + 2) { border-top-color: var(--green); }
+		.card:nth-child(3n) { border-top-color: var(--blue); }
+
+		.period {
+			margin: 0 0 10px;
+			color: var(--red);
+			font-size: 0.7rem;
+		}
+
+		h2 {
+			margin: 0 0 14px;
+			font-size: 1.65rem;
+			font-weight: 400;
+		}
+
+		.card p {
+			margin: 0;
+			line-height: 1.55;
+		}
+
+		.card p + p { margin-top: 14px; }
+
+		.traits { color: #58615c; }
+
+		.example {
+			padding-top: 14px;
+			border-top: 1px solid var(--line);
+			font-size: 0.92rem;
+		}
+
+		strong { color: var(--green); }
+
+		.empty {
+			margin: 32px 0;
+			text-align: center;
+		}
+
+		@media (max-width: 880px) {
+			.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		}
+
+		@media (max-width: 580px) {
+			main { width: min(100% - 24px, 1180px); }
+			.grid { grid-template-columns: 1fr; }
+			.filters button { flex: 1 1 auto; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Architecture Field Guide</h1>
+		<nav class="filters" aria-label="Filter architecture by period">
+			<button type="button" data-filter="all" aria-pressed="true">All styles</button>
+			<button type="button" data-filter="ancient" aria-pressed="false">Ancient</button>
+			<button type="button" data-filter="medieval" aria-pressed="false">Medieval</button>
+			<button type="button" data-filter="early-modern" aria-pressed="false">Early modern</button>
+			<button type="button" data-filter="modern" aria-pressed="false">Modern</button>
+			<button type="button" data-filter="contemporary" aria-pressed="false">Contemporary</button>
+		</nav>
+
+		<section class="grid" aria-label="Architectural styles" aria-live="polite">
+			<article class="card" data-period="ancient">
+				<p class="period">Ancient Greece · 700-146 BCE</p>
+				<h2>Classical Greek</h2>
+				<p class="traits">Symmetry, mathematical proportion, pediments, and Doric, Ionic, or Corinthian columns.</p>
+				<p class="example"><strong>Look at:</strong> The Parthenon, Athens.</p>
+			</article>
+
+			<article class="card" data-period="ancient">
+				<p class="period">Roman world · 509 BCE-476 CE</p>
+				<h2>Roman</h2>
+				<p class="traits">Concrete construction, arches, vaults, domes, aqueducts, and monumental civic interiors.</p>
+				<p class="example"><strong>Look at:</strong> The Pantheon, Rome.</p>
+			</article>
+
+			<article class="card" data-period="medieval">
+				<p class="period">Europe · 10th-12th centuries</p>
+				<h2>Romanesque</h2>
+				<p class="traits">Heavy masonry, round arches, thick walls, small windows, towers, and rhythmic arcades.</p>
+				<p class="example"><strong>Look at:</strong> Durham Cathedral, England.</p>
+			</article>
+
+			<article class="card" data-period="medieval">
+				<p class="period">Europe · 12th-16th centuries</p>
+				<h2>Gothic</h2>
+				<p class="traits">Pointed arches, ribbed vaults, flying buttresses, stained glass, and strong vertical emphasis.</p>
+				<p class="example"><strong>Look at:</strong> Chartres Cathedral, France.</p>
+			</article>
+
+			<article class="card" data-period="medieval">
+				<p class="period">7th century-present</p>
+				<h2>Islamic</h2>
+				<p class="traits">Courtyards, domes, minarets, geometric ornament, calligraphy, muqarnas, and filtered light.</p>
+				<p class="example"><strong>Look at:</strong> The Alhambra, Granada.</p>
+			</article>
+
+			<article class="card" data-period="early-modern">
+				<p class="period">Europe · 15th-17th centuries</p>
+				<h2>Renaissance</h2>
+				<p class="traits">Classical orders revived through clear geometry, balanced facades, central plans, and domes.</p>
+				<p class="example"><strong>Look at:</strong> Tempietto, Rome.</p>
+			</article>
+
+			<article class="card" data-period="early-modern">
+				<p class="period">Europe and Americas · 17th-18th centuries</p>
+				<h2>Baroque</h2>
+				<p class="traits">Dramatic curves, theatrical space, layered ornament, grand axes, and controlled natural light.</p>
+				<p class="example"><strong>Look at:</strong> San Carlo alle Quattro Fontane, Rome.</p>
+			</article>
+
+			<article class="card" data-period="early-modern">
+				<p class="period">Japan · 16th-19th centuries</p>
+				<h2>Traditional Japanese</h2>
+				<p class="traits">Timber frames, modular tatami planning, deep eaves, sliding screens, gardens, and material restraint.</p>
+				<p class="example"><strong>Look at:</strong> Katsura Imperial Villa, Kyoto.</p>
+			</article>
+
+			<article class="card" data-period="modern">
+				<p class="period">International · 1920s-1970s</p>
+				<h2>Modernism</h2>
+				<p class="traits">Functional plans, minimal ornament, open interiors, glass walls, and expressed concrete or steel.</p>
+				<p class="example"><strong>Look at:</strong> Villa Savoye, Poissy.</p>
+			</article>
+
+			<article class="card" data-period="modern">
+				<p class="period">International · 1920s-1930s</p>
+				<h2>Art Deco</h2>
+				<p class="traits">Stepped silhouettes, streamlined geometry, rich materials, metallic details, and stylized ornament.</p>
+				<p class="example"><strong>Look at:</strong> Chrysler Building, New York.</p>
+			</article>
+
+			<article class="card" data-period="modern">
+				<p class="period">International · 1950s-1970s</p>
+				<h2>Brutalism</h2>
+				<p class="traits">Monumental massing, exposed concrete, repetitive modules, deep shadows, and visible structure.</p>
+				<p class="example"><strong>Look at:</strong> Barbican Estate, London.</p>
+			</article>
+
+			<article class="card" data-period="contemporary">
+				<p class="period">Global · 1980s-present</p>
+				<h2>Sustainable Design</h2>
+				<p class="traits">Passive climate response, low-carbon materials, adaptive reuse, efficient systems, and biodiversity.</p>
+				<p class="example"><strong>Look at:</strong> Bullitt Center, Seattle.</p>
+			</article>
+		</section>
+		<p class="empty" hidden>No styles match this period.</p>
+	</main>
+
+	<script>
+		const filterButtons = document.querySelectorAll("[data-filter]");
+		const cards = document.querySelectorAll("[data-period]");
+		const emptyMessage = document.querySelector(".empty");
+
+		filterButtons.forEach((button) => {
+			button.addEventListener("click", () => {
+				const selectedPeriod = button.dataset.filter;
+				let visibleCount = 0;
+
+				filterButtons.forEach((item) => {
+					item.setAttribute("aria-pressed", String(item === button));
+				});
+
+				cards.forEach((card) => {
+					const shouldShow = selectedPeriod === "all" || card.dataset.period === selectedPeriod;
+					card.hidden = !shouldShow;
+					if (shouldShow) visibleCount += 1;
+				});
+
+				emptyMessage.hidden = visibleCount > 0;
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Refreshing Herb Cubes | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #20251f;
+			--muted: #60685e;
+			--paper: #fffdf7;
+			--mint: #2f684d;
+			--lime: #8aa64a;
+			--line: #d6ddce;
+			--note: #edf2e6;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #dfe8d8;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 900px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--mint);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(32, 37, 31, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--lime);
+		}
+
+		h1 {
+			max-width: 700px;
+			margin: 0;
+			font-size: clamp(2.3rem, 8vw, 5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 650px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--mint);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.7fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--mint);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--lime);
+			font-weight: 700;
+		}
+
+		strong { color: var(--mint); }
+
+		.note {
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--lime);
+			background: var(--note);
+		}
+
+		.note h2 { margin-bottom: 12px; }
+
+		.note p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		.note p + p { margin-top: 12px; }
+
+		@media (max-width: 640px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Freezer recipe</p>
+		<h1>Refreshing Herb Cubes</h1>
+		<p class="intro">
+			Bright coriander and mint cubes with ginger, chili, cumin, and chaat
+			masala. Drop one into water, chaas, or lemonade for instant flavor.
+		</p>
+		<p class="meta">Makes about 12 standard ice cubes</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+				<ul>
+					<li>1 packed cup fresh coriander leaves and tender stems</li>
+					<li>1/2 packed cup fresh mint leaves</li>
+					<li>1-inch piece fresh ginger, peeled and chopped</li>
+					<li>1 small green chili, chopped</li>
+					<li>1 tsp roasted ground cumin (jeera)</li>
+					<li>1 tsp chaat masala</li>
+					<li>1/4 tsp salt, or to taste</li>
+					<li>3/4 cup cold water, plus more if needed</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Wash the coriander and mint thoroughly, then drain well. Pick out
+						any tough coriander stems.
+					</li>
+					<li>
+						Add the herbs, ginger, green chili, cumin, chaat masala, salt, and
+						water to a blender. Blend until very smooth, adding 1-2 tbsp more
+						water only if needed.
+					</li>
+					<li>
+						Taste and adjust the salt or chaat masala. Remember that chaat
+						masala is already salty.
+					</li>
+					<li>
+						Pour into a clean ice-cube tray and freeze until solid, about
+						<strong>6 hours or overnight</strong>.
+					</li>
+					<li>
+						Transfer the frozen cubes to a labeled freezer bag or airtight
+						container and use within <strong>2 months</strong>.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="note" aria-labelledby="serving-heading">
+			<h2 id="serving-heading">How to serve</h2>
+			<p>
+				Add <strong>1 cube to 8-12 oz</strong> cold water, sparkling water,
+				chaas, or lemonade. Let it soften for a few minutes, stir, and adjust
+				with more water if the flavor is too concentrated.
+			</p>
+			<p>
+				For a tangier cube, blend in 2 tbsp lemon or lime juice. Reduce the
+				green chili to half for a milder batch.
+			</p>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

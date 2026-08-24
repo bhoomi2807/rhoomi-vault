@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weekly Routine | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #202520;
+			--muted: #626961;
+			--paper: #fffdf8;
+			--green: #315b45;
+			--coral: #b9513d;
+			--gold: #b98a35;
+			--blue: #42667a;
+			--line: #d6d7cd;
+			--wash: #e4e9df;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(0deg, transparent 0 31px, rgba(49, 91, 69, 0.045) 31px 32px),
+				var(--wash);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 1120px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--coral);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(32, 37, 32, 0.12);
+		}
+
+		.eyebrow,
+		.progress-copy,
+		.day,
+		.target,
+		button {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--coral);
+			font-size: 0.8rem;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: clamp(2.7rem, 10vw, 6rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 700px;
+			margin: 20px 0 32px;
+			color: var(--muted);
+			font-size: 1.1rem;
+			line-height: 1.6;
+		}
+
+		.progress-row {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 16px;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+
+		.progress-track {
+			height: 10px;
+			overflow: hidden;
+			border-radius: 5px;
+			background: #e2dfd6;
+		}
+
+		.progress-bar {
+			width: 0;
+			height: 100%;
+			background: var(--green);
+			transition: width 220ms ease;
+		}
+
+		.progress-copy {
+			margin: 0;
+			color: var(--green);
+			font-size: 0.75rem;
+		}
+
+		.tracker-wrap {
+			overflow-x: auto;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+		}
+
+		.tracker {
+			width: 100%;
+			min-width: 820px;
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			padding: 14px 10px;
+			border-bottom: 1px solid var(--line);
+			text-align: center;
+		}
+
+		tr:last-child th,
+		tr:last-child td { border-bottom: 0; }
+
+		thead th {
+			color: var(--muted);
+			background: #f3f1e9;
+		}
+
+		.habit-heading {
+			width: 250px;
+			padding-left: 20px;
+			text-align: left;
+		}
+
+		.day { font-size: 0.7rem; }
+
+		.habit {
+			padding-left: 20px;
+			text-align: left;
+			font-size: 1rem;
+			font-weight: 400;
+		}
+
+		.habit span {
+			display: block;
+			margin-top: 4px;
+			color: var(--muted);
+			font-size: 0.8rem;
+			font-weight: 400;
+			line-height: 1.35;
+		}
+
+		.target {
+			display: inline-block;
+			min-width: 42px;
+			padding: 5px 7px;
+			border-radius: 3px;
+			color: var(--blue);
+			background: #e9eef0;
+			font-size: 0.65rem;
+		}
+
+		input[type="checkbox"] {
+			width: 22px;
+			height: 22px;
+			margin: 0;
+			accent-color: var(--green);
+			cursor: pointer;
+		}
+
+		input:focus-visible,
+		button:focus-visible {
+			outline: 3px solid var(--gold);
+			outline-offset: 3px;
+		}
+
+		.note {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 24px;
+			padding: 24px;
+			border-left: 4px solid var(--gold);
+			background: #f3eee2;
+		}
+
+		.note h2 {
+			margin: 0 0 8px;
+			color: var(--green);
+			font-size: 1.1rem;
+		}
+
+		.note p {
+			margin: 0;
+			line-height: 1.55;
+		}
+
+		.actions {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 24px;
+		}
+
+		button {
+			min-height: 42px;
+			padding: 0 16px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: var(--green);
+			background: transparent;
+			font-size: 0.72rem;
+			cursor: pointer;
+		}
+
+		button:hover {
+			color: #fff;
+			background: var(--green);
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.note { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Habit tracker</p>
+		<h1>Weekly Routine</h1>
+		<p class="intro">
+			Track the habits that support your body, mind, and direction. Aim for
+			consistency across the week, not a perfect streak every day.
+		</p>
+
+		<div class="progress-row" aria-live="polite">
+			<div class="progress-track" role="progressbar" aria-label="Weekly habit progress" aria-valuemin="0" aria-valuemax="61" aria-valuenow="0">
+				<div class="progress-bar"></div>
+			</div>
+			<p class="progress-copy"><span id="completed-count">0</span> of 61 checks</p>
+		</div>
+
+		<div class="tracker-wrap">
+			<table class="tracker">
+				<thead>
+					<tr>
+						<th class="habit-heading" scope="col">Habit + target</th>
+						<th class="day" scope="col">Mon</th>
+						<th class="day" scope="col">Tue</th>
+						<th class="day" scope="col">Wed</th>
+						<th class="day" scope="col">Thu</th>
+						<th class="day" scope="col">Fri</th>
+						<th class="day" scope="col">Sat</th>
+						<th class="day" scope="col">Sun</th>
+						<th class="day" scope="col">Done</th>
+					</tr>
+				</thead>
+				<tbody id="habit-rows"></tbody>
+			</table>
+		</div>
+
+		<aside class="note" aria-label="Routine guidance">
+			<section>
+				<h2>Personalize the numbers</h2>
+				<p>
+					Your protein and water needs are individual. Use targets recommended
+					for you rather than copying a generic number; check the box when you
+					meet your own daily target.
+				</p>
+			</section>
+			<section>
+				<h2>Recovery counts</h2>
+				<p>
+					The gym goal is five days, leaving two recovery days. Sleep, hydration,
+					and rest support training; pain or illness is a reason to adjust the plan.
+				</p>
+			</section>
+		</aside>
+
+		<div class="actions">
+			<button type="button" id="reset-button">Reset week</button>
+		</div>
+	</main>
+
+	<script>
+		const storageKey = "rhoomi-weekly-routine";
+		const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+		const habits = [
+			{ id: "meditate", name: "Meditate", detail: "At least 10-15 minutes", target: 7 },
+			{ id: "gym", name: "Gym", detail: "Train with two recovery days", target: 5 },
+			{ id: "skincare", name: "7-step skincare", detail: "Use only products your skin tolerates", target: 7 },
+			{ id: "protein", name: "Meet protein target", detail: "Use your personalized daily goal", target: 7 },
+			{ id: "water", name: "Meet water target", detail: "Adjust for your body, weather, and activity", target: 7 },
+			{ id: "sleep", name: "Sleep", detail: "Aim for 7-9 hours", target: 7 },
+			{ id: "goals", name: "Review goals", detail: "Choose or revisit the day's priorities", target: 7 },
+			{ id: "reading", name: "Read", detail: "Even 10 pages counts", target: 7 },
+			{ id: "happy", name: "One happy thing", detail: "Notice or write down one good moment", target: 7 }
+		];
+
+		const habitRows = document.querySelector("#habit-rows");
+		const totalTarget = habits.reduce((sum, habit) => sum + habit.target, 0);
+
+		habits.forEach((habit) => {
+			const row = document.createElement("tr");
+			const habitCell = document.createElement("th");
+			habitCell.className = "habit";
+			habitCell.scope = "row";
+			habitCell.innerHTML = `${habit.name}<span>${habit.detail}</span>`;
+			row.append(habitCell);
+
+			days.forEach((day) => {
+				const cell = document.createElement("td");
+				const checkbox = document.createElement("input");
+				checkbox.type = "checkbox";
+				checkbox.dataset.habit = habit.id;
+				checkbox.dataset.day = day;
+				checkbox.setAttribute("aria-label", `${habit.name}, ${day}`);
+				cell.append(checkbox);
+				row.append(cell);
+			});
+
+			const targetCell = document.createElement("td");
+			targetCell.innerHTML = `<span class="target" data-count="${habit.id}">0/${habit.target}</span>`;
+			row.append(targetCell);
+			habitRows.append(row);
+		});
+
+		const checkboxes = [...document.querySelectorAll("[data-habit]")];
+		const progressTrack = document.querySelector("[role='progressbar']");
+		const progressBar = document.querySelector(".progress-bar");
+		const completedCount = document.querySelector("#completed-count");
+
+		function readSavedTasks() {
+			try {
+				return JSON.parse(localStorage.getItem(storageKey)) ?? {};
+			} catch {
+				return {};
+			}
+		}
+
+		function updateProgress() {
+			let targetProgress = 0;
+
+			habits.forEach((habit) => {
+				const count = checkboxes.filter((checkbox) => checkbox.dataset.habit === habit.id && checkbox.checked).length;
+				document.querySelector(`[data-count="${habit.id}"]`).textContent = `${count}/${habit.target}`;
+				targetProgress += Math.min(count, habit.target);
+			});
+
+			completedCount.textContent = targetProgress;
+			progressTrack.setAttribute("aria-valuenow", String(targetProgress));
+			progressBar.style.width = `${(targetProgress / totalTarget) * 100}%`;
+		}
+
+		function saveTasks() {
+			const state = Object.fromEntries(
+				checkboxes.map((checkbox) => [`${checkbox.dataset.habit}-${checkbox.dataset.day}`, checkbox.checked])
+			);
+			localStorage.setItem(storageKey, JSON.stringify(state));
+			updateProgress();
+		}
+
+		const savedTasks = readSavedTasks();
+		checkboxes.forEach((checkbox) => {
+			const id = `${checkbox.dataset.habit}-${checkbox.dataset.day}`;
+			checkbox.checked = Boolean(savedTasks[id]);
+			checkbox.addEventListener("change", saveTasks);
+		});
+
+		document.querySelector("#reset-button").addEventListener("click", () => {
+			checkboxes.forEach((checkbox) => {
+				checkbox.checked = false;
+			});
+			saveTasks();
+		});
+
+		updateProgress();
+	</script>
+</body>
+</html>

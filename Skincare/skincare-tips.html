@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Skincare &amp; Wellness Tips | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #292326;
+			--muted: #6b6266;
+			--paper: #fffaf7;
+			--tomato: #ad493a;
+			--sage: #496151;
+			--line: #dfd2d1;
+			--wash: #f3e9e4;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(90deg, transparent 0 47px, rgba(73, 97, 81, 0.05) 47px 48px),
+				#e5e9df;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100%, 780px);
+			padding: clamp(28px, 7vw, 64px);
+			border-top: 8px solid var(--tomato);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(41, 35, 38, 0.12);
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--sage);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: clamp(2.4rem, 9vw, 5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 620px;
+			margin: 20px 0 32px;
+			color: var(--muted);
+			font-size: 1.1rem;
+			line-height: 1.6;
+		}
+
+		.steps {
+			list-style: none;
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+			margin: 0;
+			padding: 0;
+			counter-reset: step;
+		}
+
+		.steps li {
+			position: relative;
+			min-width: 0;
+			padding: 22px 22px 22px 62px;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+			counter-increment: step;
+		}
+
+		.steps li::before {
+			content: counter(step, decimal-leading-zero);
+			position: absolute;
+			top: 23px;
+			left: 20px;
+			color: var(--tomato);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.78rem;
+			font-weight: 700;
+		}
+
+		h2 {
+			margin: 0 0 7px;
+			color: var(--sage);
+			font-size: 1.2rem;
+		}
+
+		p {
+			margin: 0;
+			line-height: 1.55;
+		}
+
+		strong { color: var(--sage); }
+
+		.caution {
+			margin-top: 24px;
+			padding: 24px;
+			border-left: 4px solid var(--tomato);
+			background: var(--wash);
+		}
+
+		.caution p + p { margin-top: 12px; }
+
+		.tip-section + .tip-section {
+			margin-top: 48px;
+			padding-top: 48px;
+			border-top: 1px solid var(--line);
+		}
+
+		@media (max-width: 600px) {
+			body { padding: 0; }
+			main { min-height: 100vh; box-shadow: none; }
+			.steps { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<section class="tip-section" aria-labelledby="mask-heading">
+			<p class="eyebrow">DIY skincare tip</p>
+			<h1 id="mask-heading">Tomato &amp; Honey Mask</h1>
+			<p class="intro">
+				Use this gentle rinse-off mask no more than <strong>2-3 times a week</strong>.
+				Do not scrub with the tomato; gentle application reduces friction and irritation.
+			</p>
+
+			<ol class="steps">
+				<li>
+					<h2>Patch test</h2>
+					<p>Test the mixture on a small area of the inner arm and wait 24 hours before using it on your face.</p>
+				</li>
+				<li>
+					<h2>Mix</h2>
+					<p>Combine 1 teaspoon fresh tomato pulp or juice with 1 teaspoon plain honey in a clean bowl.</p>
+				</li>
+				<li>
+					<h2>Apply gently</h2>
+					<p>Spread a thin layer over clean, dry skin. Avoid the eyes, lips, broken skin, and irritated areas.</p>
+				</li>
+				<li>
+					<h2>Rinse</h2>
+					<p>Leave on for 5 minutes the first time, up to 10 minutes if well tolerated. Rinse with cool water and moisturize.</p>
+				</li>
+			</ol>
+
+			<aside class="caution" aria-labelledby="caution-heading">
+				<h2 id="caution-heading">Use with care</h2>
+				<p>
+					Tomato is acidic and can cause stinging, redness, dryness, or contact
+					dermatitis. Stop immediately and rinse if it burns or itches. Avoid this
+					mask if you have very sensitive skin, rosacea, eczema, a tomato allergy,
+					or a bee-product allergy.
+				</p>
+				<p>
+					DIY tomato masks are not proven treatments for acne, dark spots, or
+					other skin conditions. Use broad-spectrum SPF 30 or higher every day,
+					and do not combine this mask with exfoliating acids or retinoids that day.
+				</p>
+			</aside>
+		</section>
+
+		<section class="tip-section" aria-labelledby="seed-water-heading">
+			<p class="eyebrow">Morning drink</p>
+			<h1 id="seed-water-heading">Fennel, Cumin &amp; Ajwain Water</h1>
+			<p class="intro">
+				A warm, aromatic seed infusion. Start with a few mornings per week;
+				if it agrees with you, it can become part of your morning routine.
+			</p>
+
+			<ol class="steps">
+				<li>
+					<h2>Measure</h2>
+					<p>Use 1/2 teaspoon each fennel seeds (saunf), cumin seeds (jeera), and carom seeds (ajwain).</p>
+				</li>
+				<li>
+					<h2>Soak</h2>
+					<p>Add the seeds to 2 cups water, cover, and soak overnight in the refrigerator.</p>
+				</li>
+				<li>
+					<h2>Warm</h2>
+					<p>In the morning, simmer the seeds and water gently for 5 minutes. Do not reduce it heavily.</p>
+				</li>
+				<li>
+					<h2>Strain + sip</h2>
+					<p>Strain and drink 1 warm cup with or after breakfast. Refrigerate the remainder and use within 24 hours.</p>
+				</li>
+			</ol>
+
+			<aside class="caution" aria-labelledby="drink-caution-heading">
+				<h2 id="drink-caution-heading">Keep expectations realistic</h2>
+				<p>
+					This infusion may feel soothing after meals, but it is not a proven
+					detox, weight-loss method, or skincare treatment. Stop if it worsens
+					heartburn, nausea, cramping, or diarrhea.
+				</p>
+				<p>
+					Check with a clinician before regular use if you are pregnant or
+					breastfeeding, take prescription medicine, have a bleeding disorder,
+					or are allergic to fennel, celery, carrot, or related plants.
+				</p>
+			</aside>
+		</section>
+	</main>
+</body>
+</html>

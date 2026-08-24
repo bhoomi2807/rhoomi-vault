@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Green Pav Bhaji | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #25271f;
+			--muted: #64675b;
+			--paper: #fffdf7;
+			--leaf: #35633d;
+			--lime: #78934f;
+			--spice: #a8512f;
+			--line: #d9ddce;
+			--note: #edf1e4;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #dde3d5;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 960px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--leaf);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(37, 39, 31, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--spice);
+		}
+
+		h1 {
+			max-width: 800px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 700px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--leaf);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(240px, 0.95fr) minmax(0, 1.65fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--leaf);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			margin: 24px 0 10px;
+			color: var(--spice);
+			font-size: 1rem;
+		}
+
+		h3:first-of-type { margin-top: 0; }
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--spice);
+			font-weight: 700;
+		}
+
+		strong { color: var(--spice); }
+
+		.notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--lime);
+			background: var(--note);
+		}
+
+		.notes h2 { margin-bottom: 10px; }
+
+		.notes p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid,
+			.notes { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Mumbai classic, greener</p>
+		<h1>Green Pav Bhaji</h1>
+		<p class="intro">
+			A vibrant mash of cauliflower, potato, peas, and bell pepper finished
+			with spinach, coriander, mint, pav bhaji masala, and lemon.
+		</p>
+		<p class="meta">Serves 4 &nbsp;|&nbsp; Prep 20 min &nbsp;|&nbsp; Cook 30 min</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+
+				<h3>For the green purée</h3>
+				<ul>
+					<li>3 packed cups baby spinach</li>
+					<li>1 packed cup coriander leaves and tender stems</li>
+					<li>1/4 cup mint leaves</li>
+					<li>1-2 green chilies</li>
+					<li>1 tbsp lemon juice</li>
+				</ul>
+
+				<h3>For the bhaji</h3>
+				<ul>
+					<li>2 medium potatoes, peeled and cubed</li>
+					<li>2 cups cauliflower florets</li>
+					<li>1 cup green peas</li>
+					<li>1 tbsp neutral oil</li>
+					<li>2 tbsp butter, divided</li>
+					<li>1 medium onion, finely chopped</li>
+					<li>1 green bell pepper, finely chopped</li>
+					<li>1 tbsp ginger-garlic paste</li>
+					<li>2 tbsp pav bhaji masala</li>
+					<li>1/2 tsp ground cumin</li>
+					<li>1 tsp salt, or to taste</li>
+					<li>1-1 1/2 cups hot water, as needed</li>
+				</ul>
+
+				<h3>To serve</h3>
+				<ul>
+					<li>8 pav rolls</li>
+					<li>Butter for toasting</li>
+					<li>Chopped onion, coriander, and lemon wedges</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Bring a pot of water to a boil. Add the spinach for
+						<strong>30 seconds</strong>, then immediately transfer it to ice water.
+						Drain and gently squeeze out excess water.
+					</li>
+					<li>
+						Blend the blanched spinach, coriander, mint, green chilies, lemon juice,
+						and 2-3 tablespoons water into a smooth, bright green purée. Set aside.
+					</li>
+					<li>
+						Place the potatoes, cauliflower, and peas in a pot with 1 cup water.
+						Cover and cook for <strong>12-15 minutes</strong>, until very tender.
+						Mash roughly, keeping the cooking liquid.
+					</li>
+					<li>
+						Heat the oil and 1 tablespoon butter in a wide pan. Cook the onion and
+						bell pepper over medium heat for 6-8 minutes, until very soft. Add the
+						ginger-garlic paste and cook for 1 minute.
+					</li>
+					<li>
+						Add the pav bhaji masala and cumin with a splash of water. Stir for
+						30 seconds, then add the mashed vegetables and salt.
+					</li>
+					<li>
+						Mash and stir over medium-low heat for 5-7 minutes, adding hot water
+						gradually until the bhaji is thick, smooth, and spoonable.
+					</li>
+					<li>
+						Lower the heat and stir in the green purée. Simmer gently for only
+						<strong>2-3 minutes</strong>. Turn off the heat and mix in the remaining
+						1 tablespoon butter. Taste and adjust salt and lemon.
+					</li>
+					<li>
+						Split the pav without cutting all the way through. Toast cut-side down
+						in butter until golden. Serve hot with bhaji, onion, coriander, and
+						lemon wedges.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="notes" aria-label="Green pav bhaji tips">
+			<section aria-labelledby="color-heading">
+				<h2 id="color-heading">Keep it green</h2>
+				<p>
+					Blanching and cooling the spinach sets its bright color. Add the green
+					purée only after the vegetables are fully cooked, then simmer briefly;
+					prolonged cooking will make the bhaji olive-colored.
+				</p>
+			</section>
+
+			<section aria-labelledby="storage-heading">
+				<h2 id="storage-heading">Store + reheat</h2>
+				<p>
+					Refrigerate bhaji in an airtight container for up to 3 days. Reheat
+					gently with a splash of water and avoid boiling for long. Freeze for up
+					to 1 month, though the green color may soften after reheating.
+				</p>
+			</section>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ninja CREAMi Acai Bowl | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #282026;
+			--muted: #6a5f66;
+			--paper: #fffaf7;
+			--berry: #9b3558;
+			--leaf: #37604a;
+			--line: #dfd1d6;
+			--note: #f4e9e9;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #e8ddd9;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 940px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--berry);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(40, 32, 38, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--leaf);
+		}
+
+		h1 {
+			max-width: 760px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 680px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--berry);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.7fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--berry);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			margin: 24px 0 10px;
+			color: var(--leaf);
+			font-size: 1rem;
+		}
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--leaf);
+			font-weight: 700;
+		}
+
+		strong { color: var(--leaf); }
+
+		.notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--leaf);
+			background: var(--note);
+		}
+
+		.notes h2 { margin-bottom: 10px; }
+
+		.notes p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid,
+			.notes { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Ninja CREAMi recipe</p>
+		<h1>Thick Acai Bowl</h1>
+		<p class="intro">
+			A spoonable, fruit-forward acai base with enough body for generous
+			toppings. Blend today, spin tomorrow, and eat it straight away.
+		</p>
+		<p class="meta">Makes 1 standard pint &nbsp;|&nbsp; Freeze for 24 hours</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+				<h3>Acai base</h3>
+				<ul>
+					<li>2 unsweetened acai puree packets (about 7 oz total), thawed</li>
+					<li>1 ripe banana</li>
+					<li>1/2 cup apple juice or unsweetened almond or oat milk</li>
+					<li>Up to 1 tbsp maple syrup or honey, optional</li>
+					<li>1 tsp lime juice</li>
+					<li>Pinch of salt</li>
+				</ul>
+
+				<h3>Topping ideas</h3>
+				<ul>
+					<li>Sliced banana or fresh berries</li>
+					<li>Granola</li>
+					<li>Unsweetened coconut flakes</li>
+					<li>Chia seeds or ground flax seeds</li>
+					<li>Peanut or almond butter</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Blend the thawed acai, banana, chosen liquid, lime juice, and salt
+						until completely smooth. Taste and add maple syrup only if needed;
+						apple juice will already add sweetness.
+					</li>
+					<li>
+						Pour into a standard Ninja CREAMi pint container. Keep the mixture
+						below the <strong>MAX FILL</strong> line and smooth the top flat.
+					</li>
+					<li>
+						Cover and freeze the pint upright on a level surface for at least
+						<strong>24 hours</strong>.
+					</li>
+					<li>
+						Remove the lid, place the pint in the outer bowl, install the paddle
+						and lid, and lock the bowl into the machine. Select
+						<strong>Smoothie Bowl</strong>.
+					</li>
+					<li>
+						If the mixture looks powdery after the first spin, make a small hole
+						in the center, add 1 tbsp of your chosen liquid, and select
+						<strong>Re-Spin</strong>.
+						Repeat once only if needed.
+					</li>
+					<li>
+						Spoon into a chilled bowl, add the toppings, and serve immediately.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="notes" aria-label="Acai bowl tips">
+			<section aria-labelledby="texture-heading">
+				<h2 id="texture-heading">For the best texture</h2>
+				<p>
+					Apple juice makes a brighter, fruitier bowl; plant milk makes it
+					creamier and less sweet. Use unsweetened frozen acai puree rather than
+					acai juice, and blend all base ingredients before the 24-hour freeze.
+				</p>
+			</section>
+
+			<section aria-labelledby="model-heading">
+				<h2 id="model-heading">Machine note</h2>
+				<p>
+					If your CREAMi model does not have a Smoothie Bowl setting, use
+					<strong>Lite Ice Cream</strong>, then Re-Spin with 1 tbsp of the chosen
+					liquid if needed. Follow the capacity marks for your specific pint.
+				</p>
+			</section>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

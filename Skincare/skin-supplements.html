@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Five Supplements | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #202520;
+			--muted: #5e665f;
+			--paper: #fbfcf8;
+			--mist: #dfe8e1;
+			--coral: #b94f3d;
+			--green: #315b45;
+			--line: #cbd5cd;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(90deg, transparent 0 47px, rgba(49, 91, 69, 0.05) 47px 48px),
+				var(--mist);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 1000px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(32, 37, 32, 0.12);
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--coral);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 700px;
+			margin: 22px 0 38px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.supplements {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 16px;
+		}
+
+		article {
+			min-width: 0;
+			padding: 24px;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+		}
+
+		article:first-child {
+			grid-column: 1 / -1;
+			border-top: 5px solid var(--coral);
+		}
+
+		h2 {
+			margin: 0 0 8px;
+			color: var(--green);
+			font-size: 1.45rem;
+		}
+
+		.tag {
+			display: inline-block;
+			margin: 0 0 16px;
+			color: var(--coral);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		p + p { margin-top: 12px; }
+
+		strong { color: var(--green); }
+
+		.safety {
+			margin-top: 24px;
+			padding: 24px;
+			border-left: 4px solid var(--coral);
+			background: #f2ede3;
+		}
+
+		.safety h2 { font-size: 1.1rem; }
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.supplements { grid-template-columns: 1fr; }
+			article:first-child { grid-column: auto; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Daily reference</p>
+		<h1>Five Supplements</h1>
+		<p class="intro">
+			A practical overview of what each supplement may support, how it is
+			commonly used, and where expectations should stay realistic.
+		</p>
+
+		<section class="supplements" aria-label="Supplement guide">
+			<article>
+				<h2>Astaxanthin</h2>
+				<p class="tag">Antioxidant</p>
+				<p>
+					Early studies suggest possible modest benefits for skin hydration and
+					elasticity, but the evidence is still limited.
+				</p>
+				<p><strong>Common amount:</strong> 4-12 mg daily with a fat-containing meal.</p>
+			</article>
+
+			<article>
+				<h2>Creatine Monohydrate</h2>
+				<p class="tag">Strength + recovery</p>
+				<p>
+					Well studied for strength, exercise performance, and muscle support.
+					It is not primarily a skincare supplement.
+				</p>
+				<p><strong>Common amount:</strong> 3-5 g daily; timing is not important.</p>
+			</article>
+
+			<article>
+				<h2>Magnesium</h2>
+				<p class="tag">Dietary mineral</p>
+				<p>
+					Supports normal muscle, nerve, and energy function. Supplementing is
+					most useful when dietary intake is low or deficiency is identified.
+				</p>
+				<p><strong>Common amount:</strong> 100-350 mg of elemental magnesium daily.</p>
+			</article>
+
+			<article>
+				<h2>Omega-3</h2>
+				<p class="tag">EPA + DHA</p>
+				<p>
+					Supports cardiovascular health and may help regulate inflammation.
+					Choose a product that clearly lists its EPA and DHA amounts.
+				</p>
+				<p><strong>Common amount:</strong> about 1 g combined EPA and DHA daily with food.</p>
+			</article>
+
+			<article>
+				<h2>Marine Collagen</h2>
+				<p class="tag">Skin + connective tissue</p>
+				<p>
+					Hydrolyzed collagen peptides may modestly improve skin hydration and
+					elasticity after consistent use for several weeks.
+				</p>
+				<p><strong>Common amount:</strong> 2.5-10 g daily.</p>
+			</article>
+		</section>
+
+		<aside class="safety" aria-labelledby="safety-heading">
+			<h2 id="safety-heading">Before starting</h2>
+			<p>
+				Check with a clinician or pharmacist if you are pregnant, have kidney
+				disease, take prescription medicines, or use blood thinners. Magnesium
+				can interfere with some antibiotics and thyroid medicine; marine collagen
+				is unsuitable for anyone with a fish allergy. Supplements do not replace
+				a balanced diet, sunscreen, or medical care.
+			</p>
+		</aside>
+	</main>
+</body>
+</html>

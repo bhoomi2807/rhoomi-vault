@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chocolate Protein CREAMi | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #29221f;
+			--muted: #6b625d;
+			--paper: #fffaf4;
+			--cocoa: #713d2d;
+			--mint: #386052;
+			--line: #dfd3ca;
+			--note: #f1e8df;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #e5ddd4;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 940px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--cocoa);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(41, 34, 31, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--mint);
+		}
+
+		h1 {
+			max-width: 780px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 680px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--cocoa);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.7fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--cocoa);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--mint);
+			font-weight: 700;
+		}
+
+		strong { color: var(--mint); }
+
+		.notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--mint);
+			background: var(--note);
+		}
+
+		.notes h2 { margin-bottom: 10px; }
+
+		.notes p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid,
+			.notes { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Ninja CREAMi recipe</p>
+		<h1>Chocolate Protein Serve</h1>
+		<p class="intro">
+			Deep chocolate flavor with a creamy soft-serve texture, built from
+			protein chocolate milk and whey protein.
+		</p>
+		<p class="meta">Makes 1 standard pint &nbsp;|&nbsp; Freeze for 24 hours</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+				<ul>
+					<li>1 1/2 cups Silk Protein Chocolate milk</li>
+					<li>1 scoop whey protein powder (about 30 g), chocolate or vanilla</li>
+					<li>1 tbsp dark cocoa powder</li>
+					<li>1 tbsp allulose, or to taste</li>
+					<li>1/8 tsp xanthan gum</li>
+					<li>Pinch of salt, optional</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Add the chocolate milk, whey protein, cocoa, allulose, xanthan gum,
+						and salt to a blender. Blend for 20-30 seconds until completely
+						smooth and no cocoa pockets remain.
+					</li>
+					<li>
+						Taste the mixture and add a little more allulose if needed. Frozen
+						desserts taste less sweet once frozen.
+					</li>
+					<li>
+						Pour into a standard Ninja CREAMi pint, keeping the mixture below
+						the <strong>MAX FILL</strong> line. Smooth the top flat.
+					</li>
+					<li>
+						Cover and freeze upright on a level surface for at least
+						<strong>24 hours</strong>.
+					</li>
+					<li>
+						Install the frozen pint in the outer bowl and select
+						<strong>Lite Ice Cream</strong>.
+					</li>
+					<li>
+						If powdery, make a narrow hole in the center, add 1 tbsp chocolate
+						milk, and select <strong>Re-Spin</strong>. For softer soft serve,
+						add a second tablespoon and Re-Spin once more.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="notes" aria-label="Chocolate protein serve tips">
+			<section aria-labelledby="texture-heading">
+				<h2 id="texture-heading">Texture note</h2>
+				<p>
+					Measure the xanthan gum carefully. <strong>1/8 teaspoon is enough</strong>
+					for one pint; more can make the mixture stretchy or gummy.
+				</p>
+			</section>
+
+			<section aria-labelledby="protein-heading">
+				<h2 id="protein-heading">Protein powder</h2>
+				<p>
+					Protein powders absorb liquid differently. If your whey scoop is larger
+					than 30 g or contains thickeners, start with 3/4 scoop and adjust the
+					next batch if needed.
+				</p>
+			</section>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

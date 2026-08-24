@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tofu Tip | Rhoomi Recipe Vault</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #20251f;
+			--muted: #60685e;
+			--paper: #fffdf7;
+			--sage: #dbe5d5;
+			--tomato: #bd4b32;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(0deg, transparent 0 31px, rgba(32, 37, 31, 0.05) 31px 32px),
+				var(--sage);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100%, 680px);
+			padding: clamp(28px, 7vw, 64px);
+			border: 1px solid rgba(32, 37, 31, 0.22);
+			border-radius: 6px;
+			background: var(--paper);
+			box-shadow: 10px 10px 0 rgba(32, 37, 31, 0.12);
+		}
+
+		.label {
+			margin: 0 0 12px;
+			color: var(--tomato);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.78rem;
+			font-weight: 700;
+			letter-spacing: 0;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			margin: 0 0 20px;
+			font-size: clamp(2rem, 10vw, 4.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		p {
+			margin: 0;
+			color: var(--muted);
+			font-size: clamp(1rem, 3vw, 1.25rem);
+			line-height: 1.65;
+		}
+
+		strong {
+			color: var(--ink);
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="label">Kitchen hack</p>
+		<h1>Boil tofu before using it</h1>
+		<p>
+			Gently simmer tofu in salted water for <strong>3-5 minutes</strong>.
+			Drain and pat it dry before adding it to your recipe. This firms the
+			tofu and helps it absorb sauces and seasonings.
+		</p>
+	</main>
+</body>
+</html>

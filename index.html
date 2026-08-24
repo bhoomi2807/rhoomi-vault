@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="theme-color" content="#f4efe4">
+	<title>Rhoomi Vault</title>
+	<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #24231f;
+			--muted: #6c685f;
+			--paper: #f4efe4;
+			--surface: #fffdf8;
+			--line: #d7d0c2;
+			--interest: #3e6653;
+			--recipe: #a84c32;
+			--skincare: #9b5d70;
+			--tip: #b27b24;
+		}
+
+		* { box-sizing: border-box; }
+
+		html { min-height: 100%; }
+
+		body {
+			min-height: 100vh;
+			min-height: 100dvh;
+			margin: 0;
+			color: var(--ink);
+			background:
+				linear-gradient(rgba(62, 102, 83, 0.07) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(62, 102, 83, 0.07) 1px, transparent 1px),
+				var(--paper);
+			background-size: 24px 24px;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		button,
+		a { -webkit-tap-highlight-color: transparent; }
+
+		button { font: inherit; }
+
+		.app-shell {
+			width: min(100%, 1180px);
+			min-height: 100vh;
+			min-height: 100dvh;
+			margin: 0 auto;
+			padding: max(22px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
+			background: rgba(244, 239, 228, 0.9);
+		}
+
+		.app-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			min-height: 44px;
+			margin-bottom: clamp(34px, 8vh, 72px);
+		}
+
+		.brand {
+			margin: 0;
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.82rem;
+			font-weight: 700;
+			letter-spacing: 0;
+			text-transform: uppercase;
+		}
+
+		.brand-mark {
+			display: inline-block;
+			width: 9px;
+			height: 9px;
+			margin-right: 8px;
+			background: var(--recipe);
+			transform: rotate(45deg);
+		}
+
+		.back-button {
+			display: none;
+			width: 44px;
+			height: 44px;
+			padding: 0;
+			border: 1px solid var(--line);
+			border-radius: 50%;
+			color: var(--ink);
+			background: var(--surface);
+			place-items: center;
+			cursor: pointer;
+		}
+
+		.back-button:hover { border-color: var(--ink); }
+
+		.back-button:focus-visible,
+		.category-button:focus-visible,
+		.page-link:focus-visible {
+			outline: 3px solid var(--ink);
+			outline-offset: 3px;
+		}
+
+		.intro {
+			margin-bottom: 30px;
+		}
+
+		h1 {
+			max-width: 620px;
+			margin: 0;
+			font-size: 3rem;
+			font-weight: 400;
+			line-height: 0.94;
+		}
+
+		.intro p {
+			max-width: 500px;
+			margin: 18px 0 0;
+			color: var(--muted);
+			font-size: 1.05rem;
+			line-height: 1.55;
+		}
+
+		.category-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+		}
+
+		.category-button {
+			display: grid;
+			grid-template-rows: 38px 1fr auto;
+			min-height: 154px;
+			padding: 18px;
+			border: 1px solid var(--line);
+			border-top: 5px solid var(--accent);
+			border-radius: 8px;
+			color: var(--ink);
+			background: var(--surface);
+			text-align: left;
+			cursor: pointer;
+			transition: transform 160ms ease, box-shadow 160ms ease;
+		}
+
+		.category-button:hover {
+			transform: translateY(-2px);
+			box-shadow: 4px 5px 0 rgba(36, 35, 31, 0.11);
+		}
+
+		.category-button svg {
+			width: 28px;
+			height: 28px;
+			color: var(--accent);
+			stroke-width: 1.7;
+		}
+
+		.category-name {
+			align-self: end;
+			font-size: 1.45rem;
+			line-height: 1.1;
+		}
+
+		.category-count {
+			margin-top: 10px;
+			color: var(--muted);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.72rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.category-button[data-category="interests"] { --accent: var(--interest); }
+		.category-button[data-category="recipes"] { --accent: var(--recipe); }
+		.category-button[data-category="skincare"] { --accent: var(--skincare); }
+		.category-button[data-category="tips"] { --accent: var(--tip); }
+
+		.category-view[hidden],
+		.home-view[hidden] { display: none; }
+
+		.category-heading {
+			display: flex;
+			align-items: end;
+			justify-content: space-between;
+			gap: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.category-heading h1 { font-size: 2.8rem; }
+
+		.category-heading p {
+			flex: none;
+			margin: 0 0 5px;
+			color: var(--muted);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.page-list {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.page-link {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 24px;
+			gap: 16px;
+			align-items: center;
+			min-height: 66px;
+			padding: 15px 4px;
+			border-bottom: 1px solid var(--line);
+			color: var(--ink);
+			font-size: 1.12rem;
+			line-height: 1.3;
+			text-decoration: none;
+		}
+
+		.page-link:hover { color: var(--active-color); }
+
+		.page-link svg {
+			width: 20px;
+			height: 20px;
+			justify-self: end;
+			color: var(--muted);
+		}
+
+		.category-view[data-category="interests"] { --active-color: var(--interest); }
+		.category-view[data-category="recipes"] { --active-color: var(--recipe); }
+		.category-view[data-category="skincare"] { --active-color: var(--skincare); }
+		.category-view[data-category="tips"] { --active-color: var(--tip); }
+
+		@media (min-width: 680px) {
+			.app-shell { padding: 30px 36px 44px; }
+			h1 { font-size: 4.5rem; }
+			.category-heading h1 { font-size: 4rem; }
+			.category-grid { gap: 16px; }
+			.category-button { min-height: 176px; }
+			.category-name { font-size: 1.7rem; }
+		}
+
+		@media (min-width: 900px) {
+			.app-shell { padding: 34px 54px 56px; }
+			.app-header { margin-bottom: 64px; }
+			h1 { max-width: 760px; font-size: 5.5rem; }
+			.intro { margin-bottom: 42px; }
+			.intro p { font-size: 1.12rem; }
+			.category-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+			.category-button { min-height: 202px; padding: 22px; }
+			.page-list {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				column-gap: 44px;
+			}
+		}
+
+		@media (max-width: 380px) {
+			.app-shell { padding-inline: 14px; }
+			.category-button { min-height: 142px; padding: 14px; }
+			.category-heading { align-items: start; flex-direction: column; gap: 8px; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.category-button { transition: none; }
+		}
+	</style>
+</head>
+<body>
+	<main class="app-shell">
+		<header class="app-header">
+			<p class="brand"><span class="brand-mark" aria-hidden="true"></span>Rhoomi Vault</p>
+			<button class="back-button" type="button" aria-label="Back to categories" title="Back to categories">
+				<i data-lucide="arrow-left" aria-hidden="true"></i>
+			</button>
+		</header>
+
+		<section class="home-view" aria-labelledby="home-heading">
+			<div class="intro">
+				<h1 id="home-heading">What are you looking for?</h1>
+				<p>Your recipes, routines, references, and useful notes in one place.</p>
+			</div>
+
+			<nav class="category-grid" aria-label="Vault categories">
+				<button class="category-button" type="button" data-category="interests">
+					<i data-lucide="sparkles" aria-hidden="true"></i>
+					<span class="category-name">Interests</span>
+					<span class="category-count">8 pages</span>
+				</button>
+				<button class="category-button" type="button" data-category="recipes">
+					<i data-lucide="cooking-pot" aria-hidden="true"></i>
+					<span class="category-name">Recipes</span>
+					<span class="category-count">15 pages</span>
+				</button>
+				<button class="category-button" type="button" data-category="skincare">
+					<i data-lucide="flower-2" aria-hidden="true"></i>
+					<span class="category-name">Skincare</span>
+					<span class="category-count">5 pages</span>
+				</button>
+				<button class="category-button" type="button" data-category="tips">
+					<i data-lucide="lightbulb" aria-hidden="true"></i>
+					<span class="category-name">Tips</span>
+					<span class="category-count">1 page</span>
+				</button>
+			</nav>
+		</section>
+
+		<section class="category-view" data-category="interests" hidden aria-labelledby="interests-heading">
+			<div class="category-heading">
+				<h1 id="interests-heading">Interests</h1>
+				<p>8 pages</p>
+			</div>
+			<ul class="page-list">
+				<li><a class="page-link" href="Interests/architecture.html"><span>Architecture Field Guide</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/books-to-read.html"><span>Books to Read</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/furniture.html"><span>Furniture</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/gut-health.html"><span>Gut Health</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/novels.html"><span>Novels</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/photography.html"><span>Photography</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/routine.html"><span>Weekly Routine</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Interests/sunday-checklist.html"><span>Sunday Reset</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+			</ul>
+		</section>
+
+		<section class="category-view" data-category="recipes" hidden aria-labelledby="recipes-heading">
+			<div class="category-heading">
+				<h1 id="recipes-heading">Recipes</h1>
+				<p>15 pages</p>
+			</div>
+			<ul class="page-list">
+				<li><a class="page-link" href="Recipes/acai-bowl.html"><span>Thick Açaí Bowl</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/chocolate-mousee.html"><span>Chocolate Protein Mousse</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/chocolate-protien-serve.html"><span>Chocolate Protein Serve</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/guiltfree-icecream.html"><span>Chocolate Date-Nut Ice Cream</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/green-paobhaji.html"><span>Green Pav Bhaji</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/hearty-bowl.html"><span>Hearty Rajma Paneer Bowl</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/creamcheese-spread.html"><span>Jalapeño Paneer Spread</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/mexican-kabab.html"><span>Mexican-Style Rajma Kebabs</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/orange-tofu.html"><span>Air-Fried Orange Tofu</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/protien-muthiya.html"><span>Protein Muthiya</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/protien-springroll.html"><span>Protein Spring Rolls</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/refreshing-cubes.html"><span>Refreshing Herb Cubes</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/oat-cutlet.html"><span>Soy &amp; Oat Cutlets</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/thai-basil-tofu.html"><span>Thai Basil Tofu</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Recipes/tomato-jam.html"><span>Spicy Tomato Jam</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+			</ul>
+		</section>
+
+		<section class="category-view" data-category="skincare" hidden aria-labelledby="skincare-heading">
+			<div class="category-heading">
+				<h1 id="skincare-heading">Skincare</h1>
+				<p>5 pages</p>
+			</div>
+			<ul class="page-list">
+				<li><a class="page-link" href="Skincare/makeup-guide.html"><span>Step-by-Step Makeup</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Skincare/seeds.html"><span>Daily Food Prep</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Skincare/seedsandveggies.html"><span>Seeds &amp; Vegetables</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Skincare/skin-supplements.html"><span>Five Supplements</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Skincare/skincare-tips.html"><span>Skincare &amp; Wellness Tips</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+			</ul>
+		</section>
+
+		<section class="category-view" data-category="tips" hidden aria-labelledby="tips-heading">
+			<div class="category-heading">
+				<h1 id="tips-heading">Tips</h1>
+				<p>1 page</p>
+			</div>
+			<ul class="page-list">
+				<li><a class="page-link" href="Tips/hacks.html"><span>Boil Tofu Before Using It</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+			</ul>
+		</section>
+	</main>
+
+	<script>
+		const homeView = document.querySelector(".home-view");
+		const categoryViews = [...document.querySelectorAll(".category-view")];
+		const categoryButtons = [...document.querySelectorAll(".category-button")];
+		const backButton = document.querySelector(".back-button");
+
+		function renderRoute() {
+			const category = location.hash.slice(1);
+			const activeView = categoryViews.find(view => view.dataset.category === category);
+
+			homeView.hidden = Boolean(activeView);
+			categoryViews.forEach(view => { view.hidden = view !== activeView; });
+			backButton.style.display = activeView ? "grid" : "none";
+
+			if (activeView) {
+				document.title = `${activeView.querySelector("h1").textContent} | Rhoomi Vault`;
+				activeView.querySelector("h1").focus({ preventScroll: true });
+			} else {
+				document.title = "Rhoomi Vault";
+			}
+		}
+
+		categoryButtons.forEach(button => {
+			button.addEventListener("click", () => {
+				location.hash = button.dataset.category;
+			});
+		});
+
+		backButton.addEventListener("click", () => {
+			history.pushState(null, "", location.pathname + location.search);
+			renderRoute();
+		});
+
+		window.addEventListener("hashchange", renderRoute);
+		window.addEventListener("DOMContentLoaded", () => {
+			if (window.lucide) window.lucide.createIcons();
+			renderRoute();
+		});
+	</script>
+</body>
+</html>

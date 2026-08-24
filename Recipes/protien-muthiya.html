@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Protein Muthiya | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #25241f;
+			--muted: #666157;
+			--paper: #fffdf8;
+			--spice: #a94d2f;
+			--green: #315b45;
+			--line: #ded8cb;
+			--note: #f1ecdf;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #e6e2d4;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 940px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--spice);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(37, 36, 31, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--green);
+		}
+
+		h1 {
+			max-width: 760px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 680px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--spice);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(230px, 0.9fr) minmax(0, 1.7fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--spice);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			margin: 24px 0 10px;
+			color: var(--green);
+			font-size: 1rem;
+		}
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--green);
+			font-weight: 700;
+		}
+
+		strong { color: var(--green); }
+
+		.notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--green);
+			background: var(--note);
+		}
+
+		.notes h2 { margin-bottom: 10px; }
+
+		.notes p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid,
+			.notes { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Gujarati-inspired recipe</p>
+		<h1>Protein Muthiya</h1>
+		<p class="intro">
+			Savory steamed dumplings made with tofu, Greek yogurt, besan, oats,
+			and vegetables, finished with a crisp mustard-sesame tempering.
+		</p>
+		<p class="meta">Serves 4 &nbsp;|&nbsp; Makes about 24 pieces</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+				<h3>For the muthiya</h3>
+				<ul>
+					<li>8 oz extra-firm tofu, pressed and finely crumbled</li>
+					<li>1/2 cup plain Greek yogurt</li>
+					<li>1 cup besan (chickpea flour)</li>
+					<li>1/2 cup oat flour</li>
+					<li>1 1/2 cups grated bottle gourd or zucchini, squeezed dry</li>
+					<li>1/2 cup finely chopped spinach or methi leaves</li>
+					<li>1 tbsp ginger-green chili paste</li>
+					<li>1 tbsp lemon juice</li>
+					<li>1 tsp ground cumin</li>
+					<li>1 tsp ground coriander</li>
+					<li>1/2 tsp turmeric</li>
+					<li>1 tsp salt, or to taste</li>
+					<li>1 tsp sugar, optional</li>
+					<li>1 tsp fruit salt (Eno), added last</li>
+				</ul>
+
+				<h3>For the tempering</h3>
+				<ul>
+					<li>1 tbsp neutral oil</li>
+					<li>1 tsp mustard seeds</li>
+					<li>1 tsp sesame seeds</li>
+					<li>8-10 curry leaves</li>
+					<li>1 green chili, sliced</li>
+					<li>2 tbsp chopped coriander</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Bring 2 inches of water to a simmer in a steamer. Lightly grease the
+						steamer plate and your hands.
+					</li>
+					<li>
+						Mash the tofu until no large pieces remain. Mix it with the Greek
+						yogurt, squeezed vegetable, spinach, ginger-chili paste, lemon juice,
+						spices, salt, and sugar.
+					</li>
+					<li>
+						Add the besan and oat flour. Mix into a soft, slightly sticky dough
+						that holds its shape. If wet, add besan 1 tbsp at a time; if dry,
+						add Greek yogurt 1 tbsp at a time.
+					</li>
+					<li>
+						Sprinkle in the fruit salt and mix gently just until combined.
+						Immediately divide and shape into 4 logs about 1 1/2 inches thick.
+					</li>
+					<li>
+						Place the logs apart on the steamer plate. Cover and steam over
+						medium heat for <strong>20-24 minutes</strong>, until firm and a
+						toothpick comes out without wet batter.
+					</li>
+					<li>
+						Cool for 10 minutes, then cut each log into 1/2-inch slices. Cooling
+						before slicing prevents crumbling.
+					</li>
+					<li>
+						Heat the oil in a wide pan. Add mustard seeds; once they pop, add
+						sesame seeds, curry leaves, and sliced chili. Cook for 20 seconds.
+					</li>
+					<li>
+						Add the sliced muthiya and toss gently for 3-4 minutes, until the
+						edges are lightly golden. Finish with chopped coriander and serve.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="notes" aria-label="Protein muthiya tips">
+			<section aria-labelledby="texture-heading">
+				<h2 id="texture-heading">Texture matters</h2>
+				<p>
+					Press the tofu and squeeze the grated vegetable very well. Their water
+					content varies, so use the dough's ability to hold a log as the final
+					guide rather than adding all the extra flour at once.
+				</p>
+			</section>
+
+			<section aria-labelledby="serving-heading">
+				<h2 id="serving-heading">Serve + store</h2>
+				<p>
+					Serve warm with cilantro chutney and extra Greek yogurt. Refrigerate
+					for up to 4 days; reheat in a covered pan or air-fry at 375°F until
+					warm and lightly crisp.
+				</p>
+			</section>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

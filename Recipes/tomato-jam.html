@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Spicy Tomato Jam | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #25241f;
+			--muted: #666157;
+			--paper: #fffdf8;
+			--tomato: #b83f2d;
+			--green: #315b45;
+			--line: #ded8cb;
+			--note: #f2eadc;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #e8e1d3;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 900px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--tomato);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(37, 36, 31, 0.12);
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--green);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			max-width: 700px;
+			margin: 0;
+			font-size: clamp(2.3rem, 8vw, 5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 640px;
+			margin: 22px 0 36px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.7fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--tomato);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--green);
+			font-weight: 700;
+		}
+
+		strong { color: var(--green); }
+
+		.note {
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--green);
+			background: var(--note);
+		}
+
+		.note h2 { margin-bottom: 12px; }
+
+		.note p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		.note p + p { margin-top: 12px; }
+
+		@media (max-width: 640px) {
+			main {
+				width: 100%;
+				margin: 0;
+				min-height: 100vh;
+				box-shadow: none;
+			}
+
+			.recipe-grid { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Condiment recipe</p>
+		<h1>Spicy Tomato Jam</h1>
+		<p class="intro">
+			A sweet, tangy, gently spicy jam for toast, burgers, grilled cheese,
+			roasted vegetables, and snack boards. Makes about 2 cups.
+		</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+				<ul>
+					<li>2 lb ripe tomatoes, cored and diced</li>
+					<li>1 cup granulated sugar</li>
+					<li>2 tbsp lemon juice</li>
+					<li>1 tbsp Calabrian chili paste</li>
+					<li>1 tbsp apple cider vinegar</li>
+					<li>2 garlic cloves, finely grated</li>
+					<li>1 tsp finely grated fresh ginger</li>
+					<li>1/2 tsp ground cumin</li>
+					<li>1 tsp kosher salt</li>
+					<li>1/4 tsp freshly ground black pepper</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Add all ingredients to a wide, heavy-bottomed saucepan and stir
+						until the tomatoes are evenly coated.
+					</li>
+					<li>
+						Bring to a boil over medium-high heat, stirring often. Reduce the
+						heat to maintain a lively simmer.
+					</li>
+					<li>
+						Cook uncovered for <strong>35-50 minutes</strong>, stirring more
+						frequently as the mixture thickens so the sugar does not scorch.
+					</li>
+					<li>
+						The jam is ready when it looks glossy and a spoon dragged across
+						the bottom leaves a trail that closes slowly. It will thicken more
+						as it cools.
+					</li>
+					<li>
+						Taste carefully and adjust with salt or lemon juice. Cool, transfer
+						to clean jars, and refrigerate.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="note" aria-labelledby="substitutions-heading">
+			<h2 id="substitutions-heading">Chili paste substitutes</h2>
+			<p>
+				<strong>Closest option:</strong> use 2 tsp sambal oelek plus 1 tsp
+				olive oil. You can also use 1 tbsp harissa, or 1-2 tsp red pepper
+				flakes plus 2 tsp olive oil. Start with less and adjust to taste.
+			</p>
+			<p>
+				Refrigerate for up to <strong>2 weeks</strong>, or freeze for up to
+				3 months. This recipe has not been tested for shelf-stable canning.
+			</p>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

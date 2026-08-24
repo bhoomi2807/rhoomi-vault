@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hearty Rajma Paneer Bowl | Rhoomi Recipe Vault</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #29251f;
+			--muted: #696158;
+			--paper: #fffdf7;
+			--bean: #813f38;
+			--green: #426149;
+			--gold: #c1892c;
+			--line: #ded6c8;
+			--note: #f2eadb;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #e6dfd3;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 960px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--bean);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(41, 37, 31, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--green);
+		}
+
+		h1 {
+			max-width: 820px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 700px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--bean);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(245px, 0.95fr) minmax(0, 1.65fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--bean);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			margin: 24px 0 10px;
+			color: var(--green);
+			font-size: 1rem;
+		}
+
+		h3:first-of-type { margin-top: 0; }
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--green);
+			font-weight: 700;
+		}
+
+		strong { color: var(--green); }
+
+		[aria-labelledby="ingredients-heading"] ul {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		.ingredient-check {
+			display: grid;
+			grid-template-columns: 1.1rem minmax(0, 1fr);
+			gap: 0.65rem;
+			align-items: start;
+			cursor: pointer;
+		}
+
+		.ingredient-check input {
+			width: 1rem;
+			height: 1rem;
+			margin: 0.22rem 0 0;
+			accent-color: var(--green);
+		}
+
+		.ingredient-check.checked span {
+			color: var(--muted);
+			text-decoration: line-through;
+		}
+
+		.notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--gold);
+			background: var(--note);
+		}
+
+		.notes h2 { margin-bottom: 10px; }
+
+		.notes p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid,
+			.notes { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Balanced vegetarian meal</p>
+		<h1>Hearty Rajma Paneer Bowl</h1>
+		<p class="intro">
+			Warm rice and kidney beans layered with golden paneer, corn, onion,
+			and bell pepper, finished with a creamy almond-chili yogurt dressing.
+		</p>
+		<p class="meta">Serves 4 &nbsp;|&nbsp; Prep 20 min &nbsp;|&nbsp; Cook 15 min</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+
+				<h3>For the bowls</h3>
+				<ul>
+					<li>2 cups cooked kidney beans, rinsed and drained</li>
+					<li>2 cups cooked rice</li>
+					<li>250 g paneer, cut into bite-size cubes</li>
+					<li>1 cup cooked corn kernels</li>
+					<li>1 medium onion, thinly sliced</li>
+					<li>1 large bell pepper, sliced</li>
+					<li>1 tbsp olive oil</li>
+					<li>1 tsp ground cumin</li>
+					<li>1 tsp paprika</li>
+					<li>3/4 tsp salt, divided</li>
+					<li>1 tbsp lemon juice</li>
+				</ul>
+
+				<h3>For the almond-chili dressing</h3>
+				<ul>
+					<li>1/3 cup raw almonds</li>
+					<li>1 dried red chili, stemmed</li>
+					<li>3/4 cup plain yogurt or Greek yogurt</li>
+					<li>1 small garlic clove</li>
+					<li>1 tbsp olive oil</li>
+					<li>1 tbsp lemon juice</li>
+					<li>1/4 tsp salt, or to taste</li>
+					<li>2-4 tbsp water, as needed</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Place the almonds and dried red chili in a heatproof bowl. Cover with
+						boiling water and soak for <strong>20 minutes</strong>, then drain.
+						For milder heat, shake the seeds out of the softened chili.
+					</li>
+					<li>
+						Blend the soaked almonds and chili with the yogurt, garlic, olive oil,
+						lemon juice, salt, and 2 tablespoons water until completely smooth.
+						Add more water gradually for a drizzleable consistency. Refrigerate.
+					</li>
+					<li>
+						Warm the rice and kidney beans separately until steaming hot. Season
+						the beans with a pinch each of cumin, paprika, and salt.
+					</li>
+					<li>
+						Heat the olive oil in a wide skillet over medium-high heat. Add the
+						paneer in one layer and cook for <strong>2-3 minutes per side</strong>,
+						until golden. Transfer to a plate.
+					</li>
+					<li>
+						In the same skillet, cook the onion and bell pepper for 4-5 minutes,
+						until lightly charred but still crisp. Add the corn, remaining cumin,
+						paprika, and salt; cook for 2 minutes.
+					</li>
+					<li>
+						Return the paneer to the skillet, add 1 tablespoon lemon juice, and
+						toss gently for 30 seconds. Remove from the heat.
+					</li>
+					<li>
+						Divide the hot rice among four bowls. Arrange the kidney beans and
+						paneer-vegetable mixture on top, then drizzle with the cold
+						almond-chili yogurt dressing just before serving.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="notes" aria-label="Hearty rajma paneer bowl tips">
+			<section aria-labelledby="texture-heading">
+				<h2 id="texture-heading">Build good contrast</h2>
+				<p>
+					Dry the paneer before searing and avoid crowding the skillet. Keep the
+					vegetables slightly crisp and add the chilled dressing only at the
+					end so the bowl has warm, cool, creamy, and crisp elements.
+				</p>
+			</section>
+
+			<section aria-labelledby="storage-heading">
+				<h2 id="storage-heading">Meal prep safely</h2>
+				<p>
+					Cool cooked rice promptly and refrigerate it within 1 hour. Store the
+					bowl components and dressing separately for up to 3 days. Reheat rice,
+					beans, paneer, and vegetables until steaming hot; serve dressing cold.
+				</p>
+			</section>
+		</aside>
+	</main>
+	<script>
+		const storageKey = `recipe-ingredients:${location.pathname}`;
+		const savedChecks = JSON.parse(localStorage.getItem(storageKey) || "[]");
+
+		document.querySelectorAll('[aria-labelledby="ingredients-heading"] li').forEach((item, index) => {
+			const label = document.createElement("label");
+			const checkbox = document.createElement("input");
+			const text = document.createElement("span");
+
+			checkbox.type = "checkbox";
+			checkbox.checked = savedChecks.includes(index);
+			text.append(...item.childNodes);
+			label.className = `ingredient-check${checkbox.checked ? " checked" : ""}`;
+			label.append(checkbox, text);
+			item.append(label);
+
+			checkbox.addEventListener("change", () => {
+				label.classList.toggle("checked", checkbox.checked);
+				const checked = [...document.querySelectorAll('[aria-labelledby="ingredients-heading"] input')]
+					.map((input, itemIndex) => input.checked ? itemIndex : -1)
+					.filter(itemIndex => itemIndex >= 0);
+				localStorage.setItem(storageKey, JSON.stringify(checked));
+			});
+		});
+	</script>
+</body>
+</html>

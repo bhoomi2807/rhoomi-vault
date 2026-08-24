@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Seeds &amp; Vegetables | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #202520;
+			--muted: #5e665f;
+			--paper: #fbfcf8;
+			--mist: #dfe8e1;
+			--coral: #b94f3d;
+			--green: #315b45;
+			--line: #cbd5cd;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(90deg, transparent 0 47px, rgba(49, 91, 69, 0.05) 47px 48px),
+				var(--mist);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 1000px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(32, 37, 32, 0.12);
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--coral);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			max-width: 760px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 700px;
+			margin: 22px 0 38px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.food-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 16px;
+		}
+
+		article {
+			min-width: 0;
+			padding: 24px;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+		}
+
+		article:nth-child(1) { border-top: 5px solid var(--green); }
+		article:nth-child(2) { border-top: 5px solid var(--coral); }
+		article:nth-child(3) { border-top: 5px solid #c38b2d; }
+
+		h2 {
+			margin: 0 0 8px;
+			color: var(--green);
+			font-size: 1.45rem;
+		}
+
+		.tag {
+			margin: 0 0 16px;
+			color: var(--coral);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		p + p { margin-top: 12px; }
+
+		strong { color: var(--green); }
+
+		.routine {
+			margin-top: 24px;
+			padding: 24px;
+			border-left: 4px solid var(--coral);
+			background: #f2ede3;
+		}
+
+		.routine h2 { font-size: 1.1rem; }
+
+		@media (max-width: 760px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.food-grid { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Food preparation</p>
+		<h1>Seeds &amp; Vegetables</h1>
+		<p class="intro">
+			Simple preparation makes seeds easier to use and vegetables more
+			enjoyable. Start with small portions and drink enough water as you
+			increase fiber.
+		</p>
+
+		<section class="food-grid" aria-label="Preparation guide">
+			<article>
+				<h2>Soaked Chia Seeds</h2>
+				<p class="tag">Soak before eating</p>
+				<p>
+					Mix <strong>1 tbsp chia seeds with 1/2 cup liquid</strong>. Stir,
+					wait 5 minutes, stir again, then soak for at least 20 minutes or
+					overnight in the refrigerator.
+				</p>
+				<p>
+					Add the gel to oatmeal, yogurt, or smoothies. Refrigerate in a
+					covered container for up to 5 days.
+				</p>
+			</article>
+
+			<article>
+				<h2>Ground Flax Seeds</h2>
+				<p class="tag">Lightly toast + grind</p>
+				<p>
+					Toast whole flax seeds in a dry pan over low heat for
+					<strong>3-5 minutes</strong>, stirring constantly. Cool completely,
+					then grind in a spice grinder.
+				</p>
+				<p>
+					Use 1-2 tbsp in oatmeal, yogurt, dough, or smoothies. Store ground
+					flax airtight in the refrigerator to protect its oils.
+				</p>
+			</article>
+
+			<article>
+				<h2>Cooked Vegetables</h2>
+				<p class="tag">Steam + season</p>
+				<p>
+					Steam vegetables until tender but still colorful, usually
+					<strong>4-10 minutes</strong> depending on their size and firmness.
+					Dense vegetables may need longer.
+				</p>
+				<p>
+					Finish with olive oil, lemon juice, herbs, and a pinch of salt.
+					Refrigerate cooked vegetables within 2 hours and use within 3-4 days.
+				</p>
+			</article>
+		</section>
+
+		<aside class="routine" aria-labelledby="routine-heading">
+			<h2 id="routine-heading">Easy daily combination</h2>
+			<p>
+				Use soaked chia or ground flax at breakfast, then include 1-2 cups
+				of varied cooked vegetables with lunch or dinner. Chia and flax are
+				high in fiber, so increase gradually if they are new to your diet.
+				Do not swallow dry chia seeds by the spoonful.
+			</p>
+		</aside>
+	</main>
+</body>
+</html>

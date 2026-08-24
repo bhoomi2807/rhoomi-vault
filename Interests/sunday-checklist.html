@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sunday Reset | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #202520;
+			--muted: #626961;
+			--paper: #fffdf8;
+			--green: #315b45;
+			--coral: #b9513d;
+			--gold: #b98a35;
+			--line: #d6d7cd;
+			--wash: #e4e9df;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(0deg, transparent 0 31px, rgba(49, 91, 69, 0.045) 31px 32px),
+				var(--wash);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 920px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--coral);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(32, 37, 32, 0.12);
+		}
+
+		.eyebrow,
+		.group-title,
+		.progress-copy,
+		button {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--coral);
+			font-size: 0.8rem;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: clamp(2.7rem, 10vw, 6rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 650px;
+			margin: 20px 0 32px;
+			color: var(--muted);
+			font-size: 1.1rem;
+			line-height: 1.6;
+		}
+
+		.progress-row {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 16px;
+			align-items: center;
+			margin-bottom: 36px;
+		}
+
+		.progress-track {
+			height: 10px;
+			overflow: hidden;
+			border-radius: 5px;
+			background: #e2dfd6;
+		}
+
+		.progress-bar {
+			width: 0;
+			height: 100%;
+			background: var(--green);
+			transition: width 220ms ease;
+		}
+
+		.progress-copy {
+			margin: 0;
+			color: var(--green);
+			font-size: 0.75rem;
+		}
+
+		.groups {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 16px;
+		}
+
+		.group {
+			min-width: 0;
+			padding: 22px;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+		}
+
+		.group:nth-child(1) { border-top: 5px solid var(--coral); }
+		.group:nth-child(2) { border-top: 5px solid var(--green); }
+		.group:nth-child(3) { border-top: 5px solid var(--gold); }
+
+		.group-title {
+			margin: 0 0 16px;
+			color: var(--muted);
+			font-size: 0.75rem;
+		}
+
+		.checklist {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.checklist li + li {
+			border-top: 1px solid var(--line);
+		}
+
+		label {
+			display: grid;
+			grid-template-columns: 24px 1fr;
+			gap: 11px;
+			align-items: start;
+			padding: 15px 0;
+			line-height: 1.4;
+			cursor: pointer;
+		}
+
+		input[type="checkbox"] {
+			width: 20px;
+			height: 20px;
+			margin: 0;
+			accent-color: var(--green);
+		}
+
+		input:checked + span {
+			color: var(--muted);
+			text-decoration: line-through;
+			text-decoration-color: var(--coral);
+		}
+
+		.actions {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 24px;
+		}
+
+		button {
+			min-height: 42px;
+			padding: 0 16px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: var(--green);
+			background: transparent;
+			font-size: 0.72rem;
+			cursor: pointer;
+		}
+
+		button:hover,
+		button:focus-visible {
+			color: #fff;
+			background: var(--green);
+		}
+
+		button:focus-visible,
+		input:focus-visible {
+			outline: 3px solid var(--gold);
+			outline-offset: 3px;
+		}
+
+		@media (max-width: 760px) {
+			.groups { grid-template-columns: 1fr; }
+		}
+
+		@media (max-width: 520px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Weekly ritual</p>
+		<h1>Sunday Reset</h1>
+		<p class="intro">
+			A gentle reset for the home, the week ahead, and yourself. Check off
+			each task as you go; your progress is saved in this browser.
+		</p>
+
+		<div class="progress-row" aria-live="polite">
+			<div class="progress-track" role="progressbar" aria-label="Sunday reset progress" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0">
+				<div class="progress-bar"></div>
+			</div>
+			<p class="progress-copy"><span id="completed-count">0</span> of 9 complete</p>
+		</div>
+
+		<div class="groups">
+			<section class="group" aria-labelledby="home-heading">
+				<h2 class="group-title" id="home-heading">Home</h2>
+				<ul class="checklist">
+					<li><label><input type="checkbox" data-task="clean-house"><span>Clean the house</span></label></li>
+					<li><label><input type="checkbox" data-task="plan-meals"><span>Plan meals for the week</span></label></li>
+					<li><label><input type="checkbox" data-task="plan-outfits"><span>Plan outfits for the week</span></label></li>
+				</ul>
+			</section>
+
+			<section class="group" aria-labelledby="planning-heading">
+				<h2 class="group-title" id="planning-heading">Week Ahead</h2>
+				<ul class="checklist">
+					<li><label><input type="checkbox" data-task="review-calendar"><span>Review next week's calendar</span></label></li>
+					<li><label><input type="checkbox" data-task="travel-planning"><span>Work on travel planning</span></label></li>
+					<li><label><input type="checkbox" data-task="read-book"><span>Read a book</span></label></li>
+				</ul>
+			</section>
+
+			<section class="group" aria-labelledby="care-heading">
+				<h2 class="group-title" id="care-heading">Personal Care</h2>
+				<ul class="checklist">
+					<li><label><input type="checkbox" data-task="meditate"><span>Meditate for 15 minutes</span></label></li>
+					<li><label><input type="checkbox" data-task="skincare"><span>Do a skincare routine</span></label></li>
+					<li><label><input type="checkbox" data-task="walk"><span>Go for a walk</span></label></li>
+				</ul>
+			</section>
+		</div>
+
+		<div class="actions">
+			<button type="button" id="reset-button">Reset checklist</button>
+		</div>
+	</main>
+
+	<script>
+		const storageKey = "rhoomi-sunday-reset";
+		const checkboxes = [...document.querySelectorAll("[data-task]")];
+		const completedCount = document.querySelector("#completed-count");
+		const progressTrack = document.querySelector("[role='progressbar']");
+		const progressBar = document.querySelector(".progress-bar");
+
+		function readSavedTasks() {
+			try {
+				return JSON.parse(localStorage.getItem(storageKey)) ?? {};
+			} catch {
+				return {};
+			}
+		}
+
+		function updateProgress() {
+			const complete = checkboxes.filter((checkbox) => checkbox.checked).length;
+			completedCount.textContent = complete;
+			progressTrack.setAttribute("aria-valuenow", String(complete));
+			progressBar.style.width = `${(complete / checkboxes.length) * 100}%`;
+		}
+
+		function saveTasks() {
+			const state = Object.fromEntries(
+				checkboxes.map((checkbox) => [checkbox.dataset.task, checkbox.checked])
+			);
+			localStorage.setItem(storageKey, JSON.stringify(state));
+			updateProgress();
+		}
+
+		const savedTasks = readSavedTasks();
+		checkboxes.forEach((checkbox) => {
+			checkbox.checked = Boolean(savedTasks[checkbox.dataset.task]);
+			checkbox.addEventListener("change", saveTasks);
+		});
+
+		document.querySelector("#reset-button").addEventListener("click", () => {
+			checkboxes.forEach((checkbox) => {
+				checkbox.checked = false;
+			});
+			saveTasks();
+		});
+
+		updateProgress();
+	</script>
+</body>
+</html>

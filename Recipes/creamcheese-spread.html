@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jalapeño Paneer Spread | Rhoomi Recipe Vault</title>
+	<link rel="stylesheet" href="ingredient-checklist.css">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #292721;
+			--muted: #68635b;
+			--paper: #fffdf7;
+			--green: #47633e;
+			--gold: #b27a27;
+			--chili: #a54832;
+			--line: #ddd7ca;
+			--note: #f2ecde;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: #e5e1d6;
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100% - 32px, 950px);
+			margin: 32px auto;
+			padding: clamp(28px, 6vw, 64px);
+			border-top: 8px solid var(--green);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(41, 39, 33, 0.12);
+		}
+
+		.eyebrow,
+		.meta {
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--chili);
+		}
+
+		h1 {
+			max-width: 800px;
+			margin: 0;
+			font-size: clamp(2.5rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 690px;
+			margin: 22px 0 16px;
+			color: var(--muted);
+			font-size: 1.12rem;
+			line-height: 1.6;
+		}
+
+		.meta {
+			margin: 0 0 36px;
+			color: var(--green);
+		}
+
+		.recipe-grid {
+			display: grid;
+			grid-template-columns: minmax(240px, 0.95fr) minmax(0, 1.65fr);
+			gap: clamp(28px, 6vw, 64px);
+			border-top: 1px solid var(--line);
+			padding-top: 32px;
+		}
+
+		h2 {
+			margin: 0 0 18px;
+			color: var(--green);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 1.1rem;
+			text-transform: uppercase;
+		}
+
+		h3 {
+			margin: 24px 0 10px;
+			color: var(--chili);
+			font-size: 1rem;
+		}
+
+		h3:first-of-type { margin-top: 0; }
+
+		ul, ol {
+			margin: 0;
+			padding-left: 1.3rem;
+		}
+
+		li {
+			padding-left: 0.3rem;
+			line-height: 1.55;
+		}
+
+		li + li { margin-top: 10px; }
+
+		ol li::marker {
+			color: var(--chili);
+			font-weight: 700;
+		}
+
+		strong { color: var(--chili); }
+
+		.notes {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+			margin-top: 36px;
+			padding: 24px;
+			border-left: 4px solid var(--gold);
+			background: var(--note);
+		}
+
+		.notes h2 { margin-bottom: 10px; }
+
+		.notes p {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 680px) {
+			main {
+				width: 100%;
+				min-height: 100vh;
+				margin: 0;
+				box-shadow: none;
+			}
+
+			.recipe-grid,
+			.notes { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Homemade savory spread</p>
+		<h1>Jalapeño Paneer Spread</h1>
+		<p class="intro">
+			Fresh, softly drained paneer blended with butter and turmeric,
+			then folded with jalapeños and chili flakes.
+		</p>
+		<p class="meta">Makes about 1 1/2 cups &nbsp;|&nbsp; Prep 20 min &nbsp;|&nbsp; Chill 1 hr</p>
+
+		<div class="recipe-grid">
+			<section aria-labelledby="ingredients-heading">
+				<h2 id="ingredients-heading">Ingredients</h2>
+
+				<h3>For the soft paneer</h3>
+				<ul>
+					<li>1.5 L whole milk</li>
+					<li>1 1/2 tsp lemon juice, plus more as needed</li>
+					<li>2 tbsp water, for diluting the lemon juice</li>
+				</ul>
+
+				<h3>For the spread</h3>
+				<ul>
+					<li>2 tsp softened butter</li>
+					<li>1/4 tsp ground turmeric</li>
+					<li>1/2 tsp salt, or to taste</li>
+					<li>2-4 tbsp reserved whey, as needed</li>
+					<li>2 tbsp finely chopped pickled jalapeños, well drained</li>
+					<li>1/2 tsp chili flakes, or to taste</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="method-heading">
+				<h2 id="method-heading">Method</h2>
+				<ol>
+					<li>
+						Line a sieve with cheesecloth and set it over a large bowl. Dilute the
+						1 1/2 teaspoons lemon juice with 2 tablespoons water.
+					</li>
+					<li>
+						Bring the milk just to a boil in a heavy pot, stirring often to prevent
+						scorching. Turn the heat to low and slowly stir in the diluted lemon.
+					</li>
+					<li>
+						Stir gently for 30 seconds, then remove from the heat and wait 2 minutes.
+						The curds should separate from pale yellow-green whey. If the whey is
+						still milky, add more lemon juice <strong>1 teaspoon at a time</strong>
+						until it clears.
+					</li>
+					<li>
+						Pour into the lined sieve. Reserve some whey, then rinse the curds
+						briefly under cool water to remove the lemon taste. Gather the cloth
+						and drain for <strong>10-15 minutes</strong> without pressing; the
+						paneer should remain soft and moist.
+					</li>
+					<li>
+						While the paneer is still slightly warm, place it in a blender or food
+						processor with the butter, turmeric, and salt. Blend until smooth,
+						adding reserved whey 1 tablespoon at a time to reach a creamy,
+						spreadable consistency.
+					</li>
+					<li>
+						Transfer to a bowl and fold in the drained jalapeños and chili flakes.
+						Taste and adjust the salt or heat.
+					</li>
+					<li>
+						Spoon into a clean airtight container and refrigerate immediately for
+						at least <strong>1 hour</strong> before serving.
+					</li>
+				</ol>
+			</section>
+		</div>
+
+		<aside class="notes" aria-label="Jalapeño paneer spread tips">
+			<section aria-labelledby="eno-heading">
+				<h2 id="eno-heading">Skip the Eno</h2>
+				<p>
+					Eno is a leavening fruit salt intended for batters, not a preservative
+					or stabilizer for dairy spreads. It can create an alkaline or fizzy
+					flavor here, so this recipe uses reserved whey for smoothness instead.
+				</p>
+			</section>
+
+			<section aria-labelledby="storage-heading">
+				<h2 id="storage-heading">Keep refrigerated</h2>
+				<p>
+					Use pasteurized milk and clean utensils. Refrigerate the spread within
+					2 hours of preparation at 40°F (4°C) or below, use within 3 days, and
+					discard it if left at room temperature for more than 2 hours.
+				</p>
+			</section>
+		</aside>
+	</main>
+	<script src="ingredient-checklist.js"></script>
+</body>
+</html>

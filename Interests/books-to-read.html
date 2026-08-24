@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Books to Read | Rhoomi</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #232522;
+			--muted: #656962;
+			--paper: #fffdf8;
+			--green: #315b45;
+			--red: #a9432f;
+			--blue: #42667a;
+			--gold: #b98a35;
+			--line: #d6d4ca;
+			--wash: #e7e5dc;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(0deg, transparent 0 31px, rgba(49, 91, 69, 0.045) 31px 32px),
+				var(--wash);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100%, 760px);
+			padding: clamp(28px, 7vw, 64px);
+			border-top: 8px solid var(--red);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(35, 37, 34, 0.12);
+		}
+
+		.eyebrow,
+		.progress-copy,
+		button {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--red);
+			font-size: 0.8rem;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: clamp(2.7rem, 10vw, 6rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 580px;
+			margin: 20px 0 30px;
+			color: var(--muted);
+			font-size: 1.08rem;
+			line-height: 1.6;
+		}
+
+		.add-book {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 8px;
+			margin-bottom: 28px;
+		}
+
+		input[type="text"] {
+			min-width: 0;
+			height: 46px;
+			padding: 0 14px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			color: var(--ink);
+			background: #fff;
+			font: inherit;
+		}
+
+		button {
+			min-height: 42px;
+			padding: 0 16px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: var(--green);
+			background: transparent;
+			font-size: 0.72rem;
+			cursor: pointer;
+		}
+
+		button:hover,
+		button:focus-visible {
+			color: #fff;
+			background: var(--green);
+		}
+
+		input:focus-visible,
+		button:focus-visible {
+			outline: 3px solid var(--gold);
+			outline-offset: 2px;
+		}
+
+		.progress-row {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 16px;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.progress-track {
+			height: 9px;
+			overflow: hidden;
+			border-radius: 5px;
+			background: #e3e0d7;
+		}
+
+		.progress-bar {
+			width: 0;
+			height: 100%;
+			background: var(--green);
+			transition: width 220ms ease;
+		}
+
+		.progress-copy {
+			margin: 0;
+			color: var(--green);
+			font-size: 0.72rem;
+		}
+
+		.reading-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+		}
+
+		.book {
+			display: grid;
+			grid-template-columns: 26px 1fr 36px;
+			gap: 12px;
+			align-items: center;
+			padding: 20px;
+		}
+
+		.book + .book { border-top: 1px solid var(--line); }
+
+		.book label {
+			line-height: 1.4;
+			cursor: pointer;
+		}
+
+		.book input[type="checkbox"] {
+			width: 21px;
+			height: 21px;
+			margin: 0;
+			accent-color: var(--green);
+			cursor: pointer;
+		}
+
+		.book:has(input:checked) label {
+			color: var(--muted);
+			text-decoration: line-through;
+			text-decoration-color: var(--red);
+		}
+
+		.remove {
+			width: 36px;
+			min-height: 36px;
+			padding: 0;
+			border-color: transparent;
+			color: var(--muted);
+			font-size: 1.1rem;
+		}
+
+		.empty {
+			margin: 20px 0 0;
+			color: var(--muted);
+			text-align: center;
+		}
+
+		@media (max-width: 520px) {
+			body { padding: 0; }
+			main { min-height: 100vh; box-shadow: none; }
+			.add-book { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Reading list</p>
+		<h1>Books to Read</h1>
+		<p class="intro">
+			Keep the next good book in sight. Add titles as you find them and
+			check them off when you finish; this list is saved in your browser.
+		</p>
+
+		<form class="add-book" id="book-form">
+			<label for="book-title" hidden>Book title</label>
+			<input id="book-title" type="text" maxlength="150" placeholder="Add a book title" autocomplete="off" required>
+			<button type="submit">Add book</button>
+		</form>
+
+		<div class="progress-row" aria-live="polite">
+			<div class="progress-track" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+				<div class="progress-bar"></div>
+			</div>
+			<p class="progress-copy"><span id="read-count">0</span> of <span id="book-count">1</span> read</p>
+		</div>
+
+		<ul class="reading-list" id="reading-list" aria-label="Books to read"></ul>
+		<p class="empty" id="empty-message" hidden>Your reading list is empty.</p>
+	</main>
+
+	<script>
+		const storageKey = "rhoomi-books-to-read";
+		const defaultBooks = [
+			{ id: "what-a-time-to-be-alive", title: "What a Time to Be Alive", read: false }
+		];
+
+		const bookForm = document.querySelector("#book-form");
+		const bookTitle = document.querySelector("#book-title");
+		const readingList = document.querySelector("#reading-list");
+		const emptyMessage = document.querySelector("#empty-message");
+		const progressTrack = document.querySelector("[role='progressbar']");
+		const progressBar = document.querySelector(".progress-bar");
+		const readCount = document.querySelector("#read-count");
+		const bookCount = document.querySelector("#book-count");
+
+		function readSavedBooks() {
+			try {
+				const saved = JSON.parse(localStorage.getItem(storageKey));
+				return Array.isArray(saved) ? saved : defaultBooks;
+			} catch {
+				return defaultBooks;
+			}
+		}
+
+		let books = readSavedBooks();
+
+		function saveBooks() {
+			localStorage.setItem(storageKey, JSON.stringify(books));
+		}
+
+		function renderBooks() {
+			readingList.replaceChildren();
+
+			books.forEach((book) => {
+				const item = document.createElement("li");
+				item.className = "book";
+
+				const checkbox = document.createElement("input");
+				checkbox.type = "checkbox";
+				checkbox.id = `book-${book.id}`;
+				checkbox.checked = book.read;
+				checkbox.setAttribute("aria-label", `Finished ${book.title}`);
+				checkbox.addEventListener("change", () => {
+					book.read = checkbox.checked;
+					saveBooks();
+					updateProgress();
+				});
+
+				const label = document.createElement("label");
+				label.htmlFor = checkbox.id;
+				label.textContent = book.title;
+
+				const removeButton = document.createElement("button");
+				removeButton.className = "remove";
+				removeButton.type = "button";
+				removeButton.textContent = "×";
+				removeButton.title = `Remove ${book.title}`;
+				removeButton.setAttribute("aria-label", `Remove ${book.title}`);
+				removeButton.addEventListener("click", () => {
+					books = books.filter((itemBook) => itemBook.id !== book.id);
+					saveBooks();
+					renderBooks();
+				});
+
+				item.append(checkbox, label, removeButton);
+				readingList.append(item);
+			});
+
+			emptyMessage.hidden = books.length > 0;
+			readingList.hidden = books.length === 0;
+			updateProgress();
+		}
+
+		function updateProgress() {
+			const complete = books.filter((book) => book.read).length;
+			const total = books.length;
+			readCount.textContent = complete;
+			bookCount.textContent = total;
+			progressTrack.setAttribute("aria-valuemax", String(total));
+			progressTrack.setAttribute("aria-valuenow", String(complete));
+			progressBar.style.width = total ? `${(complete / total) * 100}%` : "0%";
+		}
+
+		bookForm.addEventListener("submit", (event) => {
+			event.preventDefault();
+			const title = bookTitle.value.trim();
+			if (!title) return;
+
+			books.push({ id: `${Date.now()}`, title, read: false });
+			saveBooks();
+			renderBooks();
+			bookForm.reset();
+			bookTitle.focus();
+		});
+
+		renderBooks();
+	</script>
+</body>
+</html>
