@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#edf1ef">
+	<title>Things to Carry | Rhoomi Vault</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #242822;
+			--muted: #687069;
+			--paper: #fffdf8;
+			--wash: #e5eae7;
+			--green: #365f4b;
+			--blue: #3e7185;
+			--gold: #bd8d39;
+			--line: #d5d9d4;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			color: var(--ink);
+			background:
+				repeating-linear-gradient(0deg, transparent 0 31px, rgba(54, 95, 75, 0.045) 31px 32px),
+				var(--wash);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100%, 760px);
+			padding: clamp(28px, 7vw, 60px);
+			border-top: 8px solid var(--blue);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(36, 40, 34, 0.12);
+		}
+
+		.eyebrow,
+		.progress-copy,
+		button {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow { margin: 0 0 10px; color: var(--blue); font-size: 0.8rem; }
+
+		h1 {
+			margin: 0;
+			font-size: clamp(2.8rem, 10vw, 5.8rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 590px;
+			margin: 20px 0 28px;
+			color: var(--muted);
+			font-size: 1.05rem;
+			line-height: 1.6;
+		}
+
+		.add-item {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 8px;
+			margin-bottom: 26px;
+		}
+
+		input[type="text"] {
+			min-width: 0;
+			height: 46px;
+			padding: 0 14px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			color: var(--ink);
+			background: #fff;
+			font: inherit;
+		}
+
+		button {
+			min-height: 42px;
+			padding: 0 16px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: var(--green);
+			background: transparent;
+			font-size: 0.72rem;
+			cursor: pointer;
+		}
+
+		button:hover,
+		button:focus-visible { color: #fff; background: var(--green); }
+
+		input:focus-visible,
+		button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+		.progress-row {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 16px;
+			align-items: center;
+			margin-bottom: 18px;
+		}
+
+		.progress-track {
+			height: 9px;
+			overflow: hidden;
+			border-radius: 5px;
+			background: #e1e4df;
+		}
+
+		.progress-bar {
+			width: 0;
+			height: 100%;
+			background: var(--green);
+			transition: width 220ms ease;
+		}
+
+		.progress-copy {
+			margin: 0;
+			color: var(--green);
+			font-size: 0.72rem;
+			white-space: nowrap;
+		}
+
+		.packing-list {
+			margin: 0;
+			padding: 0;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #fff;
+			list-style: none;
+		}
+
+		.packing-item {
+			display: grid;
+			grid-template-columns: 26px minmax(0, 1fr) 36px;
+			gap: 12px;
+			align-items: center;
+			padding: 17px 20px;
+		}
+
+		.packing-item + .packing-item { border-top: 1px solid var(--line); }
+		.packing-item label { min-width: 0; line-height: 1.4; overflow-wrap: anywhere; cursor: pointer; }
+
+		.packing-item input[type="checkbox"] {
+			width: 21px;
+			height: 21px;
+			margin: 0;
+			accent-color: var(--green);
+			cursor: pointer;
+		}
+
+		.packing-item:has(input:checked) label {
+			color: var(--muted);
+			text-decoration: line-through;
+			text-decoration-color: var(--blue);
+		}
+
+		.remove {
+			width: 36px;
+			min-height: 36px;
+			padding: 0;
+			border-color: transparent;
+			color: var(--muted);
+			font-size: 1.1rem;
+		}
+
+		.remove-placeholder { width: 36px; }
+
+		@media (max-width: 520px) {
+			body { padding: 0; }
+			main { min-height: 100vh; box-shadow: none; }
+			.add-item { grid-template-columns: 1fr; }
+			.packing-item { padding-inline: 16px; }
+			.progress-row { grid-template-columns: 1fr; gap: 9px; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Travel packing list</p>
+		<h1>Things to Carry</h1>
+		<p class="intro">Check items as they are packed. Add anything else you need; your list and progress are saved in this browser.</p>
+
+		<form class="add-item" id="item-form">
+			<label for="item-title" hidden>New packing item</label>
+			<input id="item-title" type="text" maxlength="150" placeholder="Add another item" autocomplete="off" required>
+			<button type="submit">Add item</button>
+		</form>
+
+		<div class="progress-row" aria-live="polite">
+			<div class="progress-track" role="progressbar" aria-label="Packing progress" aria-valuemin="0" aria-valuemax="18" aria-valuenow="0">
+				<div class="progress-bar"></div>
+			</div>
+			<p class="progress-copy"><span id="packed-count">0</span> of <span id="item-count">18</span> packed</p>
+		</div>
+
+		<ul class="packing-list" id="packing-list" aria-label="Things to carry"></ul>
+	</main>
+
+	<script>
+		const storageKey = "rhoomi-things-to-carry";
+		const defaultItems = [
+			{ id: "waterproof-outerwear", title: "Waterproof and windproof jacket and pants", packed: false, custom: false },
+			{ id: "thermal-layers", title: "Thermal base layers", packed: false, custom: false },
+			{ id: "warm-accessories", title: "Warm hat, gloves, scarf, and earmuffs", packed: false, custom: false },
+			{ id: "hiking-boots", title: "Waterproof hiking boots", packed: false, custom: false },
+			{ id: "wool-socks", title: "Wool socks", packed: false, custom: false },
+			{ id: "everyday-tops", title: "Everyday tops", packed: false, custom: false },
+			{ id: "swimsuit", title: "Swimsuit", packed: false, custom: false },
+			{ id: "sunglasses", title: "Sunglasses", packed: false, custom: false },
+			{ id: "camera-drone", title: "Camera/Drone", packed: false, custom: false },
+			{ id: "water-bottle", title: "Reusable water bottle", packed: false, custom: false },
+			{ id: "small-backpack", title: "Small backpack for hikes/ATV", packed: false, custom: false },
+			{ id: "flashlight", title: "Flashlight", packed: false, custom: false },
+			{ id: "rain-gear", title: "Umbrella/Raincoat", packed: false, custom: false },
+			{ id: "sunscreen", title: "Sunscreen", packed: false, custom: false },
+			{ id: "food-packets", title: "Food packets", packed: false, custom: false },
+			{ id: "hot-drinks", title: "Instant coffee/Hot chocolate sachets", packed: false, custom: false },
+			{ id: "outlet-converter", title: "Electrical outlet converter", packed: false, custom: false },
+			{ id: "usd", title: "USD", packed: false, custom: false }
+		];
+
+		const itemForm = document.querySelector("#item-form");
+		const itemTitle = document.querySelector("#item-title");
+		const packingList = document.querySelector("#packing-list");
+		const progressTrack = document.querySelector("[role='progressbar']");
+		const progressBar = document.querySelector(".progress-bar");
+		const packedCount = document.querySelector("#packed-count");
+		const itemCount = document.querySelector("#item-count");
+
+		function readSavedItems() {
+			try {
+				const saved = JSON.parse(localStorage.getItem(storageKey));
+				return Array.isArray(saved) ? saved : defaultItems;
+			} catch {
+				return defaultItems;
+			}
+		}
+
+		let items = readSavedItems();
+
+		function saveItems() {
+			localStorage.setItem(storageKey, JSON.stringify(items));
+		}
+
+		function updateProgress() {
+			const packed = items.filter(item => item.packed).length;
+			const total = items.length;
+			packedCount.textContent = packed;
+			itemCount.textContent = total;
+			progressTrack.setAttribute("aria-valuemax", String(total));
+			progressTrack.setAttribute("aria-valuenow", String(packed));
+			progressBar.style.width = total ? `${(packed / total) * 100}%` : "0%";
+		}
+
+		function renderItems() {
+			packingList.replaceChildren();
+
+			items.forEach(item => {
+				const listItem = document.createElement("li");
+				const checkbox = document.createElement("input");
+				const label = document.createElement("label");
+				listItem.className = "packing-item";
+
+				checkbox.type = "checkbox";
+				checkbox.id = `item-${item.id}`;
+				checkbox.checked = item.packed;
+				checkbox.addEventListener("change", () => {
+					item.packed = checkbox.checked;
+					saveItems();
+					updateProgress();
+				});
+
+				label.htmlFor = checkbox.id;
+				label.textContent = item.title;
+				listItem.append(checkbox, label);
+
+				if (item.custom) {
+					const removeButton = document.createElement("button");
+					removeButton.className = "remove";
+					removeButton.type = "button";
+					removeButton.textContent = "×";
+					removeButton.title = `Remove ${item.title}`;
+					removeButton.setAttribute("aria-label", `Remove ${item.title}`);
+					removeButton.addEventListener("click", () => {
+						items = items.filter(listItemData => listItemData.id !== item.id);
+						saveItems();
+						renderItems();
+					});
+					listItem.append(removeButton);
+				} else {
+					const placeholder = document.createElement("span");
+					placeholder.className = "remove-placeholder";
+					placeholder.setAttribute("aria-hidden", "true");
+					listItem.append(placeholder);
+				}
+
+				packingList.append(listItem);
+			});
+
+			updateProgress();
+		}
+
+		itemForm.addEventListener("submit", event => {
+			event.preventDefault();
+			const title = itemTitle.value.trim();
+			if (!title) return;
+
+			items.push({ id: String(Date.now()), title, packed: false, custom: true });
+			saveItems();
+			renderItems();
+			itemForm.reset();
+			itemTitle.focus();
+		});
+
+		renderItems();
+	</script>
+</body>
+</html>

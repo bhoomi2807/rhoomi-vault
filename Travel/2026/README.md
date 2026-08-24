@@ -1,20 +1,34 @@
-# Rhoomi Travel Journal
+# Travel 2026
 
-Travel plans and portable trip data organized by year and destination.
+Travel plans are organized by destination. Each destination owns its itinerary and any supporting files it needs.
 
-## Iceland 2026
+## Destinations
 
-The Iceland Ring Road trip runs September 2-10, 2026.
+- [Iceland](Iceland/iceland-itenrary.html)
+- [New Mexico](New%20Mexico/new-mexico-itinerary.html)
 
-- [Web itinerary](2026/Iceland/iceland-itenrary.html) - interactive day-by-day view and print layout
-- [Markdown itinerary](2026/Iceland/iceland-itinerary.md) - readable source document
-- [Structured itinerary](2026/Iceland/itinerary.json) - trip metadata, daily stops, stays, and checks
-- [Calendar](2026/Iceland/iceland-2026.ics) - fixed flights, tours, and reservations for calendar import
-- [GPX route](2026/Iceland/iceland-ring-road.gpx) - approximate waypoints for compatible map apps
-- [Stylesheet](2026/Iceland/styles.css) and [script](2026/Iceland/script.js) - local browser assets
+The browser-friendly destination list is maintained in [index.html](index.html).
 
-## Using the files
+## Structure
 
-Open the web itinerary directly in a browser. Import the ICS file into a calendar app and the GPX file into a compatible mapping app. GPX coordinates are approximate planning waypoints, not turn-by-turn directions.
+```text
+2026/
+|-- index.html
+|-- Destination Name/
+|   |-- destination-itinerary.html
+|   |-- styles.css
+|   `-- script.js
+`-- Another Destination/
+	`-- another-destination-itinerary.html
+```
 
-The Markdown itinerary remains the detailed planning reference. Update the JSON, calendar, and GPX files when dates or confirmed bookings change.
+A destination can also include optional planning files such as Markdown notes, JSON data, calendar exports, maps, or route files. Keep destination-specific assets inside that destination's folder.
+
+## Adding a Destination
+
+1. Create a folder under `Travel/2026/` using the destination name.
+2. Add the destination itinerary and any local assets to that folder.
+3. Add a link to the itinerary in [index.html](index.html).
+4. Add the destination to the list in this README.
+
+For a trip in another year, create a sibling year folder under `Travel/` with its own `index.html` and destination folders, then link that year from the root Travel navigation.

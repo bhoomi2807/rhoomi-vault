@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f2eee7">
+	<title>Wardrobe | Rhoomi Vault</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #27251f;
+			--muted: #6e6a61;
+			--paper: #fffdf8;
+			--wash: #eee9df;
+			--coral: #a94f3f;
+			--green: #466653;
+			--gold: #c5933c;
+			--line: #d8d1c5;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 24px;
+			color: var(--ink);
+			background:
+				linear-gradient(90deg, transparent 49.8%, rgba(169, 79, 63, 0.05) 50%, transparent 50.2%),
+				var(--wash);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100%, 920px);
+			margin: 0 auto;
+			padding: clamp(28px, 6vw, 58px);
+			border-top: 8px solid var(--green);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(39, 37, 31, 0.12);
+		}
+
+		.eyebrow,
+		.add-item label,
+		button,
+		.count {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow { margin: 0 0 10px; color: var(--green); font-size: 0.78rem; }
+
+		h1 {
+			margin: 0;
+			font-size: clamp(3rem, 10vw, 6rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 620px;
+			margin: 18px 0 30px;
+			color: var(--muted);
+			font-size: 1.05rem;
+			line-height: 1.6;
+		}
+
+		.categories {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 14px;
+		}
+
+		.category {
+			align-self: start;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			overflow: hidden;
+			background: #fff;
+		}
+
+		.category-header {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 15px 17px;
+			color: #fff;
+			background: var(--coral);
+		}
+
+		.category-header h2 { margin: 0; font-size: 1.25rem; font-weight: 400; }
+		.count { font-size: 0.67rem; }
+
+		.add-item {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) auto;
+			gap: 7px;
+			padding: 14px;
+			background: #f8f5ee;
+		}
+
+		.add-item label { grid-column: 1 / -1; color: var(--muted); font-size: 0.68rem; }
+
+		input {
+			width: 100%;
+			min-width: 0;
+			height: 42px;
+			padding: 0 11px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			color: var(--ink);
+			background: #fff;
+			font: inherit;
+		}
+
+		button {
+			min-height: 42px;
+			padding: 0 13px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: #fff;
+			background: var(--green);
+			font-size: 0.68rem;
+			cursor: pointer;
+		}
+
+		button:hover { background: #354f40; }
+		input:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+		.items { margin: 0; padding: 0; list-style: none; }
+
+		.item {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 36px;
+			gap: 8px;
+			align-items: center;
+			min-height: 52px;
+			padding: 8px 10px 8px 16px;
+			border-top: 1px solid var(--line);
+		}
+
+		.item span { overflow-wrap: anywhere; }
+
+		.remove {
+			width: 36px;
+			min-height: 36px;
+			padding: 0;
+			border-color: transparent;
+			color: var(--muted);
+			background: transparent;
+			font-size: 1.1rem;
+		}
+
+		.empty { margin: 0; padding: 20px 16px; border-top: 1px solid var(--line); color: var(--muted); }
+
+		.fitcheck-link {
+			display: inline-block;
+			margin-top: 24px;
+			color: var(--green);
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+		}
+
+		@media (max-width: 760px) {
+			.categories { grid-template-columns: 1fr; }
+		}
+
+		@media (max-width: 520px) {
+			body { padding: 0; }
+			main { min-height: 100vh; box-shadow: none; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Travel closet</p>
+		<h1>Wardrobe</h1>
+		<p class="intro">Add your tops, bottoms, and dresses here. They will appear as choices in Fit Check.</p>
+		<div class="categories" id="categories"></div>
+		<a class="fitcheck-link" href="fitcheck.html">Open Fit Check &rarr;</a>
+	</main>
+
+	<script>
+		const storageKey = "rhoomi-wardrobe";
+		const categoryNames = ["Top", "Bottom", "Dress"];
+		const categoriesContainer = document.querySelector("#categories");
+
+		function readWardrobe() {
+			try {
+				const saved = JSON.parse(localStorage.getItem(storageKey));
+				if (saved && typeof saved === "object") {
+					return Object.fromEntries(categoryNames.map(category => [category, Array.isArray(saved[category]) ? saved[category] : []]));
+				}
+			} catch {}
+			return { Top: [], Bottom: [], Dress: [] };
+		}
+
+		let wardrobe = readWardrobe();
+
+		function saveWardrobe() {
+			localStorage.setItem(storageKey, JSON.stringify(wardrobe));
+		}
+
+		function renderWardrobe() {
+			categoriesContainer.replaceChildren();
+
+			categoryNames.forEach(category => {
+				const section = document.createElement("section");
+				const header = document.createElement("header");
+				const heading = document.createElement("h2");
+				const count = document.createElement("span");
+				const form = document.createElement("form");
+				const label = document.createElement("label");
+				const input = document.createElement("input");
+				const addButton = document.createElement("button");
+				const list = document.createElement("ul");
+				const inputId = `add-${category.toLowerCase()}`;
+
+				section.className = "category";
+				header.className = "category-header";
+				heading.textContent = category;
+				count.className = "count";
+				count.textContent = `${wardrobe[category].length} ${wardrobe[category].length === 1 ? "item" : "items"}`;
+				header.append(heading, count);
+
+				form.className = "add-item";
+				label.htmlFor = inputId;
+				label.textContent = `Add ${category}`;
+				input.id = inputId;
+				input.type = "text";
+				input.maxLength = 100;
+				input.placeholder = `${category} name`;
+				input.required = true;
+				addButton.type = "submit";
+				addButton.textContent = "Add";
+				form.append(label, input, addButton);
+				form.addEventListener("submit", event => {
+					event.preventDefault();
+					const value = input.value.trim();
+					if (!value) return;
+					wardrobe[category].push(value);
+					saveWardrobe();
+					renderWardrobe();
+					document.querySelector(`#${inputId}`).focus();
+				});
+
+				list.className = "items";
+				if (!wardrobe[category].length) {
+					const empty = document.createElement("p");
+					empty.className = "empty";
+					empty.textContent = category === "Dress" ? "No dresses added yet." : `No ${category.toLowerCase()}s added yet.`;
+					section.append(header, form, empty);
+				} else {
+					wardrobe[category].forEach((item, index) => {
+						const row = document.createElement("li");
+						const title = document.createElement("span");
+						const removeButton = document.createElement("button");
+						row.className = "item";
+						title.textContent = item;
+						removeButton.className = "remove";
+						removeButton.type = "button";
+						removeButton.textContent = "×";
+						removeButton.title = `Remove ${item}`;
+						removeButton.setAttribute("aria-label", `Remove ${item}`);
+						removeButton.addEventListener("click", () => {
+							wardrobe[category].splice(index, 1);
+							saveWardrobe();
+							renderWardrobe();
+						});
+						row.append(title, removeButton);
+						list.append(row);
+					});
+					section.append(header, form, list);
+				}
+
+				categoriesContainer.append(section);
+			});
+		}
+
+		renderWardrobe();
+	</script>
+</body>
+</html>

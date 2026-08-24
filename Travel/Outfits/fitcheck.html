@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f2eee7">
+	<title>Fit Check | Rhoomi Vault</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #27251f;
+			--muted: #6e6a61;
+			--paper: #fffdf8;
+			--wash: #eee9df;
+			--coral: #a94f3f;
+			--green: #466653;
+			--gold: #c5933c;
+			--line: #d8d1c5;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 24px;
+			color: var(--ink);
+			background:
+				linear-gradient(90deg, transparent 49.8%, rgba(169, 79, 63, 0.05) 50%, transparent 50.2%),
+				var(--wash);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		main {
+			width: min(100%, 920px);
+			margin: 0 auto;
+			padding: clamp(28px, 6vw, 58px);
+			border-top: 8px solid var(--coral);
+			background: var(--paper);
+			box-shadow: 8px 8px 0 rgba(39, 37, 31, 0.12);
+		}
+
+		.eyebrow,
+		.control label,
+		.outfit-field label,
+		button,
+		.summary {
+			font-family: "Trebuchet MS", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--coral);
+			font-size: 0.78rem;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: clamp(3rem, 10vw, 6rem);
+			font-weight: 400;
+			line-height: 0.95;
+		}
+
+		.intro {
+			max-width: 620px;
+			margin: 18px 0 30px;
+			color: var(--muted);
+			font-size: 1.05rem;
+			line-height: 1.6;
+		}
+
+		.setup {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(130px, 1fr)) auto;
+			gap: 12px;
+			align-items: end;
+			padding: 20px;
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			background: #f8f5ee;
+		}
+
+		.control,
+		.outfit-field {
+			display: grid;
+			gap: 7px;
+		}
+
+		.control label,
+		.outfit-field label {
+			color: var(--muted);
+			font-size: 0.7rem;
+		}
+
+		input[type="number"],
+		input[type="text"],
+		select {
+			width: 100%;
+			min-width: 0;
+			height: 46px;
+			padding: 0 13px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			color: var(--ink);
+			background: #fff;
+			font: inherit;
+		}
+
+		button {
+			min-height: 46px;
+			padding: 0 18px;
+			border: 1px solid var(--green);
+			border-radius: 4px;
+			color: #fff;
+			background: var(--green);
+			font-size: 0.72rem;
+			cursor: pointer;
+		}
+
+		button:hover { background: #354f40; }
+
+		input:focus-visible,
+		select:focus-visible,
+		button:focus-visible {
+			outline: 3px solid var(--gold);
+			outline-offset: 2px;
+		}
+
+		.summary {
+			margin: 0;
+			color: var(--green);
+			font-size: 0.75rem;
+		}
+
+		.person-names {
+			grid-column: 1 / -1;
+			display: grid;
+			gap: 9px;
+		}
+
+		.names-heading {
+			margin: 0;
+			color: var(--muted);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.7rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.name-controls {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+		}
+
+		.plan-meta {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 18px;
+			margin: 24px 0 12px;
+		}
+
+		.wardrobe-link {
+			color: var(--green);
+			font-family: "Trebuchet MS", sans-serif;
+			font-size: 0.75rem;
+			font-weight: 700;
+		}
+
+		.days {
+			display: grid;
+			gap: 18px;
+		}
+
+		.day {
+			border: 1px solid var(--line);
+			border-radius: 6px;
+			overflow: hidden;
+			background: #fff;
+		}
+
+		.day h2 {
+			margin: 0;
+			padding: 14px 18px;
+			color: #fff;
+			background: var(--coral);
+			font-size: 1.25rem;
+			font-weight: 400;
+		}
+
+		.people {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.person {
+			padding: 18px;
+		}
+
+		.person:nth-child(even) { border-left: 1px solid var(--line); }
+		.person:nth-child(n + 3) { border-top: 1px solid var(--line); }
+
+		.person h3 {
+			margin: 0 0 14px;
+			color: var(--green);
+			font-size: 1rem;
+		}
+
+		.outfit-fields {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+		}
+
+		.empty-state {
+			margin: 24px 0 0;
+			padding: 36px 20px;
+			border: 1px dashed var(--line);
+			color: var(--muted);
+			text-align: center;
+		}
+
+		@media (max-width: 640px) {
+			body { padding: 0; }
+			main { min-height: 100vh; box-shadow: none; }
+			.setup { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+			.setup button { grid-column: 1 / -1; }
+			.people { grid-template-columns: 1fr; }
+			.person:nth-child(even) { border-left: 0; }
+			.person + .person { border-top: 1px solid var(--line); }
+		}
+
+		@media (max-width: 400px) {
+			.outfit-fields { grid-template-columns: 1fr; }
+			.name-controls { grid-template-columns: 1fr; }
+			.plan-meta { align-items: flex-start; flex-direction: column; gap: 8px; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<p class="eyebrow">Travel outfit planner</p>
+		<h1>Fit Check</h1>
+		<p class="intro">Choose the trip length and group size, then select a top, bottom, or dress from your wardrobe for each person.</p>
+
+		<form class="setup" id="setup-form">
+			<div class="control">
+				<label for="people-count">Number of people</label>
+				<input id="people-count" name="people" type="number" min="1" max="20" value="2" required>
+			</div>
+			<div class="control">
+				<label for="day-count">Number of days</label>
+				<input id="day-count" name="days" type="number" min="1" max="30" value="2" required>
+			</div>
+			<div class="person-names">
+				<p class="names-heading">Traveller names</p>
+				<div class="name-controls" id="person-names"></div>
+			</div>
+			<button type="submit">Create plan</button>
+		</form>
+
+		<div class="plan-meta">
+			<p class="summary" id="summary" aria-live="polite"></p>
+			<a class="wardrobe-link" href="wardrobe.html">Manage wardrobe &rarr;</a>
+		</div>
+		<div class="days" id="days"></div>
+	</main>
+
+	<script>
+		const storageKey = "rhoomi-fit-check";
+		const wardrobeStorageKey = "rhoomi-wardrobe";
+		const outfitTypes = ["Top", "Bottom", "Dress"];
+		const setupForm = document.querySelector("#setup-form");
+		const peopleCount = document.querySelector("#people-count");
+		const dayCount = document.querySelector("#day-count");
+		const personNames = document.querySelector("#person-names");
+		const summary = document.querySelector("#summary");
+		const daysContainer = document.querySelector("#days");
+
+		function readPlan() {
+			try {
+				const saved = JSON.parse(localStorage.getItem(storageKey));
+				if (saved && typeof saved === "object") {
+					return {
+						people: Number(saved.people) || 2,
+						days: Number(saved.days) || 2,
+						names: Array.isArray(saved.names) ? saved.names : [],
+						outfits: saved.outfits && typeof saved.outfits === "object" ? saved.outfits : {}
+					};
+				}
+			} catch {
+				return { people: 2, days: 2, names: [], outfits: {} };
+			}
+			return { people: 2, days: 2, names: [], outfits: {} };
+		}
+
+		let plan = readPlan();
+
+		function savePlan() {
+			localStorage.setItem(storageKey, JSON.stringify(plan));
+		}
+
+		function readWardrobe() {
+			try {
+				const saved = JSON.parse(localStorage.getItem(wardrobeStorageKey));
+				if (saved && typeof saved === "object") return saved;
+			} catch {}
+			return { Top: [], Bottom: [], Dress: [] };
+		}
+
+		function renderPersonNames(count) {
+			personNames.replaceChildren();
+			for (let person = 1; person <= count; person += 1) {
+				const control = document.createElement("div");
+				const label = document.createElement("label");
+				const input = document.createElement("input");
+				control.className = "control";
+				label.htmlFor = `person-name-${person}`;
+				label.textContent = `Person ${person}`;
+				input.id = `person-name-${person}`;
+				input.type = "text";
+				input.maxLength = 60;
+				input.placeholder = `Person ${person} name`;
+				input.value = plan.names[person - 1] || "";
+				input.addEventListener("input", () => {
+					plan.names[person - 1] = input.value;
+					savePlan();
+				});
+				control.append(label, input);
+				personNames.append(control);
+			}
+		}
+
+		function createOutfitField(day, person, type) {
+			const wrapper = document.createElement("div");
+			const label = document.createElement("label");
+			const select = document.createElement("select");
+			const placeholder = document.createElement("option");
+			const key = `day-${day}-person-${person}-${type}`;
+			const savedChoice = plan.outfits[key] || "";
+			const choices = Array.isArray(wardrobe[type]) ? wardrobe[type] : [];
+			wrapper.className = "outfit-field";
+			label.htmlFor = key;
+			label.textContent = type;
+			select.id = key;
+			placeholder.value = "";
+			placeholder.textContent = choices.length
+				? `Choose ${type.toLowerCase()}`
+				: type === "Dress" ? "No dresses added" : `No ${type.toLowerCase()}s added`;
+			select.append(placeholder);
+
+			choices.forEach(choice => {
+				const option = document.createElement("option");
+				option.value = choice;
+				option.textContent = choice;
+				select.append(option);
+			});
+
+			if (savedChoice && !choices.includes(savedChoice)) {
+				const unavailableOption = document.createElement("option");
+				unavailableOption.value = savedChoice;
+				unavailableOption.textContent = `${savedChoice} (removed)`;
+				select.append(unavailableOption);
+			}
+
+			select.value = savedChoice;
+			select.addEventListener("change", () => {
+				plan.outfits[key] = select.value;
+				savePlan();
+			});
+			wrapper.append(label, select);
+			return wrapper;
+		}
+
+		function renderPlan() {
+			wardrobe = readWardrobe();
+			daysContainer.replaceChildren();
+			summary.textContent = `${plan.days} ${plan.days === 1 ? "day" : "days"} · ${plan.people} ${plan.people === 1 ? "person" : "people"}`;
+
+			for (let day = 1; day <= plan.days; day += 1) {
+				const daySection = document.createElement("section");
+				const heading = document.createElement("h2");
+				const people = document.createElement("div");
+				daySection.className = "day";
+				heading.textContent = `Day ${day}`;
+				people.className = "people";
+
+				for (let person = 1; person <= plan.people; person += 1) {
+					const personSection = document.createElement("section");
+					const personHeading = document.createElement("h3");
+					const fields = document.createElement("div");
+					personSection.className = "person";
+					personHeading.textContent = plan.names[person - 1]?.trim() || `Person ${person}`;
+					fields.className = "outfit-fields";
+					outfitTypes.forEach(type => fields.append(createOutfitField(day, person, type)));
+					personSection.append(personHeading, fields);
+					people.append(personSection);
+				}
+
+				daySection.append(heading, people);
+				daysContainer.append(daySection);
+			}
+		}
+
+		setupForm.addEventListener("submit", event => {
+			event.preventDefault();
+			if (!setupForm.reportValidity()) return;
+			plan.people = Number(peopleCount.value);
+			plan.days = Number(dayCount.value);
+			savePlan();
+			renderPlan();
+		});
+
+		peopleCount.addEventListener("input", () => {
+			const count = Number(peopleCount.value);
+			if (count >= 1 && count <= 20) renderPersonNames(count);
+		});
+
+		peopleCount.value = plan.people;
+		dayCount.value = plan.days;
+		renderPersonNames(plan.people);
+		let wardrobe = readWardrobe();
+		renderPlan();
+	</script>
+</body>
+</html>

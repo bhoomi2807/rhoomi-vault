@@ -327,7 +327,7 @@
 				<button class="category-button" type="button" data-category="routines">
 					<i data-lucide="list-checks" aria-hidden="true"></i>
 					<span class="category-name">Routines</span>
-					<span class="category-count">5 pages</span>
+					<span class="category-count">2 pages</span>
 				</button>
 			</nav>
 		</section>
@@ -397,24 +397,23 @@
 		<section class="category-view" data-category="travel" hidden aria-labelledby="travel-heading">
 			<div class="category-heading">
 				<h1 id="travel-heading" tabindex="-1">Travel</h1>
-				<p>1 page</p>
+				<p>3 sections</p>
 			</div>
 			<ul class="page-list">
 				<li><a class="page-link" href="Travel/2026/index.html"><span>2026</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Travel/Outfits/index.html"><span>Outfits</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Travel/Things-To-Carry/checklist.html"><span>Things to Carry</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 			</ul>
 		</section>
 
 		<section class="category-view" data-category="routines" hidden aria-labelledby="routines-heading">
 			<div class="category-heading">
 				<h1 id="routines-heading" tabindex="-1">Routines</h1>
-				<p>5 pages</p>
+				<p>2 pages</p>
 			</div>
 			<ul class="page-list">
-				<li><a class="page-link" href="Routines/Rhoomi/routine.html"><span>Rhoomi's Weekly Routine</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Routines/Rhoomi/sunday-checklist.html"><span>Sunday Reset</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Routines/Rhoomi/books-to-read.html"><span>Books to Read</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Routines/PreViral/routine-preeti.html"><span>Preeti's Daily Routine</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
-				<li><a class="page-link" href="Routines/PreViral/routine-viral.html"><span>Viral's Daily Routine</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Routines/Rhoomi/index.html"><span>Rhoomi</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+				<li><a class="page-link" href="Routines/PreViral/index.html"><span>PreViral</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
 			</ul>
 		</section>
 	</main>
@@ -424,6 +423,18 @@
 		const categoryViews = [...document.querySelectorAll(".category-view")];
 		const categoryButtons = [...document.querySelectorAll(".category-button")];
 		const backButton = document.querySelector(".back-button");
+
+		function updateCategoryCounts() {
+			categoryViews.forEach(view => {
+				const category = view.dataset.category;
+				const count = view.querySelectorAll(".page-list > li").length;
+				const noun = category === "travel" ? "section" : "page";
+				const label = `${count} ${noun}${count === 1 ? "" : "s"}`;
+				const buttonCount = document.querySelector(`.category-button[data-category="${category}"] .category-count`);
+				view.querySelector(".category-heading p").textContent = label;
+				if (buttonCount) buttonCount.textContent = label;
+			});
+		}
 
 		function renderRoute() {
 			const category = location.hash.slice(1);
@@ -455,6 +466,7 @@
 		window.addEventListener("hashchange", renderRoute);
 		window.addEventListener("DOMContentLoaded", () => {
 			if (window.lucide) window.lucide.createIcons();
+			updateCategoryCounts();
 			renderRoute();
 		});
 	</script>
