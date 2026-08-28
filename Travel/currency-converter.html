@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f4efe4">
+	<title>Currency Converter | Rhoomi Vault</title>
+	<link rel="stylesheet" href="travel.css">
+	<style>
+		.converter {
+			max-width: 720px;
+			padding: clamp(22px, 5vw, 38px);
+			border: 1px solid var(--line);
+			border-top: 6px solid var(--travel);
+			border-radius: 6px;
+			background: var(--surface);
+			box-shadow: 8px 8px 0 rgba(36, 35, 31, 0.1);
+		}
+
+		.currency-row {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+			gap: 12px;
+			align-items: end;
+		}
+
+		.field {
+			display: grid;
+			gap: 7px;
+		}
+
+		.field label,
+		.rate-label {
+			color: var(--muted);
+			font: 700 0.7rem "Trebuchet MS", sans-serif;
+			text-transform: uppercase;
+		}
+
+		select,
+		input {
+			width: 100%;
+			min-width: 0;
+			height: 48px;
+			padding: 0 13px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			color: var(--ink);
+			background: #fff;
+			font: inherit;
+		}
+
+		.swap {
+			width: 48px;
+			height: 48px;
+			padding: 0;
+			border: 1px solid var(--travel);
+			border-radius: 50%;
+			color: var(--travel);
+			background: transparent;
+			font-size: 1.35rem;
+			cursor: pointer;
+		}
+
+		.swap:hover { color: #fff; background: var(--travel); }
+
+		.amount-row {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+			margin-top: 20px;
+		}
+
+		.result {
+			display: flex;
+			align-items: center;
+			min-height: 48px;
+			padding: 0 13px;
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			background: #edf2f3;
+			font-size: 1.08rem;
+			font-variant-numeric: tabular-nums;
+			overflow-wrap: anywhere;
+		}
+
+		.rate-control {
+			display: grid;
+			grid-template-columns: auto minmax(90px, 140px) auto;
+			gap: 9px;
+			align-items: center;
+			margin-top: 22px;
+			padding-top: 20px;
+			border-top: 1px solid var(--line);
+			color: var(--muted);
+			font-size: 0.95rem;
+		}
+
+		.rate-control input { height: 42px; }
+
+		.equation {
+			margin: 18px 0 0;
+			color: var(--travel);
+			font-size: 1.08rem;
+			line-height: 1.5;
+		}
+
+		select:focus-visible,
+		input:focus-visible,
+		.swap:focus-visible {
+			outline: 3px solid var(--travel);
+			outline-offset: 3px;
+		}
+
+		@media (max-width: 560px) {
+			.currency-row { grid-template-columns: 1fr 48px 1fr; }
+			.amount-row { grid-template-columns: 1fr; }
+			.rate-control { grid-template-columns: auto minmax(80px, 1fr) auto; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<a class="back-link" href="../index.html#travel">&larr; Travel</a>
+		<p class="eyebrow">Travel tool</p>
+		<h1>Currency Converter</h1>
+		<p class="intro">Convert Icelandic króna and US dollars in either direction. Adjust the rate to match your current exchange rate.</p>
+
+		<section class="converter" aria-label="ISK and USD currency converter">
+			<div class="currency-row">
+				<div class="field">
+					<label for="from-currency">From</label>
+					<select id="from-currency">
+						<option value="ISK">ISK — Icelandic króna</option>
+						<option value="USD">USD — US dollar</option>
+					</select>
+				</div>
+				<button class="swap" id="swap" type="button" aria-label="Swap currencies" title="Swap currencies">⇄</button>
+				<div class="field">
+					<label for="to-currency">To</label>
+					<select id="to-currency">
+						<option value="USD">USD — US dollar</option>
+						<option value="ISK">ISK — Icelandic króna</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="amount-row">
+				<div class="field">
+					<label for="amount">Amount</label>
+					<input id="amount" type="number" min="0" step="any" value="1000" inputmode="decimal">
+				</div>
+				<div class="field">
+					<span class="rate-label">Converted amount</span>
+					<output class="result" id="result" for="amount exchange-rate">—</output>
+				</div>
+			</div>
+
+			<label class="rate-control" for="exchange-rate">
+				<span>1 USD =</span>
+				<input id="exchange-rate" type="number" min="0.0001" step="any" value="122" inputmode="decimal">
+				<span>ISK</span>
+			</label>
+
+			<p class="equation" id="equation" aria-live="polite"></p>
+		</section>
+	</main>
+
+	<script>
+		const fromCurrency = document.querySelector("#from-currency");
+		const toCurrency = document.querySelector("#to-currency");
+		const amount = document.querySelector("#amount");
+		const exchangeRate = document.querySelector("#exchange-rate");
+		const result = document.querySelector("#result");
+		const equation = document.querySelector("#equation");
+		const swapButton = document.querySelector("#swap");
+
+		function formatCurrency(value, currency) {
+			return new Intl.NumberFormat("en-US", {
+				style: "currency",
+				currency,
+				maximumFractionDigits: currency === "ISK" ? 0 : 2
+			}).format(value);
+		}
+
+		function convert() {
+			const inputAmount = Number(amount.value);
+			const rate = Number(exchangeRate.value);
+			if (!Number.isFinite(inputAmount) || inputAmount < 0 || !Number.isFinite(rate) || rate <= 0) {
+				result.textContent = "Enter valid values";
+				equation.textContent = "";
+				return;
+			}
+
+			let converted = inputAmount;
+			if (fromCurrency.value === "ISK" && toCurrency.value === "USD") converted = inputAmount / rate;
+			if (fromCurrency.value === "USD" && toCurrency.value === "ISK") converted = inputAmount * rate;
+			result.textContent = formatCurrency(converted, toCurrency.value);
+			equation.textContent = `${formatCurrency(inputAmount, fromCurrency.value)} = ${formatCurrency(converted, toCurrency.value)}`;
+		}
+
+		function keepCurrenciesDifferent(changedSelect) {
+			if (fromCurrency.value !== toCurrency.value) return;
+			if (changedSelect === fromCurrency) {
+				toCurrency.value = fromCurrency.value === "ISK" ? "USD" : "ISK";
+			} else {
+				fromCurrency.value = toCurrency.value === "ISK" ? "USD" : "ISK";
+			}
+		}
+
+		fromCurrency.addEventListener("change", () => {
+			keepCurrenciesDifferent(fromCurrency);
+			convert();
+		});
+
+		toCurrency.addEventListener("change", () => {
+			keepCurrenciesDifferent(toCurrency);
+			convert();
+		});
+
+		amount.addEventListener("input", convert);
+		exchangeRate.addEventListener("input", convert);
+
+		swapButton.addEventListener("click", () => {
+			const previousFrom = fromCurrency.value;
+			fromCurrency.value = toCurrency.value;
+			toCurrency.value = previousFrom;
+			convert();
+		});
+
+		convert();
+	</script>
+</body>
+</html>

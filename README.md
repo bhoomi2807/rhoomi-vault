@@ -29,6 +29,7 @@ rhoomi-vault/
 |   `-- Rhoomi/
 |-- Skincare/
 `-- Travel/
+    |-- currency-converter.html
     |-- 2026/
     |   |-- Iceland/
     |   `-- New Mexico/
